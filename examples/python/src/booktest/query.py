@@ -173,4 +173,39 @@ class AsyncQuerier:
         )
 
     async def delete_book(self, *, book_id: int) -> None:
-        
+        await self._conn.execute(sqlalchemy.text(DELETE_BOOK), {"p1": book_id})
+
+    async def get_author(self, *, author_id: int) -> Optional[models.Author]:
+        row = (await self._conn.execute(sqlalchemy.text(GET_AUTHOR), {"p1": author_id})).first()
+        if row is None:
+            return None
+        return models.Author(
+            author_id=row[0],
+            name=row[1],
+        )
+
+    async def get_book(self, *, book_id: int) -> Optional[models.Book]:
+        row = (await self._conn.execute(sqlalchemy.text(GET_BOOK), {"p1": book_id})).first()
+        if row is None:
+            return None
+        return models.Book(
+            book_id=row[0],
+            author_id=row[1],
+            isbn=row[2],
+            book_type=row[3],
+            title=row[4],
+            year=row[5],
+            available=row[6],
+            tags=row[7],
+        )
+
+    async def update_book(self, *, title: str, tags: List[str], book_id: int) -> None:
+        await self._conn.execute(sqlalchemy.text(UPDATE_BOOK), {"p1": title, "p2": tags, "p3": book_id})
+
+    async def update_book_isbn(self, *, title: str, tags: List[str], book_id: int, isbn: str) -> None:
+        await self._conn.execute(sqlalchemy.text(UPDATE_BOOK_ISBN), {
+            "p1": title,
+            "p2": tags,
+            "p3": book_id,
+            "p4": isbn,
+        })
