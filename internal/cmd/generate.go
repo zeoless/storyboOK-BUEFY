@@ -330,3 +330,8 @@ func codegen(ctx context.Context, combo config.CombinedSettings, sql outPair, re
 		req.PluginOptions = opts
 
 	default:
+		return "", nil, fmt.Errorf("missing language backend")
+	}
+	resp, err := handler.Generate(ctx, req)
+	return out, resp, err
+}
