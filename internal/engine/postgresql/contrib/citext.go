@@ -12,4 +12,223 @@ var funcsCitext = []*catalog.Function{
 		Name: "citext",
 		Args: []*catalog.Argument{
 			{
-				Type: &ast.TypeNa
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "citext"},
+	},
+	{
+		Name: "citext",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "character"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "citext"},
+	},
+	{
+		Name: "citext",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "inet"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "citext"},
+	},
+	{
+		Name: "citext_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "citext_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_hash",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "citext_hash_extended",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "citext_larger",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "citext"},
+	},
+	{
+		Name: "citext_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_pattern_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "citext_pattern_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_pattern_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_pattern_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_pattern_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "citext_smaller",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "citext"},
+	},
+	{
+		Name: "citextin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name:
