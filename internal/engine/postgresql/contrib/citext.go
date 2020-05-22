@@ -455,4 +455,118 @@ var funcsCitext = []*catalog.Function{
 	{
 		Name: "texticlike",
 		Args: []*catalog.Argument{
-			
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticlike",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticnlike",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticnlike",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticregexeq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticregexeq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticregexne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "texticregexne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "translate",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "citext"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+}
+
+func Citext() *catalog.Schema {
+	s := &catalog.Schema{Name: "pg_catalog"}
+	s.Funcs = funcsCitext
+	return s
+}
