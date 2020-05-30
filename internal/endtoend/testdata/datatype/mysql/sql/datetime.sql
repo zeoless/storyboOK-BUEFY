@@ -6,4 +6,8 @@ CREATE TABLE dt_datetime (
     c TIMESTAMP
 );
 
-CREATE 
+CREATE TABLE dt_datetime_not_null (
+    a DATE NOT NULL,
+    b DATETIME NOT NULL,
+    c TIMESTAMP NOT NULL
+);
