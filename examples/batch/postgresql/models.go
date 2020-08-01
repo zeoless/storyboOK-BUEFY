@@ -33,4 +33,40 @@ func (e *BookType) Scan(src interface{}) error {
 
 type NullBookType struct {
 	BookType BookType
-	Valid    bool 
+	Valid    bool // Valid is true if BookType is not NULL
+}
+
+// Scan implements the Scanner interface.
+func (ns *NullBookType) Scan(value interface{}) error {
+	if value == nil {
+		ns.BookType, ns.Valid = "", false
+		return nil
+	}
+	ns.Valid = true
+	return ns.BookType.Scan(value)
+}
+
+// Value implements the driver Valuer interface.
+func (ns NullBookType) Value() (driver.Value, error) {
+	if !ns.Valid {
+		return nil, nil
+	}
+	return string(ns.BookType), nil
+}
+
+type Author struct {
+	AuthorID  int32        `json:"author_id"`
+	Name      string       `json:"name"`
+	Biography pgtype.JSONB `json:"biography"`
+}
+
+type Book struct {
+	BookID    int32     `json:"book_id"`
+	AuthorID  int32     `json:"author_id"`
+	Isbn      string    `json:"isbn"`
+	BookType  BookType  `json:"book_type"`
+	Title     string    `json:"title"`
+	Year      int32     `json:"year"`
+	Available time.Time `json:"available"`
+	Tags      []string  `json:"tags"`
+}
