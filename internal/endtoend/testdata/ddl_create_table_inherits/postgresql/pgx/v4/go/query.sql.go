@@ -33,4 +33,55 @@ func (q *Queries) GetAllOrganisations(ctx context.Context) ([]Organisation, erro
 	return items, nil
 }
 
-const getAllParties = `-- name: GetA
+const getAllParties = `-- name: GetAllParties :many
+SELECT party_id, name FROM party
+`
+
+func (q *Queries) GetAllParties(ctx context.Context) ([]Party, error) {
+	rows, err := q.db.Query(ctx, getAllParties)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Party
+	for rows.Next() {
+		var i Party
+		if err := rows.Scan(&i.PartyID, &i.Name); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getAllPeople = `-- name: GetAllPeople :many
+SELECT party_id, name, first_name, last_name FROM person
+`
+
+func (q *Queries) GetAllPeople(ctx context.Context) ([]Person, error) {
+	rows, err := q.db.Query(ctx, getAllPeople)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Person
+	for rows.Next() {
+		var i Person
+		if err := rows.Scan(
+			&i.PartyID,
+			&i.Name,
+			&i.FirstName,
+			&i.LastName,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
