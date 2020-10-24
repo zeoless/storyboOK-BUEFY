@@ -1,0 +1,2 @@
+-- Network Address Types
+-- https://www.postgresql.org/docs/current/datatype-net-types

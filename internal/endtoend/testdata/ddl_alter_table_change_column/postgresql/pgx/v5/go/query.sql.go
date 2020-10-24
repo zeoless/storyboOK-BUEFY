@@ -13,4 +13,7 @@ const placeholder = `-- name: Placeholder :exec
 SELECT 1
 `
 
-func (q *Queri
+func (q *Queries) Placeholder(ctx context.Context) error {
+	_, err := q.db.Exec(ctx, placeholder)
+	return err
+}
