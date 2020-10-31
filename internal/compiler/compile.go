@@ -115,4 +115,30 @@ func (c *Compiler) parseQueries(o opts.Parser) (*Result, error) {
 				if errors.As(err, &e) && e.Location != 0 {
 					loc = e.Location
 				}
-				merr.Add(filename, src, loc, 
+				merr.Add(filename, src, loc, err)
+				continue
+			}
+			if query.Name != "" {
+				if _, exists := set[query.Name]; exists {
+					merr.Add(filename, src, stmt.Raw.Pos(), fmt.Errorf("duplicate query name: %s", query.Name))
+					continue
+				}
+				set[query.Name] = struct{}{}
+			}
+			query.Filename = filepath.Base(filename)
+			if query != nil {
+				q = append(q, query)
+			}
+		}
+	}
+	if len(merr.Errs()) > 0 {
+		return nil, merr
+	}
+	if len(q) == 0 {
+		return nil, fmt.Errorf("no queries contained in paths %s", strings.Join(c.conf.Queries, ","))
+	}
+	return &Result{
+		Catalog: c.catalog,
+		Queries: q,
+	}, nil
+}
