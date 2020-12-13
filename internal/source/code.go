@@ -60,3 +60,52 @@ func Mutate(raw string, a []Edit) (string, error) {
 
 	s := raw
 	for idx, edit := range a {
+		start := edit.Location
+		if start > len(s) || start < 0 {
+			return "", fmt.Errorf("edit start location is out of bounds")
+		}
+
+		stop := edit.Location + len(edit.Old)
+		if stop > len(s) {
+			return "", fmt.Errorf("edit stop location is out of bounds")
+		}
+
+		// If this is not the first edit, (applied backwards), check if
+		// this edit overlaps the previous one (and is therefore a developer error)
+		if idx != 0 {
+			prevEdit := a[idx-1]
+			if prevEdit.Location < edit.Location+len(edit.Old) {
+				return "", fmt.Errorf("2 edits overlap")
+			}
+		}
+
+		s = s[:start] + edit.New + s[stop:]
+	}
+	return s, nil
+}
+
+func StripComments(sql string) (string, []string, error) {
+	s := bufio.NewScanner(strings.NewReader(strings.TrimSpace(sql)))
+	var lines, comments []string
+	for s.Scan() {
+		t := s.Text()
+		if strings.HasPrefix(t, "-- name:") {
+			continue
+		}
+		if strings.HasPrefix(t, "/* name:") && strings.HasSuffix(t, "*/") {
+			continue
+		}
+		if strings.HasPrefix(t, "--") {
+			comments = append(comments, strings.TrimPrefix(t, "--"))
+			continue
+		}
+		if strings.HasPrefix(t, "/*") && strings.HasSuffix(t, "*/") {
+			t = strings.TrimPrefix(t, "/*")
+			t = strings.TrimSuffix(t, "*/")
+			comments = append(comments, t)
+			continue
+		}
+		lines = append(lines, t)
+	}
+	return strings.Join(lines, "\n"), comments, s.Err()
+}
