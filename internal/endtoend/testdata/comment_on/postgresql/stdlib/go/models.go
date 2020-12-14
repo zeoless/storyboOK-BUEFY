@@ -4,11 +4,4 @@
 
 package querytest
 
-import (
-	"database/sql"
-)
-
-type Foo struct {
-	A sql.NullString
-	B sql.NullString
-}
+impor

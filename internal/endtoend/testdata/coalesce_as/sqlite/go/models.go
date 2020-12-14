@@ -9,6 +9,6 @@ import (
 )
 
 type Foo struct {
-	A sql.NullString
-	B sql.NullString
+	Bar sql.NullString
+	Baz sql.NullInt64
 }
