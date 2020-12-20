@@ -1,0 +1,26 @@
+{{define "dbCodeTemplateStd"}}
+type DBTX interface {
+	ExecContext(context.Context, string, ...interface{}) (sql.Result, error)
+	PrepareContext(context.Context, string) (*sql.Stmt, error)
+	QueryContext(context.Context, string, ...interface{}) (*sql.Rows, error)
+	QueryRowContext(context.Context, string, ...interface{}) *sql.Row
+}
+
+{{ if .EmitMethodsWithDBArgument}}
+func New() *Queries {
+	return &Queries{}
+{{- else -}}
+func New(db DBTX) *Queries {
+	return &Queries{db: db}
+{{- end}}
+}
+
+{{if .EmitPreparedQueries}}
+func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
+	q := Queries{db: db}
+	var err error
+	{{- if eq (len .GoQueries) 0 }}
+	_ = err
+	{{- end }}
+	{{- range .GoQueries }}
+	if q.{{.FieldName}}, err = db.PrepareContext(ctx, {{.ConstantNa
