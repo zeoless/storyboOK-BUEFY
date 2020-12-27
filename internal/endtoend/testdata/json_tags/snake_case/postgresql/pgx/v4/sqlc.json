@@ -9,4 +9,7 @@
       "schema": "query.sql",
       "queries": "query.sql",
       "emit_json_tags": true,
-      "json_tags_case_style": "sn
+      "json_tags_case_style": "snake"
+    }
+  ]
+}
