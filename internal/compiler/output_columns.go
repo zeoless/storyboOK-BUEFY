@@ -390,4 +390,173 @@ func isTableRequired(n ast.Node, col *Column, prior int) int {
 // Return an error if column references don't exist
 // Return an error if a table is referenced twice
 // Return an error if an unknown column is referenced
-func 
+func sourceTables(qc *QueryCatalog, node ast.Node) ([]*Table, error) {
+	var list *ast.List
+	switch n := node.(type) {
+	case *ast.DeleteStmt:
+		list = &ast.List{
+			Items: []ast.Node{n.Relation},
+		}
+	case *ast.InsertStmt:
+		list = &ast.List{
+			Items: []ast.Node{n.Relation},
+		}
+	case *ast.SelectStmt:
+		list = astutils.Search(n.FromClause, func(node ast.Node) bool {
+			switch node.(type) {
+			case *ast.RangeVar, *ast.RangeSubselect, *ast.FuncName:
+				return true
+			default:
+				return false
+			}
+		})
+	case *ast.TruncateStmt:
+		list = astutils.Search(n.Relations, func(node ast.Node) bool {
+			_, ok := node.(*ast.RangeVar)
+			return ok
+		})
+	case *ast.UpdateStmt:
+		list = &ast.List{
+			Items: append(n.FromClause.Items, n.Relations.Items...),
+		}
+	case *ast.CallStmt:
+		list = &ast.List{}
+	default:
+		return nil, fmt.Errorf("sourceTables: unsupported node type: %T", n)
+	}
+
+	var tables []*Table
+	for _, item := range list.Items {
+		switch n := item.(type) {
+
+		case *ast.FuncName:
+			// If the function or table can't be found, don't error out.  There
+			// are many queries that depend on functions unknown to sqlc.
+			fn, err := qc.GetFunc(n)
+			if err != nil {
+				continue
+			}
+			table, err := qc.GetTable(&ast.TableName{
+				Catalog: fn.ReturnType.Catalog,
+				Schema:  fn.ReturnType.Schema,
+				Name:    fn.ReturnType.Name,
+			})
+			if err != nil {
+				continue
+			}
+			tables = append(tables, table)
+
+		case *ast.RangeSubselect:
+			cols, err := outputColumns(qc, n.Subquery)
+			if err != nil {
+				return nil, err
+			}
+			tables = append(tables, &Table{
+				Rel: &ast.TableName{
+					Name: *n.Alias.Aliasname,
+				},
+				Columns: cols,
+			})
+
+		case *ast.RangeVar:
+			fqn, err := ParseTableName(n)
+			if err != nil {
+				return nil, err
+			}
+			table, cerr := qc.GetTable(fqn)
+			if cerr != nil {
+				// TODO: Update error location
+				// cerr.Location = n.Location
+				// return nil, *cerr
+				return nil, cerr
+			}
+			if n.Alias != nil {
+				table.Rel = &ast.TableName{
+					Catalog: table.Rel.Catalog,
+					Schema:  table.Rel.Schema,
+					Name:    *n.Alias.Aliasname,
+				}
+			}
+			tables = append(tables, table)
+
+		default:
+			return nil, fmt.Errorf("sourceTable: unsupported list item type: %T", n)
+		}
+	}
+	return tables, nil
+}
+
+func outputColumnRefs(res *ast.ResTarget, tables []*Table, node *ast.ColumnRef) ([]*Column, error) {
+	parts := stringSlice(node.Fields)
+	var name, alias string
+	switch {
+	case len(parts) == 1:
+		name = parts[0]
+	case len(parts) == 2:
+		alias = parts[0]
+		name = parts[1]
+	default:
+		return nil, fmt.Errorf("unknown number of fields: %d", len(parts))
+	}
+	var cols []*Column
+	var found int
+	for _, t := range tables {
+		if alias != "" && t.Rel.Name != alias {
+			continue
+		}
+		for _, c := range t.Columns {
+			if c.Name == name {
+				found += 1
+				cname := c.Name
+				if res.Name != nil {
+					cname = *res.Name
+				}
+				cols = append(cols, &Column{
+					Name:       cname,
+					Type:       c.Type,
+					Table:      c.Table,
+					TableAlias: alias,
+					DataType:   c.DataType,
+					NotNull:    c.NotNull,
+					IsArray:    c.IsArray,
+					Length:     c.Length,
+				})
+			}
+		}
+	}
+	if found == 0 {
+		return nil, &sqlerr.Error{
+			Code:     "42703",
+			Message:  fmt.Sprintf("column \"%s\" does not exist", name),
+			Location: res.Location,
+		}
+	}
+	if found > 1 {
+		return nil, &sqlerr.Error{
+			Code:     "42703",
+			Message:  fmt.Sprintf("column reference \"%s\" is ambiguous", name),
+			Location: res.Location,
+		}
+	}
+	return cols, nil
+}
+
+func findColumnForRef(ref *ast.ColumnRef, tables []*Table, selectStatement *ast.SelectStmt) error {
+	parts := stringSlice(ref.Fields)
+	var alias, name string
+	if len(parts) == 1 {
+		name = parts[0]
+	} else if len(parts) == 2 {
+		alias = parts[0]
+		name = parts[1]
+	}
+
+	var found int
+	for _, t := range tables {
+		if alias != "" && t.Rel.Name != alias {
+			continue
+		}
+
+		// Find matching column
+		var foundColumn bool
+		for _, c := rang
