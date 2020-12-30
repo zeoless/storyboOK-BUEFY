@@ -559,4 +559,43 @@ func findColumnForRef(ref *ast.ColumnRef, tables []*Table, selectStatement *ast.
 
 		// Find matching column
 		var foundColumn bool
-		for _, c := rang
+		for _, c := range t.Columns {
+			if c.Name == name {
+				found++
+				foundColumn = true
+			}
+		}
+
+		if foundColumn {
+			continue
+		}
+
+		// Find matching alias
+		for _, c := range selectStatement.TargetList.Items {
+			resTarget, ok := c.(*ast.ResTarget)
+			if !ok {
+				continue
+			}
+			if resTarget.Name != nil && *resTarget.Name == name {
+				found++
+			}
+		}
+	}
+
+	if found == 0 {
+		return &sqlerr.Error{
+			Code:     "42703",
+			Message:  fmt.Sprintf("column reference \"%s\" not found", name),
+			Location: ref.Location,
+		}
+	}
+	if found > 1 {
+		return &sqlerr.Error{
+			Code:     "42703",
+			Message:  fmt.Sprintf("column reference \"%s\" is ambiguous", name),
+			Location: ref.Location,
+		}
+	}
+
+	return nil
+}
