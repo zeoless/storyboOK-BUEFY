@@ -2371,3 +2371,1288 @@ func convertReindexStmt(n *pg.ReindexStmt) *ast.ReindexStmt {
 		// Options:  int(n.Options), TODO: Support params
 	}
 }
+
+func convertRelabelType(n *pg.RelabelType) *ast.RelabelType {
+	if n == nil {
+		return nil
+	}
+	return &ast.RelabelType{
+		Xpr:           convertNode(n.Xpr),
+		Arg:           convertNode(n.Arg),
+		Resulttype:    ast.Oid(n.Resulttype),
+		Resulttypmod:  n.Resulttypmod,
+		Resultcollid:  ast.Oid(n.Resultcollid),
+		Relabelformat: ast.CoercionForm(n.Relabelformat),
+		Location:      int(n.Location),
+	}
+}
+
+func convertRenameStmt(n *pg.RenameStmt) *ast.RenameStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.RenameStmt{
+		RenameType:   ast.ObjectType(n.RenameType),
+		RelationType: ast.ObjectType(n.RelationType),
+		Relation:     convertRangeVar(n.Relation),
+		Object:       convertNode(n.Object),
+		Subname:      makeString(n.Subname),
+		Newname:      makeString(n.Newname),
+		Behavior:     ast.DropBehavior(n.Behavior),
+		MissingOk:    n.MissingOk,
+	}
+}
+
+func convertReplicaIdentityStmt(n *pg.ReplicaIdentityStmt) *ast.ReplicaIdentityStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.ReplicaIdentityStmt{
+		IdentityType: makeByte(n.IdentityType),
+		Name:         makeString(n.Name),
+	}
+}
+
+func convertResTarget(n *pg.ResTarget) *ast.ResTarget {
+	if n == nil {
+		return nil
+	}
+	return &ast.ResTarget{
+		Name:        makeString(n.Name),
+		Indirection: convertSlice(n.Indirection),
+		Val:         convertNode(n.Val),
+		Location:    int(n.Location),
+	}
+}
+
+func convertRoleSpec(n *pg.RoleSpec) *ast.RoleSpec {
+	if n == nil {
+		return nil
+	}
+	return &ast.RoleSpec{
+		Roletype: ast.RoleSpecType(n.Roletype),
+		Rolename: makeString(n.Rolename),
+		Location: int(n.Location),
+	}
+}
+
+func convertRowCompareExpr(n *pg.RowCompareExpr) *ast.RowCompareExpr {
+	if n == nil {
+		return nil
+	}
+	return &ast.RowCompareExpr{
+		Xpr:          convertNode(n.Xpr),
+		Rctype:       ast.RowCompareType(n.Rctype),
+		Opnos:        convertSlice(n.Opnos),
+		Opfamilies:   convertSlice(n.Opfamilies),
+		Inputcollids: convertSlice(n.Inputcollids),
+		Largs:        convertSlice(n.Largs),
+		Rargs:        convertSlice(n.Rargs),
+	}
+}
+
+func convertRowExpr(n *pg.RowExpr) *ast.RowExpr {
+	if n == nil {
+		return nil
+	}
+	return &ast.RowExpr{
+		Xpr:       convertNode(n.Xpr),
+		Args:      convertSlice(n.Args),
+		RowTypeid: ast.Oid(n.RowTypeid),
+		RowFormat: ast.CoercionForm(n.RowFormat),
+		Colnames:  convertSlice(n.Colnames),
+		Location:  int(n.Location),
+	}
+}
+
+func convertRowMarkClause(n *pg.RowMarkClause) *ast.RowMarkClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.RowMarkClause{
+		Rti:        ast.Index(n.Rti),
+		Strength:   ast.LockClauseStrength(n.Strength),
+		WaitPolicy: ast.LockWaitPolicy(n.WaitPolicy),
+		PushedDown: n.PushedDown,
+	}
+}
+
+func convertRuleStmt(n *pg.RuleStmt) *ast.RuleStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.RuleStmt{
+		Relation:    convertRangeVar(n.Relation),
+		Rulename:    makeString(n.Rulename),
+		WhereClause: convertNode(n.WhereClause),
+		Event:       ast.CmdType(n.Event),
+		Instead:     n.Instead,
+		Actions:     convertSlice(n.Actions),
+		Replace:     n.Replace,
+	}
+}
+
+func convertSQLValueFunction(n *pg.SQLValueFunction) *ast.SQLValueFunction {
+	if n == nil {
+		return nil
+	}
+	return &ast.SQLValueFunction{
+		Xpr:      convertNode(n.Xpr),
+		Op:       ast.SQLValueFunctionOp(n.Op),
+		Type:     ast.Oid(n.Type),
+		Typmod:   n.Typmod,
+		Location: int(n.Location),
+	}
+}
+
+func convertScalarArrayOpExpr(n *pg.ScalarArrayOpExpr) *ast.ScalarArrayOpExpr {
+	if n == nil {
+		return nil
+	}
+	return &ast.ScalarArrayOpExpr{
+		Xpr:         convertNode(n.Xpr),
+		Opno:        ast.Oid(n.Opno),
+		Opfuncid:    ast.Oid(n.Opfuncid),
+		UseOr:       n.UseOr,
+		Inputcollid: ast.Oid(n.Inputcollid),
+		Args:        convertSlice(n.Args),
+		Location:    int(n.Location),
+	}
+}
+
+func convertSecLabelStmt(n *pg.SecLabelStmt) *ast.SecLabelStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.SecLabelStmt{
+		Objtype:  ast.ObjectType(n.Objtype),
+		Object:   convertNode(n.Object),
+		Provider: makeString(n.Provider),
+		Label:    makeString(n.Label),
+	}
+}
+
+func convertSelectStmt(n *pg.SelectStmt) *ast.SelectStmt {
+	if n == nil {
+		return nil
+	}
+	op, err := convertSetOperation(n.Op)
+	if err != nil {
+		panic(err)
+	}
+	return &ast.SelectStmt{
+		DistinctClause: convertSlice(n.DistinctClause),
+		IntoClause:     convertIntoClause(n.IntoClause),
+		TargetList:     convertSlice(n.TargetList),
+		FromClause:     convertSlice(n.FromClause),
+		WhereClause:    convertNode(n.WhereClause),
+		GroupClause:    convertSlice(n.GroupClause),
+		HavingClause:   convertNode(n.HavingClause),
+		WindowClause:   convertSlice(n.WindowClause),
+		ValuesLists:    convertSlice(n.ValuesLists),
+		SortClause:     convertSlice(n.SortClause),
+		LimitOffset:    convertNode(n.LimitOffset),
+		LimitCount:     convertNode(n.LimitCount),
+		LockingClause:  convertSlice(n.LockingClause),
+		WithClause:     convertWithClause(n.WithClause),
+		Op:             op,
+		All:            n.All,
+		Larg:           convertSelectStmt(n.Larg),
+		Rarg:           convertSelectStmt(n.Rarg),
+	}
+}
+
+func convertSetOperationStmt(n *pg.SetOperationStmt) *ast.SetOperationStmt {
+	if n == nil {
+		return nil
+	}
+	op, err := convertSetOperation(n.Op)
+	if err != nil {
+		panic(err)
+	}
+	return &ast.SetOperationStmt{
+		Op:            op,
+		All:           n.All,
+		Larg:          convertNode(n.Larg),
+		Rarg:          convertNode(n.Rarg),
+		ColTypes:      convertSlice(n.ColTypes),
+		ColTypmods:    convertSlice(n.ColTypmods),
+		ColCollations: convertSlice(n.ColCollations),
+		GroupClauses:  convertSlice(n.GroupClauses),
+	}
+}
+
+func convertSetToDefault(n *pg.SetToDefault) *ast.SetToDefault {
+	if n == nil {
+		return nil
+	}
+	return &ast.SetToDefault{
+		Xpr:       convertNode(n.Xpr),
+		TypeId:    ast.Oid(n.TypeId),
+		TypeMod:   n.TypeMod,
+		Collation: ast.Oid(n.Collation),
+		Location:  int(n.Location),
+	}
+}
+
+func convertSortBy(n *pg.SortBy) *ast.SortBy {
+	if n == nil {
+		return nil
+	}
+	return &ast.SortBy{
+		Node:        convertNode(n.Node),
+		SortbyDir:   ast.SortByDir(n.SortbyDir),
+		SortbyNulls: ast.SortByNulls(n.SortbyNulls),
+		UseOp:       convertSlice(n.UseOp),
+		Location:    int(n.Location),
+	}
+}
+
+func convertSortGroupClause(n *pg.SortGroupClause) *ast.SortGroupClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.SortGroupClause{
+		TleSortGroupRef: ast.Index(n.TleSortGroupRef),
+		Eqop:            ast.Oid(n.Eqop),
+		Sortop:          ast.Oid(n.Sortop),
+		NullsFirst:      n.NullsFirst,
+		Hashable:        n.Hashable,
+	}
+}
+
+func convertString(n *pg.String) *ast.String {
+	if n == nil {
+		return nil
+	}
+	return &ast.String{
+		Str: n.Sval,
+	}
+}
+
+func convertSubLink(n *pg.SubLink) *ast.SubLink {
+	if n == nil {
+		return nil
+	}
+	slt, err := convertSubLinkType(n.SubLinkType)
+	if err != nil {
+		panic(err)
+	}
+	return &ast.SubLink{
+		Xpr:         convertNode(n.Xpr),
+		SubLinkType: slt,
+		SubLinkId:   int(n.SubLinkId),
+		Testexpr:    convertNode(n.Testexpr),
+		OperName:    convertSlice(n.OperName),
+		Subselect:   convertNode(n.Subselect),
+		Location:    int(n.Location),
+	}
+}
+
+func convertSubPlan(n *pg.SubPlan) *ast.SubPlan {
+	if n == nil {
+		return nil
+	}
+	slt, err := convertSubLinkType(n.SubLinkType)
+	if err != nil {
+		panic(err)
+	}
+	return &ast.SubPlan{
+		Xpr:               convertNode(n.Xpr),
+		SubLinkType:       slt,
+		Testexpr:          convertNode(n.Testexpr),
+		ParamIds:          convertSlice(n.ParamIds),
+		PlanId:            int(n.PlanId),
+		PlanName:          makeString(n.PlanName),
+		FirstColType:      ast.Oid(n.FirstColType),
+		FirstColTypmod:    n.FirstColTypmod,
+		FirstColCollation: ast.Oid(n.FirstColCollation),
+		UseHashTable:      n.UseHashTable,
+		UnknownEqFalse:    n.UnknownEqFalse,
+		ParallelSafe:      n.ParallelSafe,
+		SetParam:          convertSlice(n.SetParam),
+		ParParam:          convertSlice(n.ParParam),
+		Args:              convertSlice(n.Args),
+		StartupCost:       ast.Cost(n.StartupCost),
+		PerCallCost:       ast.Cost(n.PerCallCost),
+	}
+}
+
+func convertTableFunc(n *pg.TableFunc) *ast.TableFunc {
+	if n == nil {
+		return nil
+	}
+	return &ast.TableFunc{
+		NsUris:        convertSlice(n.NsUris),
+		NsNames:       convertSlice(n.NsNames),
+		Docexpr:       convertNode(n.Docexpr),
+		Rowexpr:       convertNode(n.Rowexpr),
+		Colnames:      convertSlice(n.Colnames),
+		Coltypes:      convertSlice(n.Coltypes),
+		Coltypmods:    convertSlice(n.Coltypmods),
+		Colcollations: convertSlice(n.Colcollations),
+		Colexprs:      convertSlice(n.Colexprs),
+		Coldefexprs:   convertSlice(n.Coldefexprs),
+		Notnulls:      makeUint32Slice(n.Notnulls),
+		Ordinalitycol: int(n.Ordinalitycol),
+		Location:      int(n.Location),
+	}
+}
+
+func convertTableLikeClause(n *pg.TableLikeClause) *ast.TableLikeClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.TableLikeClause{
+		Relation: convertRangeVar(n.Relation),
+		Options:  n.Options,
+	}
+}
+
+func convertTableSampleClause(n *pg.TableSampleClause) *ast.TableSampleClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.TableSampleClause{
+		Tsmhandler: ast.Oid(n.Tsmhandler),
+		Args:       convertSlice(n.Args),
+		Repeatable: convertNode(n.Repeatable),
+	}
+}
+
+func convertTargetEntry(n *pg.TargetEntry) *ast.TargetEntry {
+	if n == nil {
+		return nil
+	}
+	return &ast.TargetEntry{
+		Xpr:             convertNode(n.Xpr),
+		Expr:            convertNode(n.Expr),
+		Resno:           ast.AttrNumber(n.Resno),
+		Resname:         makeString(n.Resname),
+		Ressortgroupref: ast.Index(n.Ressortgroupref),
+		Resorigtbl:      ast.Oid(n.Resorigtbl),
+		Resorigcol:      ast.AttrNumber(n.Resorigcol),
+		Resjunk:         n.Resjunk,
+	}
+}
+
+func convertTransactionStmt(n *pg.TransactionStmt) *ast.TransactionStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.TransactionStmt{
+		Kind:    ast.TransactionStmtKind(n.Kind),
+		Options: convertSlice(n.Options),
+		Gid:     makeString(n.Gid),
+	}
+}
+
+func convertTriggerTransition(n *pg.TriggerTransition) *ast.TriggerTransition {
+	if n == nil {
+		return nil
+	}
+	return &ast.TriggerTransition{
+		Name:    makeString(n.Name),
+		IsNew:   n.IsNew,
+		IsTable: n.IsTable,
+	}
+}
+
+func convertTruncateStmt(n *pg.TruncateStmt) *ast.TruncateStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.TruncateStmt{
+		Relations:   convertSlice(n.Relations),
+		RestartSeqs: n.RestartSeqs,
+		Behavior:    ast.DropBehavior(n.Behavior),
+	}
+}
+
+func convertTypeCast(n *pg.TypeCast) *ast.TypeCast {
+	if n == nil {
+		return nil
+	}
+	return &ast.TypeCast{
+		Arg:      convertNode(n.Arg),
+		TypeName: convertTypeName(n.TypeName),
+		Location: int(n.Location),
+	}
+}
+
+func convertTypeName(n *pg.TypeName) *ast.TypeName {
+	if n == nil {
+		return nil
+	}
+	return &ast.TypeName{
+		Names:       convertSlice(n.Names),
+		TypeOid:     ast.Oid(n.TypeOid),
+		Setof:       n.Setof,
+		PctType:     n.PctType,
+		Typmods:     convertSlice(n.Typmods),
+		Typemod:     n.Typemod,
+		ArrayBounds: convertSlice(n.ArrayBounds),
+		Location:    int(n.Location),
+	}
+}
+
+func convertUnlistenStmt(n *pg.UnlistenStmt) *ast.UnlistenStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.UnlistenStmt{
+		Conditionname: makeString(n.Conditionname),
+	}
+}
+
+func convertUpdateStmt(n *pg.UpdateStmt) *ast.UpdateStmt {
+	if n == nil {
+		return nil
+	}
+
+	return &ast.UpdateStmt{
+		Relations: &ast.List{
+			Items: []ast.Node{convertRangeVar(n.Relation)},
+		},
+		TargetList:    convertSlice(n.TargetList),
+		WhereClause:   convertNode(n.WhereClause),
+		FromClause:    convertSlice(n.FromClause),
+		ReturningList: convertSlice(n.ReturningList),
+		WithClause:    convertWithClause(n.WithClause),
+	}
+}
+
+func convertVacuumStmt(n *pg.VacuumStmt) *ast.VacuumStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.VacuumStmt{
+		// FIXME: The VacuumStmt node has changed quite a bit
+		// Options:  n.Options
+		// Relation: convertRangeVar(n.Relation),
+		// VaCols:   convertSlice(n.VaCols),
+	}
+}
+
+func convertVar(n *pg.Var) *ast.Var {
+	if n == nil {
+		return nil
+	}
+	return &ast.Var{
+		Xpr:         convertNode(n.Xpr),
+		Varno:       ast.Index(n.Varno),
+		Varattno:    ast.AttrNumber(n.Varattno),
+		Vartype:     ast.Oid(n.Vartype),
+		Vartypmod:   n.Vartypmod,
+		Varcollid:   ast.Oid(n.Varcollid),
+		Varlevelsup: ast.Index(n.Varlevelsup),
+		Location:    int(n.Location),
+	}
+}
+
+func convertVariableSetStmt(n *pg.VariableSetStmt) *ast.VariableSetStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.VariableSetStmt{
+		Kind:    ast.VariableSetKind(n.Kind),
+		Name:    makeString(n.Name),
+		Args:    convertSlice(n.Args),
+		IsLocal: n.IsLocal,
+	}
+}
+
+func convertVariableShowStmt(n *pg.VariableShowStmt) *ast.VariableShowStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.VariableShowStmt{
+		Name: makeString(n.Name),
+	}
+}
+
+func convertViewStmt(n *pg.ViewStmt) *ast.ViewStmt {
+	if n == nil {
+		return nil
+	}
+	return &ast.ViewStmt{
+		View:            convertRangeVar(n.View),
+		Aliases:         convertSlice(n.Aliases),
+		Query:           convertNode(n.Query),
+		Replace:         n.Replace,
+		Options:         convertSlice(n.Options),
+		WithCheckOption: ast.ViewCheckOption(n.WithCheckOption),
+	}
+}
+
+func convertWindowClause(n *pg.WindowClause) *ast.WindowClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.WindowClause{
+		Name:            makeString(n.Name),
+		Refname:         makeString(n.Refname),
+		PartitionClause: convertSlice(n.PartitionClause),
+		OrderClause:     convertSlice(n.OrderClause),
+		FrameOptions:    int(n.FrameOptions),
+		StartOffset:     convertNode(n.StartOffset),
+		EndOffset:       convertNode(n.EndOffset),
+		Winref:          ast.Index(n.Winref),
+		CopiedOrder:     n.CopiedOrder,
+	}
+}
+
+func convertWindowDef(n *pg.WindowDef) *ast.WindowDef {
+	if n == nil {
+		return nil
+	}
+	return &ast.WindowDef{
+		Name:            makeString(n.Name),
+		Refname:         makeString(n.Refname),
+		PartitionClause: convertSlice(n.PartitionClause),
+		OrderClause:     convertSlice(n.OrderClause),
+		FrameOptions:    int(n.FrameOptions),
+		StartOffset:     convertNode(n.StartOffset),
+		EndOffset:       convertNode(n.EndOffset),
+		Location:        int(n.Location),
+	}
+}
+
+func convertWindowFunc(n *pg.WindowFunc) *ast.WindowFunc {
+	if n == nil {
+		return nil
+	}
+	return &ast.WindowFunc{
+		Xpr:         convertNode(n.Xpr),
+		Winfnoid:    ast.Oid(n.Winfnoid),
+		Wintype:     ast.Oid(n.Wintype),
+		Wincollid:   ast.Oid(n.Wincollid),
+		Inputcollid: ast.Oid(n.Inputcollid),
+		Args:        convertSlice(n.Args),
+		Aggfilter:   convertNode(n.Aggfilter),
+		Winref:      ast.Index(n.Winref),
+		Winstar:     n.Winstar,
+		Winagg:      n.Winagg,
+		Location:    int(n.Location),
+	}
+}
+
+func convertWithCheckOption(n *pg.WithCheckOption) *ast.WithCheckOption {
+	if n == nil {
+		return nil
+	}
+	return &ast.WithCheckOption{
+		Kind:     ast.WCOKind(n.Kind),
+		Relname:  makeString(n.Relname),
+		Polname:  makeString(n.Polname),
+		Qual:     convertNode(n.Qual),
+		Cascaded: n.Cascaded,
+	}
+}
+
+func convertWithClause(n *pg.WithClause) *ast.WithClause {
+	if n == nil {
+		return nil
+	}
+	return &ast.WithClause{
+		Ctes:      convertSlice(n.Ctes),
+		Recursive: n.Recursive,
+		Location:  int(n.Location),
+	}
+}
+
+func convertXmlExpr(n *pg.XmlExpr) *ast.XmlExpr {
+	if n == nil {
+		return nil
+	}
+	return &ast.XmlExpr{
+		Xpr:       convertNode(n.Xpr),
+		Op:        ast.XmlExprOp(n.Op),
+		Name:      makeString(n.Name),
+		NamedArgs: convertSlice(n.NamedArgs),
+		ArgNames:  convertSlice(n.ArgNames),
+		Args:      convertSlice(n.Args),
+		Xmloption: ast.XmlOptionType(n.Xmloption),
+		Type:      ast.Oid(n.Type),
+		Typmod:    n.Typmod,
+		Location:  int(n.Location),
+	}
+}
+
+func convertXmlSerialize(n *pg.XmlSerialize) *ast.XmlSerialize {
+	if n == nil {
+		return nil
+	}
+	return &ast.XmlSerialize{
+		Xmloption: ast.XmlOptionType(n.Xmloption),
+		Expr:      convertNode(n.Expr),
+		TypeName:  convertTypeName(n.TypeName),
+		Location:  int(n.Location),
+	}
+}
+
+func convertNode(node *pg.Node) ast.Node {
+	if node == nil || node.Node == nil {
+		return &ast.TODO{}
+	}
+
+	switch n := node.Node.(type) {
+
+	case *pg.Node_AArrayExpr:
+		return convertA_ArrayExpr(n.AArrayExpr)
+
+	case *pg.Node_AConst:
+		return convertA_Const(n.AConst)
+
+	case *pg.Node_AExpr:
+		return convertA_Expr(n.AExpr)
+
+	case *pg.Node_AIndices:
+		return convertA_Indices(n.AIndices)
+
+	case *pg.Node_AIndirection:
+		return convertA_Indirection(n.AIndirection)
+
+	case *pg.Node_AStar:
+		return convertA_Star(n.AStar)
+
+	case *pg.Node_AccessPriv:
+		return convertAccessPriv(n.AccessPriv)
+
+	case *pg.Node_Aggref:
+		return convertAggref(n.Aggref)
+
+	case *pg.Node_Alias:
+		return convertAlias(n.Alias)
+
+	case *pg.Node_AlterCollationStmt:
+		return convertAlterCollationStmt(n.AlterCollationStmt)
+
+	case *pg.Node_AlterDatabaseSetStmt:
+		return convertAlterDatabaseSetStmt(n.AlterDatabaseSetStmt)
+
+	case *pg.Node_AlterDatabaseStmt:
+		return convertAlterDatabaseStmt(n.AlterDatabaseStmt)
+
+	case *pg.Node_AlterDefaultPrivilegesStmt:
+		return convertAlterDefaultPrivilegesStmt(n.AlterDefaultPrivilegesStmt)
+
+	case *pg.Node_AlterDomainStmt:
+		return convertAlterDomainStmt(n.AlterDomainStmt)
+
+	case *pg.Node_AlterEnumStmt:
+		return convertAlterEnumStmt(n.AlterEnumStmt)
+
+	case *pg.Node_AlterEventTrigStmt:
+		return convertAlterEventTrigStmt(n.AlterEventTrigStmt)
+
+	case *pg.Node_AlterExtensionContentsStmt:
+		return convertAlterExtensionContentsStmt(n.AlterExtensionContentsStmt)
+
+	case *pg.Node_AlterExtensionStmt:
+		return convertAlterExtensionStmt(n.AlterExtensionStmt)
+
+	case *pg.Node_AlterFdwStmt:
+		return convertAlterFdwStmt(n.AlterFdwStmt)
+
+	case *pg.Node_AlterForeignServerStmt:
+		return convertAlterForeignServerStmt(n.AlterForeignServerStmt)
+
+	case *pg.Node_AlterFunctionStmt:
+		return convertAlterFunctionStmt(n.AlterFunctionStmt)
+
+	case *pg.Node_AlterObjectDependsStmt:
+		return convertAlterObjectDependsStmt(n.AlterObjectDependsStmt)
+
+	case *pg.Node_AlterObjectSchemaStmt:
+		return convertAlterObjectSchemaStmt(n.AlterObjectSchemaStmt)
+
+	case *pg.Node_AlterOpFamilyStmt:
+		return convertAlterOpFamilyStmt(n.AlterOpFamilyStmt)
+
+	case *pg.Node_AlterOperatorStmt:
+		return convertAlterOperatorStmt(n.AlterOperatorStmt)
+
+	case *pg.Node_AlterOwnerStmt:
+		return convertAlterOwnerStmt(n.AlterOwnerStmt)
+
+	case *pg.Node_AlterPolicyStmt:
+		return convertAlterPolicyStmt(n.AlterPolicyStmt)
+
+	case *pg.Node_AlterPublicationStmt:
+		return convertAlterPublicationStmt(n.AlterPublicationStmt)
+
+	case *pg.Node_AlterRoleSetStmt:
+		return convertAlterRoleSetStmt(n.AlterRoleSetStmt)
+
+	case *pg.Node_AlterRoleStmt:
+		return convertAlterRoleStmt(n.AlterRoleStmt)
+
+	case *pg.Node_AlterSeqStmt:
+		return convertAlterSeqStmt(n.AlterSeqStmt)
+
+	case *pg.Node_AlterSubscriptionStmt:
+		return convertAlterSubscriptionStmt(n.AlterSubscriptionStmt)
+
+	case *pg.Node_AlterSystemStmt:
+		return convertAlterSystemStmt(n.AlterSystemStmt)
+
+	case *pg.Node_AlterTsconfigurationStmt:
+		return convertAlterTSConfigurationStmt(n.AlterTsconfigurationStmt)
+
+	case *pg.Node_AlterTsdictionaryStmt:
+		return convertAlterTSDictionaryStmt(n.AlterTsdictionaryStmt)
+
+	case *pg.Node_AlterTableCmd:
+		return convertAlterTableCmd(n.AlterTableCmd)
+
+	case *pg.Node_AlterTableMoveAllStmt:
+		return convertAlterTableMoveAllStmt(n.AlterTableMoveAllStmt)
+
+	case *pg.Node_AlterTableSpaceOptionsStmt:
+		return convertAlterTableSpaceOptionsStmt(n.AlterTableSpaceOptionsStmt)
+
+	case *pg.Node_AlterTableStmt:
+		return convertAlterTableStmt(n.AlterTableStmt)
+
+	case *pg.Node_AlterUserMappingStmt:
+		return convertAlterUserMappingStmt(n.AlterUserMappingStmt)
+
+	case *pg.Node_AlternativeSubPlan:
+		return convertAlternativeSubPlan(n.AlternativeSubPlan)
+
+	case *pg.Node_ArrayCoerceExpr:
+		return convertArrayCoerceExpr(n.ArrayCoerceExpr)
+
+	case *pg.Node_ArrayExpr:
+		return convertArrayExpr(n.ArrayExpr)
+
+	case *pg.Node_BitString:
+		return convertBitString(n.BitString)
+
+	case *pg.Node_BoolExpr:
+		return convertBoolExpr(n.BoolExpr)
+
+	case *pg.Node_Boolean:
+		return convertBoolean(n.Boolean)
+
+	case *pg.Node_BooleanTest:
+		return convertBooleanTest(n.BooleanTest)
+
+	case *pg.Node_CallStmt:
+		return convertCallStmt(n.CallStmt)
+
+	case *pg.Node_CaseExpr:
+		return convertCaseExpr(n.CaseExpr)
+
+	case *pg.Node_CaseTestExpr:
+		return convertCaseTestExpr(n.CaseTestExpr)
+
+	case *pg.Node_CaseWhen:
+		return convertCaseWhen(n.CaseWhen)
+
+	case *pg.Node_CheckPointStmt:
+		return convertCheckPointStmt(n.CheckPointStmt)
+
+	case *pg.Node_ClosePortalStmt:
+		return convertClosePortalStmt(n.ClosePortalStmt)
+
+	case *pg.Node_ClusterStmt:
+		return convertClusterStmt(n.ClusterStmt)
+
+	case *pg.Node_CoalesceExpr:
+		return convertCoalesceExpr(n.CoalesceExpr)
+
+	case *pg.Node_CoerceToDomain:
+		return convertCoerceToDomain(n.CoerceToDomain)
+
+	case *pg.Node_CoerceToDomainValue:
+		return convertCoerceToDomainValue(n.CoerceToDomainValue)
+
+	case *pg.Node_CoerceViaIo:
+		return convertCoerceViaIO(n.CoerceViaIo)
+
+	case *pg.Node_CollateClause:
+		return convertCollateClause(n.CollateClause)
+
+	case *pg.Node_CollateExpr:
+		return convertCollateExpr(n.CollateExpr)
+
+	case *pg.Node_ColumnDef:
+		return convertColumnDef(n.ColumnDef)
+
+	case *pg.Node_ColumnRef:
+		return convertColumnRef(n.ColumnRef)
+
+	case *pg.Node_CommentStmt:
+		return convertCommentStmt(n.CommentStmt)
+
+	case *pg.Node_CommonTableExpr:
+		return convertCommonTableExpr(n.CommonTableExpr)
+
+	case *pg.Node_CompositeTypeStmt:
+		return convertCompositeTypeStmt(n.CompositeTypeStmt)
+
+	case *pg.Node_Constraint:
+		return convertConstraint(n.Constraint)
+
+	case *pg.Node_ConstraintsSetStmt:
+		return convertConstraintsSetStmt(n.ConstraintsSetStmt)
+
+	case *pg.Node_ConvertRowtypeExpr:
+		return convertConvertRowtypeExpr(n.ConvertRowtypeExpr)
+
+	case *pg.Node_CopyStmt:
+		return convertCopyStmt(n.CopyStmt)
+
+	case *pg.Node_CreateAmStmt:
+		return convertCreateAmStmt(n.CreateAmStmt)
+
+	case *pg.Node_CreateCastStmt:
+		return convertCreateCastStmt(n.CreateCastStmt)
+
+	case *pg.Node_CreateConversionStmt:
+		return convertCreateConversionStmt(n.CreateConversionStmt)
+
+	case *pg.Node_CreateDomainStmt:
+		return convertCreateDomainStmt(n.CreateDomainStmt)
+
+	case *pg.Node_CreateEnumStmt:
+		return convertCreateEnumStmt(n.CreateEnumStmt)
+
+	case *pg.Node_CreateEventTrigStmt:
+		return convertCreateEventTrigStmt(n.CreateEventTrigStmt)
+
+	case *pg.Node_CreateExtensionStmt:
+		return convertCreateExtensionStmt(n.CreateExtensionStmt)
+
+	case *pg.Node_CreateFdwStmt:
+		return convertCreateFdwStmt(n.CreateFdwStmt)
+
+	case *pg.Node_CreateForeignServerStmt:
+		return convertCreateForeignServerStmt(n.CreateForeignServerStmt)
+
+	case *pg.Node_CreateForeignTableStmt:
+		return convertCreateForeignTableStmt(n.CreateForeignTableStmt)
+
+	case *pg.Node_CreateFunctionStmt:
+		return convertCreateFunctionStmt(n.CreateFunctionStmt)
+
+	case *pg.Node_CreateOpClassItem:
+		return convertCreateOpClassItem(n.CreateOpClassItem)
+
+	case *pg.Node_CreateOpClassStmt:
+		return convertCreateOpClassStmt(n.CreateOpClassStmt)
+
+	case *pg.Node_CreateOpFamilyStmt:
+		return convertCreateOpFamilyStmt(n.CreateOpFamilyStmt)
+
+	case *pg.Node_CreatePlangStmt:
+		return convertCreatePLangStmt(n.CreatePlangStmt)
+
+	case *pg.Node_CreatePolicyStmt:
+		return convertCreatePolicyStmt(n.CreatePolicyStmt)
+
+	case *pg.Node_CreatePublicationStmt:
+		return convertCreatePublicationStmt(n.CreatePublicationStmt)
+
+	case *pg.Node_CreateRangeStmt:
+		return convertCreateRangeStmt(n.CreateRangeStmt)
+
+	case *pg.Node_CreateRoleStmt:
+		return convertCreateRoleStmt(n.CreateRoleStmt)
+
+	case *pg.Node_CreateSchemaStmt:
+		return convertCreateSchemaStmt(n.CreateSchemaStmt)
+
+	case *pg.Node_CreateSeqStmt:
+		return convertCreateSeqStmt(n.CreateSeqStmt)
+
+	case *pg.Node_CreateStatsStmt:
+		return convertCreateStatsStmt(n.CreateStatsStmt)
+
+	case *pg.Node_CreateStmt:
+		return convertCreateStmt(n.CreateStmt)
+
+	case *pg.Node_CreateSubscriptionStmt:
+		return convertCreateSubscriptionStmt(n.CreateSubscriptionStmt)
+
+	case *pg.Node_CreateTableAsStmt:
+		return convertCreateTableAsStmt(n.CreateTableAsStmt)
+
+	case *pg.Node_CreateTableSpaceStmt:
+		return convertCreateTableSpaceStmt(n.CreateTableSpaceStmt)
+
+	case *pg.Node_CreateTransformStmt:
+		return convertCreateTransformStmt(n.CreateTransformStmt)
+
+	case *pg.Node_CreateTrigStmt:
+		return convertCreateTrigStmt(n.CreateTrigStmt)
+
+	case *pg.Node_CreateUserMappingStmt:
+		return convertCreateUserMappingStmt(n.CreateUserMappingStmt)
+
+	case *pg.Node_CreatedbStmt:
+		return convertCreatedbStmt(n.CreatedbStmt)
+
+	case *pg.Node_CurrentOfExpr:
+		return convertCurrentOfExpr(n.CurrentOfExpr)
+
+	case *pg.Node_DeallocateStmt:
+		return convertDeallocateStmt(n.DeallocateStmt)
+
+	case *pg.Node_DeclareCursorStmt:
+		return convertDeclareCursorStmt(n.DeclareCursorStmt)
+
+	case *pg.Node_DefElem:
+		return convertDefElem(n.DefElem)
+
+	case *pg.Node_DefineStmt:
+		return convertDefineStmt(n.DefineStmt)
+
+	case *pg.Node_DeleteStmt:
+		return convertDeleteStmt(n.DeleteStmt)
+
+	case *pg.Node_DiscardStmt:
+		return convertDiscardStmt(n.DiscardStmt)
+
+	case *pg.Node_DoStmt:
+		return convertDoStmt(n.DoStmt)
+
+	case *pg.Node_DropOwnedStmt:
+		return convertDropOwnedStmt(n.DropOwnedStmt)
+
+	case *pg.Node_DropRoleStmt:
+		return convertDropRoleStmt(n.DropRoleStmt)
+
+	case *pg.Node_DropStmt:
+		return convertDropStmt(n.DropStmt)
+
+	case *pg.Node_DropSubscriptionStmt:
+		return convertDropSubscriptionStmt(n.DropSubscriptionStmt)
+
+	case *pg.Node_DropTableSpaceStmt:
+		return convertDropTableSpaceStmt(n.DropTableSpaceStmt)
+
+	case *pg.Node_DropUserMappingStmt:
+		return convertDropUserMappingStmt(n.DropUserMappingStmt)
+
+	case *pg.Node_DropdbStmt:
+		return convertDropdbStmt(n.DropdbStmt)
+
+	case *pg.Node_ExecuteStmt:
+		return convertExecuteStmt(n.ExecuteStmt)
+
+	case *pg.Node_ExplainStmt:
+		return convertExplainStmt(n.ExplainStmt)
+
+	case *pg.Node_FetchStmt:
+		return convertFetchStmt(n.FetchStmt)
+
+	case *pg.Node_FieldSelect:
+		return convertFieldSelect(n.FieldSelect)
+
+	case *pg.Node_FieldStore:
+		return convertFieldStore(n.FieldStore)
+
+	case *pg.Node_Float:
+		return convertFloat(n.Float)
+
+	case *pg.Node_FromExpr:
+		return convertFromExpr(n.FromExpr)
+
+	case *pg.Node_FuncCall:
+		return convertFuncCall(n.FuncCall)
+
+	case *pg.Node_FuncExpr:
+		return convertFuncExpr(n.FuncExpr)
+
+	case *pg.Node_FunctionParameter:
+		return convertFunctionParameter(n.FunctionParameter)
+
+	case *pg.Node_GrantRoleStmt:
+		return convertGrantRoleStmt(n.GrantRoleStmt)
+
+	case *pg.Node_GrantStmt:
+		return convertGrantStmt(n.GrantStmt)
+
+	case *pg.Node_GroupingFunc:
+		return convertGroupingFunc(n.GroupingFunc)
+
+	case *pg.Node_GroupingSet:
+		return convertGroupingSet(n.GroupingSet)
+
+	case *pg.Node_ImportForeignSchemaStmt:
+		return convertImportForeignSchemaStmt(n.ImportForeignSchemaStmt)
+
+	case *pg.Node_IndexElem:
+		return convertIndexElem(n.IndexElem)
+
+	case *pg.Node_IndexStmt:
+		return convertIndexStmt(n.IndexStmt)
+
+	case *pg.Node_InferClause:
+		return convertInferClause(n.InferClause)
+
+	case *pg.Node_InferenceElem:
+		return convertInferenceElem(n.InferenceElem)
+
+	case *pg.Node_InlineCodeBlock:
+		return convertInlineCodeBlock(n.InlineCodeBlock)
+
+	case *pg.Node_InsertStmt:
+		return convertInsertStmt(n.InsertStmt)
+
+	case *pg.Node_Integer:
+		return convertInteger(n.Integer)
+
+	case *pg.Node_IntoClause:
+		return convertIntoClause(n.IntoClause)
+
+	case *pg.Node_JoinExpr:
+		return convertJoinExpr(n.JoinExpr)
+
+	case *pg.Node_List:
+		return convertList(n.List)
+
+	case *pg.Node_ListenStmt:
+		return convertListenStmt(n.ListenStmt)
+
+	case *pg.Node_LoadStmt:
+		return convertLoadStmt(n.LoadStmt)
+
+	case *pg.Node_LockStmt:
+		return convertLockStmt(n.LockStmt)
+
+	case *pg.Node_LockingClause:
+		return convertLockingClause(n.LockingClause)
+
+	case *pg.Node_MinMaxExpr:
+		return convertMinMaxExpr(n.MinMaxExpr)
+
+	case *pg.Node_MultiAssignRef:
+		return convertMultiAssignRef(n.MultiAssignRef)
+
+	case *pg.Node_NamedArgExpr:
+		return convertNamedArgExpr(n.NamedArgExpr)
+
+	case *pg.Node_NextValueExpr:
+		return convertNextValueExpr(n.NextValueExpr)
+
+	case *pg.Node_NotifyStmt:
+		return convertNotifyStmt(n.NotifyStmt)
+
+	case *pg.Node_NullTest:
+		return convertNullTest(n.NullTest)
+
+	case *pg.Node_ObjectWithArgs:
+		return convertObjectWithArgs(n.ObjectWithArgs)
+
+	case *pg.Node_OnConflictClause:
+		return convertOnConflictClause(n.OnConflictClause)
+
+	case *pg.Node_OnConflictExpr:
+		return convertOnConflictExpr(n.OnConflictExpr)
+
+	case *pg.Node_OpExpr:
+		return convertOpExpr(n.OpExpr)
+
+	case *pg.Node_Param:
+		return convertParam(n.Param)
+
+	case *pg.Node_ParamRef:
+		return convertParamRef(n.ParamRef)
+
+	case *pg.Node_PartitionBoundSpec:
+		return convertPartitionBoundSpec(n.PartitionBoundSpec)
+
+	case *pg.Node_PartitionCmd:
+		return convertPartitionCmd(n.PartitionCmd)
+
+	case *pg.Node_PartitionElem:
+		return convertPartitionElem(n.PartitionElem)
+
+	case *pg.Node_PartitionRangeDatum:
+		return convertPartitionRangeDatum(n.PartitionRangeDatum)
+
+	case *pg.Node_PartitionSpec:
+		return convertPartitionSpec(n.PartitionSpec)
+
+	case *pg.Node_PrepareStmt:
+		return convertPrepareStmt(n.PrepareStmt)
+
+	case *pg.Node_Query:
+		return convertQuery(n.Query)
+
+	case *pg.Node_RangeFunction:
+		return convertRangeFunction(n.RangeFunction)
+
+	case *pg.Node_RangeSubselect:
+		return convertRangeSubselect(n.RangeSubselect)
+
+	case *pg.Node_RangeTableFunc:
+		return convertRangeTableFunc(n.RangeTableFunc)
+
+	case *pg.Node_RangeTableFuncCol:
+		return convertRangeTableFuncCol(n.RangeTableFuncCol)
+
+	case *pg.Node_RangeTableSample:
+		return convertRangeTableSample(n.RangeTableSample)
+
+	case *pg.Node_RangeTblEntry:
+		return convertRangeTblEntry(n.RangeTblEntry)
+
+	case *pg.Node_RangeTblFunction:
+		return convertRangeTblFunction(n.RangeTblFunction)
+
+	case *pg.Node_RangeTblRef:
+		return convertRangeTblRef(n.RangeTblRef)
+
+	case *pg.Node_RangeVar:
+		return convertRangeVar(n.RangeVar)
+
+	case *pg.Node_RawStmt:
+		return convertRawStmt(n.RawStmt)
+
+	case *pg.Node_ReassignOwnedStmt:
+		return convertReassignOwnedStmt(n.ReassignOwnedStmt)
+
+	case *pg.Node_RefreshMatViewStmt:
+		return convertRefreshMatViewStmt(n.RefreshMatViewStmt)
+
+	case *pg.Node_ReindexStmt:
+		return convertReindexStmt(n.ReindexStmt)
+
+	case *pg.Node_RelabelType:
+		return convertRelabelType(n.RelabelType)
+
+	case *pg.Node_RenameStmt:
+		return convertRenameStmt(n.RenameStmt)
+
+	case *pg.Node_ReplicaIdentityStmt:
+		return convertReplicaIdentityStmt(n.ReplicaIdentityStmt)
+
+	case *pg.Node_ResTarget:
+		return convertResTarget(n.ResTarget)
+
+	case *pg.Node_RoleSpec:
+		return convertRoleSpec(n.RoleSpec)
+
+	case *pg.Node_RowCompareExpr:
+		return convertRowCompareExpr(n.RowCompareExpr)
+
+	case *pg.Node_RowExpr:
+		return convertRowExpr(n.RowExpr)
+
+	case *pg.Node_RowMarkClause:
+		return convertRowMarkClause(n.RowMarkClause)
+
+	case *pg.Node_RuleStmt:
+		return convertRuleStmt(n.RuleStmt)
+
+	case *pg.Node_SqlvalueFunction:
+		return convertSQLValueFunction(n.SqlvalueFunction)
+
+	case *pg.Node_ScalarArrayOpExpr:
+		return convertScalarArrayOpExpr(n.ScalarArrayOpExpr)
+
+	case *pg.Node_SecLabelStmt:
+		return convertSecLabelStmt(n.SecLabelStmt)
+
+	case *pg.Node_SelectStmt:
+		return convertSelectStmt(n.SelectStmt)
+
+	case *pg.Node_SetOperationStmt:
+		return convertSetOperationStmt(n.SetOperationStmt)
+
+	case *pg.Node_SetToDefault:
+		return convertSetToDefault(n.SetToDefault)
+
+	case *pg.Node_SortBy:
+		return convertSortBy(n.SortBy)
+
+	case *pg.Node_SortGroupClause:
+		return convertSortGroupClause(n.SortGroupClause)
+
+	case *pg.Node_String_:
+		return convertString(n.String_)
+
+	case *pg.Node_SubLink:
+		return convertSubLink(n.SubLink)
+
+	case *pg.Node_SubPlan:
+		return convertSubPlan(n.SubPlan)
+
+	case *pg.Node_TableFunc:
+		return convertTableFunc(n.TableFunc)
+
+	case *pg.Node_TableLikeClause:
+		return convertTableLikeClause(n.TableLikeClause)
+
+	case *pg.Node_TableSampleClause:
+		return convertTableSampleClause(n.TableSampleClause)
+
+	case *pg.Node_TargetEntry:
+		return convertTargetEntry(n.TargetEntry)
+
+	case *pg.Node_TransactionStmt:
+		return convertTransactionStmt(n.TransactionStmt)
+
+	case *pg.Node_TriggerTransition:
+		return convertTriggerTransition(n.TriggerTransition)
+
+	case *pg.Node_TruncateStmt:
+		return convertTruncateStmt(n.TruncateStmt)
+
+	case *pg.Node_TypeCast:
+		return convertTypeCast(n.TypeCast)
+
+	case *pg.Node_TypeName:
+		return convertTypeName(n.TypeName)
+
+	case *pg.Node_UnlistenStmt:
+		return convertUnlistenStmt(n.UnlistenStmt)
+
+	case *pg.Node_UpdateStmt:
+		return convertUpdateStmt(n.UpdateStmt)
+
+	case *pg.Node_VacuumStmt:
+		return convertVacuumStmt(n.VacuumStmt)
+
+	case *pg.Node_Var:
+		return convertVar(n.Var)
+
+	case *pg.Node_VariableSetStmt:
+		return convertVariableSetStmt(n.VariableSetStmt)
+
+	case *pg.Node_VariableShowStmt:
+		return convertVariableShowStmt(n.VariableShowStmt)
+
+	case *pg.Node_ViewStmt:
+		return convertViewStmt(n.ViewStmt)
+
+	case *pg.Node_WindowClause:
+		return convertWindowClause(n.WindowClause)
+
+	case *pg.Node_WindowDef:
+		return convertWindowDef(n.WindowDef)
+
+	case *pg.Node_WindowFunc:
+		return convertWindowFunc(n.WindowFunc)
+
+	case *pg.Node_WithCheckOption:
+		return convertWithCheckOption(n.WithCheckOption)
+
+	case *pg.Node_WithClause:
+		return convertWithClause(n.WithClause)
+
+	case *pg.Node_XmlExpr:
+		return convertXmlExpr(n.XmlExpr)
+
+	case *pg.Node_XmlSerialize:
+		return convertXmlSerialize(n.XmlSerialize)
+
+	default:
+		return &ast.TODO{}
+	}
+}
