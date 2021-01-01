@@ -23,4 +23,7 @@ const updateFooBar = `-- name: UpdateFooBar :exec
 UPDATE foo.bar SET name = $1
 `
 
-func (q *Queries) UpdateFooBar(ctx context.Context, name sql.NullString) error 
+func (q *Queries) UpdateFooBar(ctx context.Context, name sql.NullString) error {
+	_, err := q.db.ExecContext(ctx, updateFooBar, name)
+	return err
+}
