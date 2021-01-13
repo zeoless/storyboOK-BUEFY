@@ -21,4 +21,26 @@ class MysqlDbTestExtension(private val migrationsPath: String) : BeforeEachCallb
     override fun beforeEach(context: ExtensionContext) {
         getConnection(mainDb).createStatement().execute("CREATE DATABASE $testDb")
         val path = Paths.get(migrationsPath)
-        val migrations = if (F
+        val migrations = if (Files.isDirectory(path)) {
+            Files.list(path).filter { it.toString().endsWith(".sql") }.sorted().map { Files.readString(it) }.toList()
+        } else {
+            listOf(Files.readString(path))
+        }
+        migrations.forEach {
+            getConnection().createStatement().execute(it)
+        }
+    }
+
+    override fun afterEach(context: ExtensionContext) {
+        getConnection(mainDb).createStatement().execute("DROP DATABASE $testDb")
+    }
+
+    private fun getConnection(db: String): Connection {
+        val url = "jdbc:mysql://$host:$port/$db?user=$user&password=$pass&allowMultiQueries=true"
+        return DriverManager.getConnection(url)
+    }
+
+    fun getConnection(): Connection {
+        return getConnection(testDb)
+    }
+}
