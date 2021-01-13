@@ -45,4 +45,10 @@ type Query struct {
 	Filename string
 
 	// Needed for CopyFrom
-	InsertIntoTabl
+	InsertIntoTable *ast.TableName
+}
+
+type Parameter struct {
+	Number int
+	Column *Column
+}
