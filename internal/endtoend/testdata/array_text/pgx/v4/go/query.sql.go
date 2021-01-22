@@ -30,4 +30,5 @@ func (q *Queries) TextArray(ctx context.Context) ([][]string, error) {
 	if err := rows.Err(); err != nil {
 		return nil, err
 	}
-	return it
+	return items, nil
+}
