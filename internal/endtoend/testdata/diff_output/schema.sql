@@ -6,4 +6,6 @@ CREATE TABLE authors (
 
 CREATE TABLE books (
           id    BIGSERIAL PRIMARY KEY,
-        
+          title text      NOT NULL
+);
+
