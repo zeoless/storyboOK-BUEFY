@@ -246,3 +246,10 @@ type UpdateBookISBNParams struct {
 
 func (q *Queries) UpdateBookISBN(ctx context.Context, arg UpdateBookISBNParams) error {
 	_, err := q.db.ExecContext(ctx, updateBookISBN,
+		arg.Title,
+		pq.Array(arg.Tags),
+		arg.BookID,
+		arg.Isbn,
+	)
+	return err
+}
