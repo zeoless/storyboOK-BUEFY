@@ -55,4 +55,10 @@
           "nullable": true,
           "go_type": {
             "type": "string",
-            "pointer"
+            "pointer": true
+          }
+        }
+      ]
+    }
+  ]
+}
