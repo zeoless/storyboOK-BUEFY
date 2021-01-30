@@ -79,3 +79,36 @@ func (e *Foobar) Scan(src interface{}) error {
 	case []byte:
 		*e = Foobar(s)
 	case string:
+		*e = Foobar(s)
+	default:
+		return fmt.Errorf("unsupported scan type for Foobar: %T", src)
+	}
+	return nil
+}
+
+type NullFoobar struct {
+	Foobar Foobar
+	Valid  bool // Valid is true if Foobar is not NULL
+}
+
+// Scan implements the Scanner interface.
+func (ns *NullFoobar) Scan(value interface{}) error {
+	if value == nil {
+		ns.Foobar, ns.Valid = "", false
+		return nil
+	}
+	ns.Valid = true
+	return ns.Foobar.Scan(value)
+}
+
+// Value implements the driver Valuer interface.
+func (ns NullFoobar) Value() (driver.Value, error) {
+	if !ns.Valid {
+		return nil, nil
+	}
+	return string(ns.Foobar), nil
+}
+
+type Foo struct {
+	Val Foobar
+}
