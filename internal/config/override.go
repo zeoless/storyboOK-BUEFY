@@ -114,4 +114,53 @@ func (o *Override) Parse() (err error) {
 			if o.TableRel, err = pattern.MatchCompile(colParts[0]); err != nil {
 				return err
 			}
-			if o.Table
+			if o.TableSchema, err = pattern.MatchCompile("public"); err != nil {
+				return err
+			}
+		case 3:
+			if o.ColumnName, err = pattern.MatchCompile(colParts[2]); err != nil {
+				return err
+			}
+			if o.TableRel, err = pattern.MatchCompile(colParts[1]); err != nil {
+				return err
+			}
+			if o.TableSchema, err = pattern.MatchCompile(colParts[0]); err != nil {
+				return err
+			}
+		case 4:
+			if o.ColumnName, err = pattern.MatchCompile(colParts[3]); err != nil {
+				return err
+			}
+			if o.TableRel, err = pattern.MatchCompile(colParts[2]); err != nil {
+				return err
+			}
+			if o.TableSchema, err = pattern.MatchCompile(colParts[1]); err != nil {
+				return err
+			}
+			if o.TableCatalog, err = pattern.MatchCompile(colParts[0]); err != nil {
+				return err
+			}
+		default:
+			return fmt.Errorf("Override `column` specifier %q is not the proper format, expected '[catalog.][schema.]tablename.colname'", o.Column)
+		}
+	}
+
+	// validate GoType
+	parsed, err := o.GoType.Parse()
+	if err != nil {
+		return err
+	}
+	o.GoImportPath = parsed.ImportPath
+	o.GoPackage = parsed.Package
+	o.GoTypeName = parsed.TypeName
+	o.GoBasicType = parsed.BasicType
+
+	// validate GoStructTag
+	tags, err := o.GoStructTag.Parse()
+	if err != nil {
+		return err
+	}
+	o.GoStructTags = tags
+
+	return nil
+}
