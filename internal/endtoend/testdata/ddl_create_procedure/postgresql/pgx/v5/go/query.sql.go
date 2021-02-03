@@ -37,4 +37,25 @@ func (q *Queries) CallInsertDataNamed(ctx context.Context, arg CallInsertDataNam
 	return err
 }
 
-const ca
+const callInsertDataNoArgs = `-- name: CallInsertDataNoArgs :exec
+CALL insert_data(1, 2)
+`
+
+func (q *Queries) CallInsertDataNoArgs(ctx context.Context) error {
+	_, err := q.db.Exec(ctx, callInsertDataNoArgs)
+	return err
+}
+
+const callInsertDataSqlcArgs = `-- name: CallInsertDataSqlcArgs :exec
+CALL insert_data($1, $2)
+`
+
+type CallInsertDataSqlcArgsParams struct {
+	Foo int32
+	Bar int32
+}
+
+func (q *Queries) CallInsertDataSqlcArgs(ctx context.Context, arg CallInsertDataSqlcArgsParams) error {
+	_, err := q.db.Exec(ctx, callInsertDataSqlcArgs, arg.Foo, arg.Bar)
+	return err
+}
