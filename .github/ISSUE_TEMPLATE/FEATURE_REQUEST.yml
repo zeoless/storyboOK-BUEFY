@@ -12,4 +12,18 @@ body:
       required: true
   - type: dropdown
     id: engines
-    a
+    attributes:
+      label: What database engines need to be changed?
+      multiple: true
+      options:
+        - PostgreSQL
+        - MySQL
+  - type: dropdown
+    id: languages
+    attributes:
+      label: What programming language backends need to be changed?
+      multiple: true
+      options:
+        - Go
+        - Python
+        - Kotlin
