@@ -23,3 +23,7 @@ type Party struct {
 
 type Person struct {
 	PartyID   uuid.UUID
+	Name      string
+	FirstName string
+	LastName  string
+}
