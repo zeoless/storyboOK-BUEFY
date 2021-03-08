@@ -120,3 +120,134 @@ INSERT_:            I N S E R T;
 INSTEAD_:           I N S T E A D;
 INTERSECT_:         I N T E R S E C T;
 INTO_:              I N T O;
+IS_:                I S;
+ISNULL_:            I S N U L L;
+JOIN_:              J O I N;
+KEY_:               K E Y;
+LEFT_:              L E F T;
+LIKE_:              L I K E;
+LIMIT_:             L I M I T;
+MATCH_:             M A T C H;
+NATURAL_:           N A T U R A L;
+NO_:                N O;
+NOT_:               N O T;
+NOTNULL_:           N O T N U L L;
+NULL_:              N U L L;
+OF_:                O F;
+OFFSET_:            O F F S E T;
+ON_:                O N;
+OR_:                O R;
+ORDER_:             O R D E R;
+OUTER_:             O U T E R;
+PLAN_:              P L A N;
+PRAGMA_:            P R A G M A;
+PRIMARY_:           P R I M A R Y;
+QUERY_:             Q U E R Y;
+RAISE_:             R A I S E;
+RECURSIVE_:         R E C U R S I V E;
+REFERENCES_:        R E F E R E N C E S;
+REGEXP_:            R E G E X P;
+REINDEX_:           R E I N D E X;
+RELEASE_:           R E L E A S E;
+RENAME_:            R E N A M E;
+REPLACE_:           R E P L A C E;
+RESTRICT_:          R E S T R I C T;
+RETURNING_:         R E T U R N I N G;
+RIGHT_:             R I G H T;
+ROLLBACK_:          R O L L B A C K;
+ROW_:               R O W;
+ROWS_:              R O W S;
+SAVEPOINT_:         S A V E P O I N T;
+SELECT_:            S E L E C T;
+SET_:               S E T;
+TABLE_:             T A B L E;
+TEMP_:              T E M P;
+TEMPORARY_:         T E M P O R A R Y;
+THEN_:              T H E N;
+TO_:                T O;
+TRANSACTION_:       T R A N S A C T I O N;
+TRIGGER_:           T R I G G E R;
+UNION_:             U N I O N;
+UNIQUE_:            U N I Q U E;
+UPDATE_:            U P D A T E;
+USING_:             U S I N G;
+VACUUM_:            V A C U U M;
+VALUES_:            V A L U E S;
+VIEW_:              V I E W;
+VIRTUAL_:           V I R T U A L;
+WHEN_:              W H E N;
+WHERE_:             W H E R E;
+WITH_:              W I T H;
+WITHOUT_:           W I T H O U T;
+FIRST_VALUE_:       F I R S T '_' V A L U E;
+OVER_:              O V E R;
+PARTITION_:         P A R T I T I O N;
+RANGE_:             R A N G E;
+PRECEDING_:         P R E C E D I N G;
+UNBOUNDED_:         U N B O U N D E D;
+CURRENT_:           C U R R E N T;
+FOLLOWING_:         F O L L O W I N G;
+CUME_DIST_:         C U M E '_' D I S T;
+DENSE_RANK_:        D E N S E '_' R A N K;
+LAG_:               L A G;
+LAST_VALUE_:        L A S T '_' V A L U E;
+LEAD_:              L E A D;
+NTH_VALUE_:         N T H '_' V A L U E;
+NTILE_:             N T I L E;
+PERCENT_RANK_:      P E R C E N T '_' R A N K;
+RANK_:              R A N K;
+ROW_NUMBER_:        R O W '_' N U M B E R;
+GENERATED_:         G E N E R A T E D;
+ALWAYS_:            A L W A Y S;
+STORED_:            S T O R E D;
+TRUE_:              T R U E;
+FALSE_:             F A L S E;
+WINDOW_:            W I N D O W;
+NULLS_:             N U L L S;
+FIRST_:             F I R S T;
+LAST_:              L A S T;
+FILTER_:            F I L T E R;
+GROUPS_:            G R O U P S;
+EXCLUDE_:           E X C L U D E;
+TIES_:              T I E S;
+OTHERS_:            O T H E R S;
+DO_:                D O;
+NOTHING_:           N O T H I N G;
+
+IDENTIFIER:
+    '"' (~'"' | '""')* '"'
+    | '`' (~'`' | '``')* '`'
+    | '[' ~']'* ']'
+    | [a-zA-Z_] [a-zA-Z_0-9]*
+; // TODO check: needs more chars in set
+
+NUMERIC_LITERAL: ((DIGIT+ ('.' DIGIT*)?) | ('.' DIGIT+)) (E [-+]? DIGIT+)? | '0x' HEX_DIGIT+;
+
+BIND_PARAMETER: '?' DIGIT* | [:@$] IDENTIFIER;
+
+STRING_LITERAL: '\'' ( ~'\'' | '\'\'')* '\'';
+
+BLOB_LITERAL: X STRING_LITERAL;
+
+SINGLE_LINE_COMMENT: '--' ~[\r\n]* (('\r'? '\n') | EOF) -> channel(HIDDEN);
+
+MULTILINE_COMMENT: '/*' .*? '*/' -> channel(HIDDEN);
+
+SPACES: [ \u000B\t\r\n] -> channel(HIDDEN);
+
+UNEXPECTED_CHAR: .;
+
+fragment HEX_DIGIT: [0-9a-fA-F];
+fragment DIGIT:     [0-9];
+
+fragment A: [aA];
+fragment B: [bB];
+fragment C: [cC];
+fragment D: [dD];
+fragment E: [eE];
+fragment F: [fF];
+fragment G: [gG];
+fragment H: [hH];
+fragment I: [iI];
+fragment J: [jJ];
+fra
