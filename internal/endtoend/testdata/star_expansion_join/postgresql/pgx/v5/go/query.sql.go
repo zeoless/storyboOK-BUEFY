@@ -28,4 +28,21 @@ func (q *Queries) StarExpansionJoin(ctx context.Context) ([]StarExpansionJoinRow
 		return nil, err
 	}
 	defer rows.Close()
-	var item
+	var items []StarExpansionJoinRow
+	for rows.Next() {
+		var i StarExpansionJoinRow
+		if err := rows.Scan(
+			&i.A,
+			&i.B,
+			&i.C,
+			&i.D,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
