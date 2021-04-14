@@ -111,4 +111,66 @@ func (b *InsertValuesBatchResults) QueryRow(f func(int, pgtype.Text, error)) {
 			if f != nil {
 				f(t, a, errors.New("batch already closed"))
 			}
-			
+			continue
+		}
+		row := b.br.QueryRow()
+		err := row.Scan(&a)
+		if f != nil {
+			f(t, a, err)
+		}
+	}
+}
+
+func (b *InsertValuesBatchResults) Close() error {
+	b.closed = true
+	return b.br.Close()
+}
+
+const updateValues = `-- name: UpdateValues :batchexec
+UPDATE myschema.foo SET a = $1, b = $2
+`
+
+type UpdateValuesBatchResults struct {
+	br     pgx.BatchResults
+	tot    int
+	closed bool
+}
+
+type UpdateValuesParams struct {
+	A pgtype.Text
+	B pgtype.Int4
+}
+
+func (q *Queries) UpdateValues(ctx context.Context, arg []UpdateValuesParams) *UpdateValuesBatchResults {
+	batch := &pgx.Batch{}
+	for _, a := range arg {
+		vals := []interface{}{
+			a.A,
+			a.B,
+		}
+		batch.Queue(updateValues, vals...)
+	}
+	br := q.db.SendBatch(ctx, batch)
+	return &UpdateValuesBatchResults{br, len(arg), false}
+}
+
+func (b *UpdateValuesBatchResults) Exec(f func(int, error)) {
+	defer b.br.Close()
+	for t := 0; t < b.tot; t++ {
+		if b.closed {
+			if f != nil {
+				f(t, errors.New("batch already closed"))
+			}
+			continue
+		}
+		_, err := b.br.Exec()
+		if f != nil {
+			f(t, err)
+		}
+	}
+}
+
+func (b *UpdateValuesBatchResults) Close() error {
+	b.closed = true
+	return b.br.Close()
+}
