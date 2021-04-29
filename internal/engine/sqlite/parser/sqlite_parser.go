@@ -10891,3 +10891,4047 @@ func (s *Expr_binaryContext) AllExpr() []IExprContext {
 func (s *Expr_binaryContext) Expr(i int) IExprContext {
 	var t antlr.RuleContext
 	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_binaryContext) PIPE2() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserPIPE2, 0)
+}
+
+func (s *Expr_binaryContext) AND_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserAND_, 0)
+}
+
+func (s *Expr_binaryContext) OR_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOR_, 0)
+}
+
+func (s *Expr_binaryContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_binary(s)
+	}
+}
+
+func (s *Expr_binaryContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_binary(s)
+	}
+}
+
+type Expr_literalContext struct {
+	*ExprContext
+}
+
+func NewExpr_literalContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_literalContext {
+	var p = new(Expr_literalContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_literalContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_literalContext) Literal_value() ILiteral_valueContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILiteral_valueContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ILiteral_valueContext)
+}
+
+func (s *Expr_literalContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_literal(s)
+	}
+}
+
+func (s *Expr_literalContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_literal(s)
+	}
+}
+
+type Expr_castContext struct {
+	*ExprContext
+}
+
+func NewExpr_castContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_castContext {
+	var p = new(Expr_castContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_castContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_castContext) CAST_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCAST_, 0)
+}
+
+func (s *Expr_castContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Expr_castContext) Expr() IExprContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_castContext) AS_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserAS_, 0)
+}
+
+func (s *Expr_castContext) Type_name() IType_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IType_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IType_nameContext)
+}
+
+func (s *Expr_castContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Expr_castContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_cast(s)
+	}
+}
+
+func (s *Expr_castContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_cast(s)
+	}
+}
+
+type Expr_in_selectContext struct {
+	*ExprContext
+}
+
+func NewExpr_in_selectContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_in_selectContext {
+	var p = new(Expr_in_selectContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_in_selectContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_in_selectContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Expr_in_selectContext) Select_stmt() ISelect_stmtContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISelect_stmtContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISelect_stmtContext)
+}
+
+func (s *Expr_in_selectContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Expr_in_selectContext) EXISTS_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserEXISTS_, 0)
+}
+
+func (s *Expr_in_selectContext) NOT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNOT_, 0)
+}
+
+func (s *Expr_in_selectContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Expr_in_selectContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_in_selectContext) IN_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserIN_, 0)
+}
+
+func (s *Expr_in_selectContext) Table_name() ITable_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_nameContext)
+}
+
+func (s *Expr_in_selectContext) Table_function_name() ITable_function_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_function_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_function_nameContext)
+}
+
+func (s *Expr_in_selectContext) Schema_name() ISchema_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISchema_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISchema_nameContext)
+}
+
+func (s *Expr_in_selectContext) DOT() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDOT, 0)
+}
+
+func (s *Expr_in_selectContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserCOMMA)
+}
+
+func (s *Expr_in_selectContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOMMA, i)
+}
+
+func (s *Expr_in_selectContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_in_select(s)
+	}
+}
+
+func (s *Expr_in_selectContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_in_select(s)
+	}
+}
+
+type Expr_listContext struct {
+	*ExprContext
+}
+
+func NewExpr_listContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_listContext {
+	var p = new(Expr_listContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_listContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_listContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Expr_listContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Expr_listContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_listContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Expr_listContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserCOMMA)
+}
+
+func (s *Expr_listContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOMMA, i)
+}
+
+func (s *Expr_listContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_list(s)
+	}
+}
+
+func (s *Expr_listContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_list(s)
+	}
+}
+
+type Expr_betweenContext struct {
+	*ExprContext
+}
+
+func NewExpr_betweenContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_betweenContext {
+	var p = new(Expr_betweenContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_betweenContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_betweenContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Expr_betweenContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_betweenContext) BETWEEN_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserBETWEEN_, 0)
+}
+
+func (s *Expr_betweenContext) AND_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserAND_, 0)
+}
+
+func (s *Expr_betweenContext) NOT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNOT_, 0)
+}
+
+func (s *Expr_betweenContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_between(s)
+	}
+}
+
+func (s *Expr_betweenContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_between(s)
+	}
+}
+
+type Expr_collateContext struct {
+	*ExprContext
+}
+
+func NewExpr_collateContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_collateContext {
+	var p = new(Expr_collateContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_collateContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_collateContext) Expr() IExprContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_collateContext) COLLATE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOLLATE_, 0)
+}
+
+func (s *Expr_collateContext) Collation_name() ICollation_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ICollation_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICollation_nameContext)
+}
+
+func (s *Expr_collateContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_collate(s)
+	}
+}
+
+func (s *Expr_collateContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_collate(s)
+	}
+}
+
+type Expr_qualified_column_nameContext struct {
+	*ExprContext
+}
+
+func NewExpr_qualified_column_nameContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_qualified_column_nameContext {
+	var p = new(Expr_qualified_column_nameContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_qualified_column_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_qualified_column_nameContext) Column_name() IColumn_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IColumn_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IColumn_nameContext)
+}
+
+func (s *Expr_qualified_column_nameContext) Table_name() ITable_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_nameContext)
+}
+
+func (s *Expr_qualified_column_nameContext) AllDOT() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserDOT)
+}
+
+func (s *Expr_qualified_column_nameContext) DOT(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDOT, i)
+}
+
+func (s *Expr_qualified_column_nameContext) Schema_name() ISchema_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISchema_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISchema_nameContext)
+}
+
+func (s *Expr_qualified_column_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_qualified_column_name(s)
+	}
+}
+
+func (s *Expr_qualified_column_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_qualified_column_name(s)
+	}
+}
+
+type Expr_math_opContext struct {
+	*ExprContext
+}
+
+func NewExpr_math_opContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_math_opContext {
+	var p = new(Expr_math_opContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_math_opContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_math_opContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Expr_math_opContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_math_opContext) STAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserSTAR, 0)
+}
+
+func (s *Expr_math_opContext) DIV() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDIV, 0)
+}
+
+func (s *Expr_math_opContext) MOD() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserMOD, 0)
+}
+
+func (s *Expr_math_opContext) PLUS() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserPLUS, 0)
+}
+
+func (s *Expr_math_opContext) MINUS() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserMINUS, 0)
+}
+
+func (s *Expr_math_opContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_math_op(s)
+	}
+}
+
+func (s *Expr_math_opContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_math_op(s)
+	}
+}
+
+type Expr_unaryContext struct {
+	*ExprContext
+}
+
+func NewExpr_unaryContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_unaryContext {
+	var p = new(Expr_unaryContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_unaryContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_unaryContext) Unary_operator() IUnary_operatorContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IUnary_operatorContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUnary_operatorContext)
+}
+
+func (s *Expr_unaryContext) Expr() IExprContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_unaryContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_unary(s)
+	}
+}
+
+func (s *Expr_unaryContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_unary(s)
+	}
+}
+
+type Expr_null_compContext struct {
+	*ExprContext
+}
+
+func NewExpr_null_compContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_null_compContext {
+	var p = new(Expr_null_compContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_null_compContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_null_compContext) Expr() IExprContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Expr_null_compContext) ISNULL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserISNULL_, 0)
+}
+
+func (s *Expr_null_compContext) NOTNULL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNOTNULL_, 0)
+}
+
+func (s *Expr_null_compContext) NOT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNOT_, 0)
+}
+
+func (s *Expr_null_compContext) NULL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNULL_, 0)
+}
+
+func (s *Expr_null_compContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_null_comp(s)
+	}
+}
+
+func (s *Expr_null_compContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_null_comp(s)
+	}
+}
+
+type Expr_bindContext struct {
+	*ExprContext
+}
+
+func NewExpr_bindContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Expr_bindContext {
+	var p = new(Expr_bindContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *Expr_bindContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Expr_bindContext) BIND_PARAMETER() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserBIND_PARAMETER, 0)
+}
+
+func (s *Expr_bindContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterExpr_bind(s)
+	}
+}
+
+func (s *Expr_bindContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitExpr_bind(s)
+	}
+}
+
+func (p *SQLiteParser) Expr() (localctx IExprContext) {
+	return p.expr(0)
+}
+
+func (p *SQLiteParser) expr(_p int) (localctx IExprContext) {
+	this := p
+	_ = this
+
+	var _parentctx antlr.ParserRuleContext = p.GetParserRuleContext()
+	_parentState := p.GetState()
+	localctx = NewExprContext(p, p.GetParserRuleContext(), _parentState)
+	var _prevctx IExprContext = localctx
+	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
+	_startState := 66
+	p.EnterRecursionRule(localctx, 66, SQLiteParserRULE_expr, _p)
+	var _la int
+
+	defer func() {
+		p.UnrollRecursionContexts(_parentctx)
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	var _alt int
+
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(987)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 127, p.GetParserRuleContext()) {
+	case 1:
+		localctx = NewExpr_literalContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+
+		{
+			p.SetState(900)
+			p.Literal_value()
+		}
+
+	case 2:
+		localctx = NewExpr_bindContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(901)
+			p.Match(SQLiteParserBIND_PARAMETER)
+		}
+
+	case 3:
+		localctx = NewExpr_qualified_column_nameContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		p.SetState(910)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 115, p.GetParserRuleContext()) == 1 {
+			p.SetState(905)
+			p.GetErrorHandler().Sync(p)
+
+			if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 114, p.GetParserRuleContext()) == 1 {
+				{
+					p.SetState(902)
+					p.Schema_name()
+				}
+				{
+					p.SetState(903)
+					p.Match(SQLiteParserDOT)
+				}
+
+			}
+			{
+				p.SetState(907)
+				p.Table_name()
+			}
+			{
+				p.SetState(908)
+				p.Match(SQLiteParserDOT)
+			}
+
+		}
+		{
+			p.SetState(912)
+			p.Column_name()
+		}
+
+	case 4:
+		localctx = NewExpr_unaryContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(913)
+			p.Unary_operator()
+		}
+		{
+			p.SetState(914)
+			p.expr(20)
+		}
+
+	case 5:
+		localctx = NewExpr_functionContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(916)
+			p.Function_name()
+		}
+		{
+			p.SetState(917)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		p.SetState(930)
+		p.GetErrorHandler().Sync(p)
+
+		switch p.GetTokenStream().LA(1) {
+		case SQLiteParserOPEN_PAR, SQLiteParserPLUS, SQLiteParserMINUS, SQLiteParserTILDE, SQLiteParserABORT_, SQLiteParserACTION_, SQLiteParserADD_, SQLiteParserAFTER_, SQLiteParserALL_, SQLiteParserALTER_, SQLiteParserANALYZE_, SQLiteParserAND_, SQLiteParserAS_, SQLiteParserASC_, SQLiteParserATTACH_, SQLiteParserAUTOINCREMENT_, SQLiteParserBEFORE_, SQLiteParserBEGIN_, SQLiteParserBETWEEN_, SQLiteParserBY_, SQLiteParserCASCADE_, SQLiteParserCASE_, SQLiteParserCAST_, SQLiteParserCHECK_, SQLiteParserCOLLATE_, SQLiteParserCOLUMN_, SQLiteParserCOMMIT_, SQLiteParserCONFLICT_, SQLiteParserCONSTRAINT_, SQLiteParserCREATE_, SQLiteParserCROSS_, SQLiteParserCURRENT_DATE_, SQLiteParserCURRENT_TIME_, SQLiteParserCURRENT_TIMESTAMP_, SQLiteParserDATABASE_, SQLiteParserDEFAULT_, SQLiteParserDEFERRABLE_, SQLiteParserDEFERRED_, SQLiteParserDELETE_, SQLiteParserDESC_, SQLiteParserDETACH_, SQLiteParserDISTINCT_, SQLiteParserDROP_, SQLiteParserEACH_, SQLiteParserELSE_, SQLiteParserEND_, SQLiteParserESCAPE_, SQLiteParserEXCEPT_, SQLiteParserEXCLUSIVE_, SQLiteParserEXISTS_, SQLiteParserEXPLAIN_, SQLiteParserFAIL_, SQLiteParserFOR_, SQLiteParserFOREIGN_, SQLiteParserFROM_, SQLiteParserFULL_, SQLiteParserGLOB_, SQLiteParserGROUP_, SQLiteParserHAVING_, SQLiteParserIF_, SQLiteParserIGNORE_, SQLiteParserIMMEDIATE_, SQLiteParserIN_, SQLiteParserINDEX_, SQLiteParserINDEXED_, SQLiteParserINITIALLY_, SQLiteParserINNER_, SQLiteParserINSERT_, SQLiteParserINSTEAD_, SQLiteParserINTERSECT_, SQLiteParserINTO_, SQLiteParserIS_, SQLiteParserISNULL_, SQLiteParserJOIN_, SQLiteParserKEY_, SQLiteParserLEFT_, SQLiteParserLIKE_, SQLiteParserLIMIT_, SQLiteParserMATCH_, SQLiteParserNATURAL_, SQLiteParserNO_, SQLiteParserNOT_, SQLiteParserNOTNULL_, SQLiteParserNULL_, SQLiteParserOF_, SQLiteParserOFFSET_, SQLiteParserON_, SQLiteParserOR_, SQLiteParserORDER_, SQLiteParserOUTER_, SQLiteParserPLAN_, SQLiteParserPRAGMA_, SQLiteParserPRIMARY_, SQLiteParserQUERY_, SQLiteParserRAISE_, SQLiteParserRECURSIVE_, SQLiteParserREFERENCES_, SQLiteParserREGEXP_, SQLiteParserREINDEX_, SQLiteParserRELEASE_, SQLiteParserRENAME_, SQLiteParserREPLACE_, SQLiteParserRESTRICT_, SQLiteParserRETURNING_, SQLiteParserRIGHT_, SQLiteParserROLLBACK_, SQLiteParserROW_, SQLiteParserROWS_, SQLiteParserSAVEPOINT_, SQLiteParserSELECT_, SQLiteParserSET_, SQLiteParserTABLE_, SQLiteParserTEMP_, SQLiteParserTEMPORARY_, SQLiteParserTHEN_, SQLiteParserTO_, SQLiteParserTRANSACTION_, SQLiteParserTRIGGER_, SQLiteParserUNION_, SQLiteParserUNIQUE_, SQLiteParserUPDATE_, SQLiteParserUSING_, SQLiteParserVACUUM_, SQLiteParserVALUES_, SQLiteParserVIEW_, SQLiteParserVIRTUAL_, SQLiteParserWHEN_, SQLiteParserWHERE_, SQLiteParserWITH_, SQLiteParserWITHOUT_, SQLiteParserFIRST_VALUE_, SQLiteParserOVER_, SQLiteParserPARTITION_, SQLiteParserRANGE_, SQLiteParserPRECEDING_, SQLiteParserUNBOUNDED_, SQLiteParserCURRENT_, SQLiteParserFOLLOWING_, SQLiteParserCUME_DIST_, SQLiteParserDENSE_RANK_, SQLiteParserLAG_, SQLiteParserLAST_VALUE_, SQLiteParserLEAD_, SQLiteParserNTH_VALUE_, SQLiteParserNTILE_, SQLiteParserPERCENT_RANK_, SQLiteParserRANK_, SQLiteParserROW_NUMBER_, SQLiteParserGENERATED_, SQLiteParserALWAYS_, SQLiteParserSTORED_, SQLiteParserTRUE_, SQLiteParserFALSE_, SQLiteParserWINDOW_, SQLiteParserNULLS_, SQLiteParserFIRST_, SQLiteParserLAST_, SQLiteParserFILTER_, SQLiteParserGROUPS_, SQLiteParserEXCLUDE_, SQLiteParserIDENTIFIER, SQLiteParserNUMERIC_LITERAL, SQLiteParserBIND_PARAMETER, SQLiteParserSTRING_LITERAL, SQLiteParserBLOB_LITERAL:
+			p.SetState(919)
+			p.GetErrorHandler().Sync(p)
+
+			if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 116, p.GetParserRuleContext()) == 1 {
+				{
+					p.SetState(918)
+					p.Match(SQLiteParserDISTINCT_)
+				}
+
+			}
+			{
+				p.SetState(921)
+				p.expr(0)
+			}
+			p.SetState(926)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == SQLiteParserCOMMA {
+				{
+					p.SetState(922)
+					p.Match(SQLiteParserCOMMA)
+				}
+				{
+					p.SetState(923)
+					p.expr(0)
+				}
+
+				p.SetState(928)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+
+		case SQLiteParserSTAR:
+			{
+				p.SetState(929)
+				p.Match(SQLiteParserSTAR)
+			}
+
+		case SQLiteParserCLOSE_PAR:
+
+		default:
+		}
+		{
+			p.SetState(932)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+		p.SetState(934)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 119, p.GetParserRuleContext()) == 1 {
+			{
+				p.SetState(933)
+				p.Filter_clause()
+			}
+
+		}
+		p.SetState(937)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 120, p.GetParserRuleContext()) == 1 {
+			{
+				p.SetState(936)
+				p.Over_clause()
+			}
+
+		}
+
+	case 6:
+		localctx = NewExpr_listContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(939)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(940)
+			p.expr(0)
+		}
+		p.SetState(945)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == SQLiteParserCOMMA {
+			{
+				p.SetState(941)
+				p.Match(SQLiteParserCOMMA)
+			}
+			{
+				p.SetState(942)
+				p.expr(0)
+			}
+
+			p.SetState(947)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(948)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+
+	case 7:
+		localctx = NewExpr_castContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(950)
+			p.Match(SQLiteParserCAST_)
+		}
+		{
+			p.SetState(951)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(952)
+			p.expr(0)
+		}
+		{
+			p.SetState(953)
+			p.Match(SQLiteParserAS_)
+		}
+		{
+			p.SetState(954)
+			p.Type_name()
+		}
+		{
+			p.SetState(955)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+
+	case 8:
+		localctx = NewExpr_in_selectContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		p.SetState(961)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserEXISTS_ || _la == SQLiteParserNOT_ {
+			p.SetState(958)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == SQLiteParserNOT_ {
+				{
+					p.SetState(957)
+					p.Match(SQLiteParserNOT_)
+				}
+
+			}
+			{
+				p.SetState(960)
+				p.Match(SQLiteParserEXISTS_)
+			}
+
+		}
+		{
+			p.SetState(963)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(964)
+			p.Select_stmt()
+		}
+		{
+			p.SetState(965)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+
+	case 9:
+		localctx = NewExpr_caseContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(967)
+			p.Match(SQLiteParserCASE_)
+		}
+		p.SetState(969)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 124, p.GetParserRuleContext()) == 1 {
+			{
+				p.SetState(968)
+				p.expr(0)
+			}
+
+		}
+		p.SetState(976)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == SQLiteParserWHEN_ {
+			{
+				p.SetState(971)
+				p.Match(SQLiteParserWHEN_)
+			}
+			{
+				p.SetState(972)
+				p.expr(0)
+			}
+			{
+				p.SetState(973)
+				p.Match(SQLiteParserTHEN_)
+			}
+			{
+				p.SetState(974)
+				p.expr(0)
+			}
+
+			p.SetState(978)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(982)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserELSE_ {
+			{
+				p.SetState(980)
+				p.Match(SQLiteParserELSE_)
+			}
+			{
+				p.SetState(981)
+				p.expr(0)
+			}
+
+		}
+		{
+			p.SetState(984)
+			p.Match(SQLiteParserEND_)
+		}
+
+	case 10:
+		localctx = NewExpr_raiseContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(986)
+			p.Raise_function()
+		}
+
+	}
+	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
+	p.SetState(1102)
+	p.GetErrorHandler().Sync(p)
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 142, p.GetParserRuleContext())
+
+	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
+		if _alt == 1 {
+			if p.GetParseListeners() != nil {
+				p.TriggerExitRuleEvent()
+			}
+			_prevctx = localctx
+			p.SetState(1100)
+			p.GetErrorHandler().Sync(p)
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 141, p.GetParserRuleContext()) {
+			case 1:
+				localctx = NewExpr_binaryContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(989)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
+				}
+				{
+					p.SetState(990)
+					p.Match(SQLiteParserPIPE2)
+				}
+				{
+					p.SetState(991)
+					p.expr(20)
+				}
+
+			case 2:
+				localctx = NewExpr_math_opContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(992)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
+				}
+				{
+					p.SetState(993)
+					_la = p.GetTokenStream().LA(1)
+
+					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SQLiteParserSTAR)|(1<<SQLiteParserDIV)|(1<<SQLiteParserMOD))) != 0) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(994)
+					p.expr(19)
+				}
+
+			case 3:
+				localctx = NewExpr_math_opContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(995)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 17)", ""))
+				}
+				{
+					p.SetState(996)
+					_la = p.GetTokenStream().LA(1)
+
+					if !(_la == SQLiteParserPLUS || _la == SQLiteParserMINUS) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(997)
+					p.expr(18)
+				}
+
+			case 4:
+				localctx = NewExpr_comparisonContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(998)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 16)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 16)", ""))
+				}
+				{
+					p.SetState(999)
+					_la = p.GetTokenStream().LA(1)
+
+					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SQLiteParserLT2)|(1<<SQLiteParserGT2)|(1<<SQLiteParserAMP)|(1<<SQLiteParserPIPE))) != 0) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(1000)
+					p.expr(17)
+				}
+
+			case 5:
+				localctx = NewExpr_comparisonContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1001)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 15)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 15)", ""))
+				}
+				{
+					p.SetState(1002)
+					_la = p.GetTokenStream().LA(1)
+
+					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SQLiteParserLT)|(1<<SQLiteParserLT_EQ)|(1<<SQLiteParserGT)|(1<<SQLiteParserGT_EQ))) != 0) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(1003)
+					p.expr(16)
+				}
+
+			case 6:
+				localctx = NewExpr_comparisonContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1004)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 14)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 14)", ""))
+				}
+				p.SetState(1017)
+				p.GetErrorHandler().Sync(p)
+				switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 128, p.GetParserRuleContext()) {
+				case 1:
+					{
+						p.SetState(1005)
+						p.Match(SQLiteParserASSIGN)
+					}
+
+				case 2:
+					{
+						p.SetState(1006)
+						p.Match(SQLiteParserEQ)
+					}
+
+				case 3:
+					{
+						p.SetState(1007)
+						p.Match(SQLiteParserNOT_EQ1)
+					}
+
+				case 4:
+					{
+						p.SetState(1008)
+						p.Match(SQLiteParserNOT_EQ2)
+					}
+
+				case 5:
+					{
+						p.SetState(1009)
+						p.Match(SQLiteParserIS_)
+					}
+
+				case 6:
+					{
+						p.SetState(1010)
+						p.Match(SQLiteParserIS_)
+					}
+					{
+						p.SetState(1011)
+						p.Match(SQLiteParserNOT_)
+					}
+
+				case 7:
+					{
+						p.SetState(1012)
+						p.Match(SQLiteParserIN_)
+					}
+
+				case 8:
+					{
+						p.SetState(1013)
+						p.Match(SQLiteParserLIKE_)
+					}
+
+				case 9:
+					{
+						p.SetState(1014)
+						p.Match(SQLiteParserGLOB_)
+					}
+
+				case 10:
+					{
+						p.SetState(1015)
+						p.Match(SQLiteParserMATCH_)
+					}
+
+				case 11:
+					{
+						p.SetState(1016)
+						p.Match(SQLiteParserREGEXP_)
+					}
+
+				}
+				{
+					p.SetState(1019)
+					p.expr(15)
+				}
+
+			case 7:
+				localctx = NewExpr_binaryContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1020)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 13)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 13)", ""))
+				}
+				{
+					p.SetState(1021)
+					p.Match(SQLiteParserAND_)
+				}
+				{
+					p.SetState(1022)
+					p.expr(14)
+				}
+
+			case 8:
+				localctx = NewExpr_binaryContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1023)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 12)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 12)", ""))
+				}
+				{
+					p.SetState(1024)
+					p.Match(SQLiteParserOR_)
+				}
+				{
+					p.SetState(1025)
+					p.expr(13)
+				}
+
+			case 9:
+				localctx = NewExpr_betweenContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1026)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
+				}
+				p.SetState(1028)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+
+				if _la == SQLiteParserNOT_ {
+					{
+						p.SetState(1027)
+						p.Match(SQLiteParserNOT_)
+					}
+
+				}
+				{
+					p.SetState(1030)
+					p.Match(SQLiteParserBETWEEN_)
+				}
+				{
+					p.SetState(1031)
+					p.expr(0)
+				}
+				{
+					p.SetState(1032)
+					p.Match(SQLiteParserAND_)
+				}
+				{
+					p.SetState(1033)
+					p.expr(6)
+				}
+
+			case 10:
+				localctx = NewExpr_collateContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1035)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 8)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 8)", ""))
+				}
+				{
+					p.SetState(1036)
+					p.Match(SQLiteParserCOLLATE_)
+				}
+				{
+					p.SetState(1037)
+					p.Collation_name()
+				}
+
+			case 11:
+				localctx = NewExpr_comparisonContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1038)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
+				}
+				p.SetState(1040)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+
+				if _la == SQLiteParserNOT_ {
+					{
+						p.SetState(1039)
+						p.Match(SQLiteParserNOT_)
+					}
+
+				}
+				{
+					p.SetState(1042)
+					_la = p.GetTokenStream().LA(1)
+
+					if !((((_la-77)&-(0x1f+1)) == 0 && ((1<<uint((_la-77)))&((1<<(SQLiteParserGLOB_-77))|(1<<(SQLiteParserLIKE_-77))|(1<<(SQLiteParserMATCH_-77)))) != 0) || _la == SQLiteParserREGEXP_) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(1043)
+					p.expr(0)
+				}
+				p.SetState(1046)
+				p.GetErrorHandler().Sync(p)
+
+				if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 131, p.GetParserRuleContext()) == 1 {
+					{
+						p.SetState(1044)
+						p.Match(SQLiteParserESCAPE_)
+					}
+					{
+						p.SetState(1045)
+						p.expr(0)
+					}
+
+				}
+
+			case 12:
+				localctx = NewExpr_null_compContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1048)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
+				}
+				p.SetState(1053)
+				p.GetErrorHandler().Sync(p)
+
+				switch p.GetTokenStream().LA(1) {
+				case SQLiteParserISNULL_:
+					{
+						p.SetState(1049)
+						p.Match(SQLiteParserISNULL_)
+					}
+
+				case SQLiteParserNOTNULL_:
+					{
+						p.SetState(1050)
+						p.Match(SQLiteParserNOTNULL_)
+					}
+
+				case SQLiteParserNOT_:
+					{
+						p.SetState(1051)
+						p.Match(SQLiteParserNOT_)
+					}
+					{
+						p.SetState(1052)
+						p.Match(SQLiteParserNULL_)
+					}
+
+				default:
+					panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+				}
+
+			case 13:
+				localctx = NewExpr_in_selectContext(p, NewExprContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, SQLiteParserRULE_expr)
+				p.SetState(1055)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
+				}
+				p.SetState(1057)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+
+				if _la == SQLiteParserNOT_ {
+					{
+						p.SetState(1056)
+						p.Match(SQLiteParserNOT_)
+					}
+
+				}
+				{
+					p.SetState(1059)
+					p.Match(SQLiteParserIN_)
+				}
+				p.SetState(1098)
+				p.GetErrorHandler().Sync(p)
+				switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 140, p.GetParserRuleContext()) {
+				case 1:
+					{
+						p.SetState(1060)
+						p.Match(SQLiteParserOPEN_PAR)
+					}
+					p.SetState(1070)
+					p.GetErrorHandler().Sync(p)
+
+					if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 135, p.GetParserRuleContext()) == 1 {
+						{
+							p.SetState(1061)
+							p.Select_stmt()
+						}
+
+					} else if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 135, p.GetParserRuleContext()) == 2 {
+						{
+							p.SetState(1062)
+							p.expr(0)
+						}
+						p.SetState(1067)
+						p.GetErrorHandler().Sync(p)
+						_la = p.GetTokenStream().LA(1)
+
+						for _la == SQLiteParserCOMMA {
+							{
+								p.SetState(1063)
+								p.Match(SQLiteParserCOMMA)
+							}
+							{
+								p.SetState(1064)
+								p.expr(0)
+							}
+
+							p.SetState(1069)
+							p.GetErrorHandler().Sync(p)
+							_la = p.GetTokenStream().LA(1)
+						}
+
+					}
+					{
+						p.SetState(1072)
+						p.Match(SQLiteParserCLOSE_PAR)
+					}
+
+				case 2:
+					p.SetState(1076)
+					p.GetErrorHandler().Sync(p)
+
+					if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 136, p.GetParserRuleContext()) == 1 {
+						{
+							p.SetState(1073)
+							p.Schema_name()
+						}
+						{
+							p.SetState(1074)
+							p.Match(SQLiteParserDOT)
+						}
+
+					}
+					{
+						p.SetState(1078)
+						p.Table_name()
+					}
+
+				case 3:
+					p.SetState(1082)
+					p.GetErrorHandler().Sync(p)
+
+					if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 137, p.GetParserRuleContext()) == 1 {
+						{
+							p.SetState(1079)
+							p.Schema_name()
+						}
+						{
+							p.SetState(1080)
+							p.Match(SQLiteParserDOT)
+						}
+
+					}
+					{
+						p.SetState(1084)
+						p.Table_function_name()
+					}
+					{
+						p.SetState(1085)
+						p.Match(SQLiteParserOPEN_PAR)
+					}
+					p.SetState(1094)
+					p.GetErrorHandler().Sync(p)
+					_la = p.GetTokenStream().LA(1)
+
+					if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SQLiteParserOPEN_PAR)|(1<<SQLiteParserPLUS)|(1<<SQLiteParserMINUS)|(1<<SQLiteParserTILDE)|(1<<SQLiteParserABORT_)|(1<<SQLiteParserACTION_)|(1<<SQLiteParserADD_)|(1<<SQLiteParserAFTER_)|(1<<SQLiteParserALL_)|(1<<SQLiteParserALTER_)|(1<<SQLiteParserANALYZE_))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(SQLiteParserAND_-32))|(1<<(SQLiteParserAS_-32))|(1<<(SQLiteParserASC_-32))|(1<<(SQLiteParserATTACH_-32))|(1<<(SQLiteParserAUTOINCREMENT_-32))|(1<<(SQLiteParserBEFORE_-32))|(1<<(SQLiteParserBEGIN_-32))|(1<<(SQLiteParserBETWEEN_-32))|(1<<(SQLiteParserBY_-32))|(1<<(SQLiteParserCASCADE_-32))|(1<<(SQLiteParserCASE_-32))|(1<<(SQLiteParserCAST_-32))|(1<<(SQLiteParserCHECK_-32))|(1<<(SQLiteParserCOLLATE_-32))|(1<<(SQLiteParserCOLUMN_-32))|(1<<(SQLiteParserCOMMIT_-32))|(1<<(SQLiteParserCONFLICT_-32))|(1<<(SQLiteParserCONSTRAINT_-32))|(1<<(SQLiteParserCREATE_-32))|(1<<(SQLiteParserCROSS_-32))|(1<<(SQLiteParserCURRENT_DATE_-32))|(1<<(SQLiteParserCURRENT_TIME_-32))|(1<<(SQLiteParserCURRENT_TIMESTAMP_-32))|(1<<(SQLiteParserDATABASE_-32))|(1<<(SQLiteParserDEFAULT_-32))|(1<<(SQLiteParserDEFERRABLE_-32))|(1<<(SQLiteParserDEFERRED_-32))|(1<<(SQLiteParserDELETE_-32))|(1<<(SQLiteParserDESC_-32))|(1<<(SQLiteParserDETACH_-32))|(1<<(SQLiteParserDISTINCT_-32))|(1<<(SQLiteParserDROP_-32)))) != 0) || (((_la-64)&-(0x1f+1)) == 0 && ((1<<uint((_la-64)))&((1<<(SQLiteParserEACH_-64))|(1<<(SQLiteParserELSE_-64))|(1<<(SQLiteParserEND_-64))|(1<<(SQLiteParserESCAPE_-64))|(1<<(SQLiteParserEXCEPT_-64))|(1<<(SQLiteParserEXCLUSIVE_-64))|(1<<(SQLiteParserEXISTS_-64))|(1<<(SQLiteParserEXPLAIN_-64))|(1<<(SQLiteParserFAIL_-64))|(1<<(SQLiteParserFOR_-64))|(1<<(SQLiteParserFOREIGN_-64))|(1<<(SQLiteParserFROM_-64))|(1<<(SQLiteParserFULL_-64))|(1<<(SQLiteParserGLOB_-64))|(1<<(SQLiteParserGROUP_-64))|(1<<(SQLiteParserHAVING_-64))|(1<<(SQLiteParserIF_-64))|(1<<(SQLiteParserIGNORE_-64))|(1<<(SQLiteParserIMMEDIATE_-64))|(1<<(SQLiteParserIN_-64))|(1<<(SQLiteParserINDEX_-64))|(1<<(SQLiteParserINDEXED_-64))|(1<<(SQLiteParserINITIALLY_-64))|(1<<(SQLiteParserINNER_-64))|(1<<(SQLiteParserINSERT_-64))|(1<<(SQLiteParserINSTEAD_-64))|(1<<(SQLiteParserINTERSECT_-64))|(1<<(SQLiteParserINTO_-64))|(1<<(SQLiteParserIS_-64))|(1<<(SQLiteParserISNULL_-64))|(1<<(SQLiteParserJOIN_-64))|(1<<(SQLiteParserKEY_-64)))) != 0) || (((_la-96)&-(0x1f+1)) == 0 && ((1<<uint((_la-96)))&((1<<(SQLiteParserLEFT_-96))|(1<<(SQLiteParserLIKE_-96))|(1<<(SQLiteParserLIMIT_-96))|(1<<(SQLiteParserMATCH_-96))|(1<<(SQLiteParserNATURAL_-96))|(1<<(SQLiteParserNO_-96))|(1<<(SQLiteParserNOT_-96))|(1<<(SQLiteParserNOTNULL_-96))|(1<<(SQLiteParserNULL_-96))|(1<<(SQLiteParserOF_-96))|(1<<(SQLiteParserOFFSET_-96))|(1<<(SQLiteParserON_-96))|(1<<(SQLiteParserOR_-96))|(1<<(SQLiteParserORDER_-96))|(1<<(SQLiteParserOUTER_-96))|(1<<(SQLiteParserPLAN_-96))|(1<<(SQLiteParserPRAGMA_-96))|(1<<(SQLiteParserPRIMARY_-96))|(1<<(SQLiteParserQUERY_-96))|(1<<(SQLiteParserRAISE_-96))|(1<<(SQLiteParserRECURSIVE_-96))|(1<<(SQLiteParserREFERENCES_-96))|(1<<(SQLiteParserREGEXP_-96))|(1<<(SQLiteParserREINDEX_-96))|(1<<(SQLiteParserRELEASE_-96))|(1<<(SQLiteParserRENAME_-96))|(1<<(SQLiteParserREPLACE_-96))|(1<<(SQLiteParserRESTRICT_-96))|(1<<(SQLiteParserRETURNING_-96))|(1<<(SQLiteParserRIGHT_-96))|(1<<(SQLiteParserROLLBACK_-96))|(1<<(SQLiteParserROW_-96)))) != 0) || (((_la-128)&-(0x1f+1)) == 0 && ((1<<uint((_la-128)))&((1<<(SQLiteParserROWS_-128))|(1<<(SQLiteParserSAVEPOINT_-128))|(1<<(SQLiteParserSELECT_-128))|(1<<(SQLiteParserSET_-128))|(1<<(SQLiteParserTABLE_-128))|(1<<(SQLiteParserTEMP_-128))|(1<<(SQLiteParserTEMPORARY_-128))|(1<<(SQLiteParserTHEN_-128))|(1<<(SQLiteParserTO_-128))|(1<<(SQLiteParserTRANSACTION_-128))|(1<<(SQLiteParserTRIGGER_-128))|(1<<(SQLiteParserUNION_-128))|(1<<(SQLiteParserUNIQUE_-128))|(1<<(SQLiteParserUPDATE_-128))|(1<<(SQLiteParserUSING_-128))|(1<<(SQLiteParserVACUUM_-128))|(1<<(SQLiteParserVALUES_-128))|(1<<(SQLiteParserVIEW_-128))|(1<<(SQLiteParserVIRTUAL_-128))|(1<<(SQLiteParserWHEN_-128))|(1<<(SQLiteParserWHERE_-128))|(1<<(SQLiteParserWITH_-128))|(1<<(SQLiteParserWITHOUT_-128))|(1<<(SQLiteParserFIRST_VALUE_-128))|(1<<(SQLiteParserOVER_-128))|(1<<(SQLiteParserPARTITION_-128))|(1<<(SQLiteParserRANGE_-128))|(1<<(SQLiteParserPRECEDING_-128))|(1<<(SQLiteParserUNBOUNDED_-128))|(1<<(SQLiteParserCURRENT_-128))|(1<<(SQLiteParserFOLLOWING_-128))|(1<<(SQLiteParserCUME_DIST_-128)))) != 0) || (((_la-160)&-(0x1f+1)) == 0 && ((1<<uint((_la-160)))&((1<<(SQLiteParserDENSE_RANK_-160))|(1<<(SQLiteParserLAG_-160))|(1<<(SQLiteParserLAST_VALUE_-160))|(1<<(SQLiteParserLEAD_-160))|(1<<(SQLiteParserNTH_VALUE_-160))|(1<<(SQLiteParserNTILE_-160))|(1<<(SQLiteParserPERCENT_RANK_-160))|(1<<(SQLiteParserRANK_-160))|(1<<(SQLiteParserROW_NUMBER_-160))|(1<<(SQLiteParserGENERATED_-160))|(1<<(SQLiteParserALWAYS_-160))|(1<<(SQLiteParserSTORED_-160))|(1<<(SQLiteParserTRUE_-160))|(1<<(SQLiteParserFALSE_-160))|(1<<(SQLiteParserWINDOW_-160))|(1<<(SQLiteParserNULLS_-160))|(1<<(SQLiteParserFIRST_-160))|(1<<(SQLiteParserLAST_-160))|(1<<(SQLiteParserFILTER_-160))|(1<<(SQLiteParserGROUPS_-160))|(1<<(SQLiteParserEXCLUDE_-160))|(1<<(SQLiteParserIDENTIFIER-160))|(1<<(SQLiteParserNUMERIC_LITERAL-160))|(1<<(SQLiteParserBIND_PARAMETER-160))|(1<<(SQLiteParserSTRING_LITERAL-160))|(1<<(SQLiteParserBLOB_LITERAL-160)))) != 0) {
+						{
+							p.SetState(1086)
+							p.expr(0)
+						}
+						p.SetState(1091)
+						p.GetErrorHandler().Sync(p)
+						_la = p.GetTokenStream().LA(1)
+
+						for _la == SQLiteParserCOMMA {
+							{
+								p.SetState(1087)
+								p.Match(SQLiteParserCOMMA)
+							}
+							{
+								p.SetState(1088)
+								p.expr(0)
+							}
+
+							p.SetState(1093)
+							p.GetErrorHandler().Sync(p)
+							_la = p.GetTokenStream().LA(1)
+						}
+
+					}
+					{
+						p.SetState(1096)
+						p.Match(SQLiteParserCLOSE_PAR)
+					}
+
+				}
+
+			}
+
+		}
+		p.SetState(1104)
+		p.GetErrorHandler().Sync(p)
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 142, p.GetParserRuleContext())
+	}
+
+	return localctx
+}
+
+// IRaise_functionContext is an interface to support dynamic dispatch.
+type IRaise_functionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsRaise_functionContext differentiates from other interfaces.
+	IsRaise_functionContext()
+}
+
+type Raise_functionContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyRaise_functionContext() *Raise_functionContext {
+	var p = new(Raise_functionContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_raise_function
+	return p
+}
+
+func (*Raise_functionContext) IsRaise_functionContext() {}
+
+func NewRaise_functionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Raise_functionContext {
+	var p = new(Raise_functionContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_raise_function
+
+	return p
+}
+
+func (s *Raise_functionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Raise_functionContext) RAISE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserRAISE_, 0)
+}
+
+func (s *Raise_functionContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Raise_functionContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Raise_functionContext) IGNORE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserIGNORE_, 0)
+}
+
+func (s *Raise_functionContext) COMMA() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOMMA, 0)
+}
+
+func (s *Raise_functionContext) Error_message() IError_messageContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IError_messageContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IError_messageContext)
+}
+
+func (s *Raise_functionContext) ROLLBACK_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserROLLBACK_, 0)
+}
+
+func (s *Raise_functionContext) ABORT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserABORT_, 0)
+}
+
+func (s *Raise_functionContext) FAIL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserFAIL_, 0)
+}
+
+func (s *Raise_functionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Raise_functionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Raise_functionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterRaise_function(s)
+	}
+}
+
+func (s *Raise_functionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitRaise_function(s)
+	}
+}
+
+func (p *SQLiteParser) Raise_function() (localctx IRaise_functionContext) {
+	this := p
+	_ = this
+
+	localctx = NewRaise_functionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 68, SQLiteParserRULE_raise_function)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(1105)
+		p.Match(SQLiteParserRAISE_)
+	}
+	{
+		p.SetState(1106)
+		p.Match(SQLiteParserOPEN_PAR)
+	}
+	p.SetState(1111)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case SQLiteParserIGNORE_:
+		{
+			p.SetState(1107)
+			p.Match(SQLiteParserIGNORE_)
+		}
+
+	case SQLiteParserABORT_, SQLiteParserFAIL_, SQLiteParserROLLBACK_:
+		{
+			p.SetState(1108)
+			_la = p.GetTokenStream().LA(1)
+
+			if !(_la == SQLiteParserABORT_ || _la == SQLiteParserFAIL_ || _la == SQLiteParserROLLBACK_) {
+				p.GetErrorHandler().RecoverInline(p)
+			} else {
+				p.GetErrorHandler().ReportMatch(p)
+				p.Consume()
+			}
+		}
+		{
+			p.SetState(1109)
+			p.Match(SQLiteParserCOMMA)
+		}
+		{
+			p.SetState(1110)
+			p.Error_message()
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+	{
+		p.SetState(1113)
+		p.Match(SQLiteParserCLOSE_PAR)
+	}
+
+	return localctx
+}
+
+// ILiteral_valueContext is an interface to support dynamic dispatch.
+type ILiteral_valueContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsLiteral_valueContext differentiates from other interfaces.
+	IsLiteral_valueContext()
+}
+
+type Literal_valueContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyLiteral_valueContext() *Literal_valueContext {
+	var p = new(Literal_valueContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_literal_value
+	return p
+}
+
+func (*Literal_valueContext) IsLiteral_valueContext() {}
+
+func NewLiteral_valueContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Literal_valueContext {
+	var p = new(Literal_valueContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_literal_value
+
+	return p
+}
+
+func (s *Literal_valueContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Literal_valueContext) NUMERIC_LITERAL() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNUMERIC_LITERAL, 0)
+}
+
+func (s *Literal_valueContext) STRING_LITERAL() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserSTRING_LITERAL, 0)
+}
+
+func (s *Literal_valueContext) BLOB_LITERAL() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserBLOB_LITERAL, 0)
+}
+
+func (s *Literal_valueContext) NULL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNULL_, 0)
+}
+
+func (s *Literal_valueContext) TRUE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserTRUE_, 0)
+}
+
+func (s *Literal_valueContext) FALSE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserFALSE_, 0)
+}
+
+func (s *Literal_valueContext) CURRENT_TIME_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCURRENT_TIME_, 0)
+}
+
+func (s *Literal_valueContext) CURRENT_DATE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCURRENT_DATE_, 0)
+}
+
+func (s *Literal_valueContext) CURRENT_TIMESTAMP_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCURRENT_TIMESTAMP_, 0)
+}
+
+func (s *Literal_valueContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Literal_valueContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Literal_valueContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterLiteral_value(s)
+	}
+}
+
+func (s *Literal_valueContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitLiteral_value(s)
+	}
+}
+
+func (p *SQLiteParser) Literal_value() (localctx ILiteral_valueContext) {
+	this := p
+	_ = this
+
+	localctx = NewLiteral_valueContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 70, SQLiteParserRULE_literal_value)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(1115)
+		_la = p.GetTokenStream().LA(1)
+
+		if !((((_la-52)&-(0x1f+1)) == 0 && ((1<<uint((_la-52)))&((1<<(SQLiteParserCURRENT_DATE_-52))|(1<<(SQLiteParserCURRENT_TIME_-52))|(1<<(SQLiteParserCURRENT_TIMESTAMP_-52)))) != 0) || _la == SQLiteParserNULL_ || (((_la-172)&-(0x1f+1)) == 0 && ((1<<uint((_la-172)))&((1<<(SQLiteParserTRUE_-172))|(1<<(SQLiteParserFALSE_-172))|(1<<(SQLiteParserNUMERIC_LITERAL-172))|(1<<(SQLiteParserSTRING_LITERAL-172))|(1<<(SQLiteParserBLOB_LITERAL-172)))) != 0)) {
+			p.GetErrorHandler().RecoverInline(p)
+		} else {
+			p.GetErrorHandler().ReportMatch(p)
+			p.Consume()
+		}
+	}
+
+	return localctx
+}
+
+// IInsert_stmtContext is an interface to support dynamic dispatch.
+type IInsert_stmtContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInsert_stmtContext differentiates from other interfaces.
+	IsInsert_stmtContext()
+}
+
+type Insert_stmtContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInsert_stmtContext() *Insert_stmtContext {
+	var p = new(Insert_stmtContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_insert_stmt
+	return p
+}
+
+func (*Insert_stmtContext) IsInsert_stmtContext() {}
+
+func NewInsert_stmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Insert_stmtContext {
+	var p = new(Insert_stmtContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_insert_stmt
+
+	return p
+}
+
+func (s *Insert_stmtContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Insert_stmtContext) INTO_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserINTO_, 0)
+}
+
+func (s *Insert_stmtContext) Table_name() ITable_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_nameContext)
+}
+
+func (s *Insert_stmtContext) INSERT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserINSERT_, 0)
+}
+
+func (s *Insert_stmtContext) REPLACE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserREPLACE_, 0)
+}
+
+func (s *Insert_stmtContext) OR_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOR_, 0)
+}
+
+func (s *Insert_stmtContext) With_clause() IWith_clauseContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IWith_clauseContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IWith_clauseContext)
+}
+
+func (s *Insert_stmtContext) ROLLBACK_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserROLLBACK_, 0)
+}
+
+func (s *Insert_stmtContext) ABORT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserABORT_, 0)
+}
+
+func (s *Insert_stmtContext) FAIL_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserFAIL_, 0)
+}
+
+func (s *Insert_stmtContext) IGNORE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserIGNORE_, 0)
+}
+
+func (s *Insert_stmtContext) Schema_name() ISchema_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISchema_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISchema_nameContext)
+}
+
+func (s *Insert_stmtContext) DOT() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDOT, 0)
+}
+
+func (s *Insert_stmtContext) AS_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserAS_, 0)
+}
+
+func (s *Insert_stmtContext) Table_alias() ITable_aliasContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_aliasContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_aliasContext)
+}
+
+func (s *Insert_stmtContext) AllOPEN_PAR() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserOPEN_PAR)
+}
+
+func (s *Insert_stmtContext) OPEN_PAR(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, i)
+}
+
+func (s *Insert_stmtContext) AllColumn_name() []IColumn_nameContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IColumn_nameContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IColumn_nameContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IColumn_nameContext); ok {
+			tst[i] = t.(IColumn_nameContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Insert_stmtContext) Column_name(i int) IColumn_nameContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IColumn_nameContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IColumn_nameContext)
+}
+
+func (s *Insert_stmtContext) AllCLOSE_PAR() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserCLOSE_PAR)
+}
+
+func (s *Insert_stmtContext) CLOSE_PAR(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, i)
+}
+
+func (s *Insert_stmtContext) VALUES_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserVALUES_, 0)
+}
+
+func (s *Insert_stmtContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Insert_stmtContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Insert_stmtContext) Select_stmt() ISelect_stmtContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISelect_stmtContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISelect_stmtContext)
+}
+
+func (s *Insert_stmtContext) Upsert_clause() IUpsert_clauseContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IUpsert_clauseContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUpsert_clauseContext)
+}
+
+func (s *Insert_stmtContext) Returning_clause() IReturning_clauseContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IReturning_clauseContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IReturning_clauseContext)
+}
+
+func (s *Insert_stmtContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserCOMMA)
+}
+
+func (s *Insert_stmtContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOMMA, i)
+}
+
+func (s *Insert_stmtContext) DEFAULT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDEFAULT_, 0)
+}
+
+func (s *Insert_stmtContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Insert_stmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Insert_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterInsert_stmt(s)
+	}
+}
+
+func (s *Insert_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitInsert_stmt(s)
+	}
+}
+
+func (p *SQLiteParser) Insert_stmt() (localctx IInsert_stmtContext) {
+	this := p
+	_ = this
+
+	localctx = NewInsert_stmtContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 72, SQLiteParserRULE_insert_stmt)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(1190)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case SQLiteParserINSERT_, SQLiteParserREPLACE_, SQLiteParserWITH_:
+		p.EnterOuterAlt(localctx, 1)
+		p.SetState(1118)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserWITH_ {
+			{
+				p.SetState(1117)
+				p.With_clause()
+			}
+
+		}
+		p.SetState(1125)
+		p.GetErrorHandler().Sync(p)
+		switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 145, p.GetParserRuleContext()) {
+		case 1:
+			{
+				p.SetState(1120)
+				p.Match(SQLiteParserINSERT_)
+			}
+
+		case 2:
+			{
+				p.SetState(1121)
+				p.Match(SQLiteParserREPLACE_)
+			}
+
+		case 3:
+			{
+				p.SetState(1122)
+				p.Match(SQLiteParserINSERT_)
+			}
+			{
+				p.SetState(1123)
+				p.Match(SQLiteParserOR_)
+			}
+			{
+				p.SetState(1124)
+				_la = p.GetTokenStream().LA(1)
+
+				if !(_la == SQLiteParserABORT_ || _la == SQLiteParserFAIL_ || _la == SQLiteParserIGNORE_ || _la == SQLiteParserREPLACE_ || _la == SQLiteParserROLLBACK_) {
+					p.GetErrorHandler().RecoverInline(p)
+				} else {
+					p.GetErrorHandler().ReportMatch(p)
+					p.Consume()
+				}
+			}
+
+		}
+		{
+			p.SetState(1127)
+			p.Match(SQLiteParserINTO_)
+		}
+		p.SetState(1131)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 146, p.GetParserRuleContext()) == 1 {
+			{
+				p.SetState(1128)
+				p.Schema_name()
+			}
+			{
+				p.SetState(1129)
+				p.Match(SQLiteParserDOT)
+			}
+
+		}
+		{
+			p.SetState(1133)
+			p.Table_name()
+		}
+		p.SetState(1136)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserAS_ {
+			{
+				p.SetState(1134)
+				p.Match(SQLiteParserAS_)
+			}
+			{
+				p.SetState(1135)
+				p.Table_alias()
+			}
+
+		}
+		p.SetState(1149)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserOPEN_PAR {
+			{
+				p.SetState(1138)
+				p.Match(SQLiteParserOPEN_PAR)
+			}
+			{
+				p.SetState(1139)
+				p.Column_name()
+			}
+			p.SetState(1144)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == SQLiteParserCOMMA {
+				{
+					p.SetState(1140)
+					p.Match(SQLiteParserCOMMA)
+				}
+				{
+					p.SetState(1141)
+					p.Column_name()
+				}
+
+				p.SetState(1146)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			{
+				p.SetState(1147)
+				p.Match(SQLiteParserCLOSE_PAR)
+			}
+
+		}
+
+		p.SetState(1180)
+		p.GetErrorHandler().Sync(p)
+		switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 153, p.GetParserRuleContext()) {
+		case 1:
+			{
+				p.SetState(1151)
+				p.Match(SQLiteParserVALUES_)
+			}
+			{
+				p.SetState(1152)
+				p.Match(SQLiteParserOPEN_PAR)
+			}
+			{
+				p.SetState(1153)
+				p.expr(0)
+			}
+			p.SetState(1158)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == SQLiteParserCOMMA {
+				{
+					p.SetState(1154)
+					p.Match(SQLiteParserCOMMA)
+				}
+				{
+					p.SetState(1155)
+					p.expr(0)
+				}
+
+				p.SetState(1160)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			{
+				p.SetState(1161)
+				p.Match(SQLiteParserCLOSE_PAR)
+			}
+			p.SetState(1176)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == SQLiteParserCOMMA {
+				{
+					p.SetState(1162)
+					p.Match(SQLiteParserCOMMA)
+				}
+				{
+					p.SetState(1163)
+					p.Match(SQLiteParserOPEN_PAR)
+				}
+				{
+					p.SetState(1164)
+					p.expr(0)
+				}
+				p.SetState(1169)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+
+				for _la == SQLiteParserCOMMA {
+					{
+						p.SetState(1165)
+						p.Match(SQLiteParserCOMMA)
+					}
+					{
+						p.SetState(1166)
+						p.expr(0)
+					}
+
+					p.SetState(1171)
+					p.GetErrorHandler().Sync(p)
+					_la = p.GetTokenStream().LA(1)
+				}
+				{
+					p.SetState(1172)
+					p.Match(SQLiteParserCLOSE_PAR)
+				}
+
+				p.SetState(1178)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+
+		case 2:
+			{
+				p.SetState(1179)
+				p.Select_stmt()
+			}
+
+		}
+		p.SetState(1183)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserON_ {
+			{
+				p.SetState(1182)
+				p.Upsert_clause()
+			}
+
+		}
+		p.SetState(1186)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserRETURNING_ {
+			{
+				p.SetState(1185)
+				p.Returning_clause()
+			}
+
+		}
+
+	case SQLiteParserDEFAULT_:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(1188)
+			p.Match(SQLiteParserDEFAULT_)
+		}
+		{
+			p.SetState(1189)
+			p.Match(SQLiteParserVALUES_)
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+
+	return localctx
+}
+
+// IUpsert_clauseContext is an interface to support dynamic dispatch.
+type IUpsert_clauseContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsUpsert_clauseContext differentiates from other interfaces.
+	IsUpsert_clauseContext()
+}
+
+type Upsert_clauseContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyUpsert_clauseContext() *Upsert_clauseContext {
+	var p = new(Upsert_clauseContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_upsert_clause
+	return p
+}
+
+func (*Upsert_clauseContext) IsUpsert_clauseContext() {}
+
+func NewUpsert_clauseContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Upsert_clauseContext {
+	var p = new(Upsert_clauseContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_upsert_clause
+
+	return p
+}
+
+func (s *Upsert_clauseContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Upsert_clauseContext) ON_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserON_, 0)
+}
+
+func (s *Upsert_clauseContext) CONFLICT_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCONFLICT_, 0)
+}
+
+func (s *Upsert_clauseContext) DO_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDO_, 0)
+}
+
+func (s *Upsert_clauseContext) NOTHING_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserNOTHING_, 0)
+}
+
+func (s *Upsert_clauseContext) UPDATE_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserUPDATE_, 0)
+}
+
+func (s *Upsert_clauseContext) SET_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserSET_, 0)
+}
+
+func (s *Upsert_clauseContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Upsert_clauseContext) AllIndexed_column() []IIndexed_columnContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IIndexed_columnContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IIndexed_columnContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IIndexed_columnContext); ok {
+			tst[i] = t.(IIndexed_columnContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Upsert_clauseContext) Indexed_column(i int) IIndexed_columnContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IIndexed_columnContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IIndexed_columnContext)
+}
+
+func (s *Upsert_clauseContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Upsert_clauseContext) AllASSIGN() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserASSIGN)
+}
+
+func (s *Upsert_clauseContext) ASSIGN(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserASSIGN, i)
+}
+
+func (s *Upsert_clauseContext) AllExpr() []IExprContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExprContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExprContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExprContext); ok {
+			tst[i] = t.(IExprContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Upsert_clauseContext) Expr(i int) IExprContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExprContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *Upsert_clauseContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserCOMMA)
+}
+
+func (s *Upsert_clauseContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCOMMA, i)
+}
+
+func (s *Upsert_clauseContext) AllWHERE_() []antlr.TerminalNode {
+	return s.GetTokens(SQLiteParserWHERE_)
+}
+
+func (s *Upsert_clauseContext) WHERE_(i int) antlr.TerminalNode {
+	return s.GetToken(SQLiteParserWHERE_, i)
+}
+
+func (s *Upsert_clauseContext) AllColumn_name() []IColumn_nameContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IColumn_nameContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IColumn_nameContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IColumn_nameContext); ok {
+			tst[i] = t.(IColumn_nameContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Upsert_clauseContext) Column_name(i int) IColumn_nameContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IColumn_nameContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IColumn_nameContext)
+}
+
+func (s *Upsert_clauseContext) AllColumn_name_list() []IColumn_name_listContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IColumn_name_listContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IColumn_name_listContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IColumn_name_listContext); ok {
+			tst[i] = t.(IColumn_name_listContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Upsert_clauseContext) Column_name_list(i int) IColumn_name_listContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IColumn_name_listContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IColumn_name_listContext)
+}
+
+func (s *Upsert_clauseContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Upsert_clauseContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Upsert_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterUpsert_clause(s)
+	}
+}
+
+func (s *Upsert_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitUpsert_clause(s)
+	}
+}
+
+func (p *SQLiteParser) Upsert_clause() (localctx IUpsert_clauseContext) {
+	this := p
+	_ = this
+
+	localctx = NewUpsert_clauseContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 74, SQLiteParserRULE_upsert_clause)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(1192)
+		p.Match(SQLiteParserON_)
+	}
+	{
+		p.SetState(1193)
+		p.Match(SQLiteParserCONFLICT_)
+	}
+	p.SetState(1208)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == SQLiteParserOPEN_PAR {
+		{
+			p.SetState(1194)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(1195)
+			p.Indexed_column()
+		}
+		p.SetState(1200)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == SQLiteParserCOMMA {
+			{
+				p.SetState(1196)
+				p.Match(SQLiteParserCOMMA)
+			}
+			{
+				p.SetState(1197)
+				p.Indexed_column()
+			}
+
+			p.SetState(1202)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(1203)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+		p.SetState(1206)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserWHERE_ {
+			{
+				p.SetState(1204)
+				p.Match(SQLiteParserWHERE_)
+			}
+			{
+				p.SetState(1205)
+				p.expr(0)
+			}
+
+		}
+
+	}
+	{
+		p.SetState(1210)
+		p.Match(SQLiteParserDO_)
+	}
+	p.SetState(1237)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case SQLiteParserNOTHING_:
+		{
+			p.SetState(1211)
+			p.Match(SQLiteParserNOTHING_)
+		}
+
+	case SQLiteParserUPDATE_:
+		{
+			p.SetState(1212)
+			p.Match(SQLiteParserUPDATE_)
+		}
+		{
+			p.SetState(1213)
+			p.Match(SQLiteParserSET_)
+		}
+
+		p.SetState(1216)
+		p.GetErrorHandler().Sync(p)
+		switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 160, p.GetParserRuleContext()) {
+		case 1:
+			{
+				p.SetState(1214)
+				p.Column_name()
+			}
+
+		case 2:
+			{
+				p.SetState(1215)
+				p.Column_name_list()
+			}
+
+		}
+		{
+			p.SetState(1218)
+			p.Match(SQLiteParserASSIGN)
+		}
+		{
+			p.SetState(1219)
+			p.expr(0)
+		}
+		p.SetState(1230)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == SQLiteParserCOMMA {
+			{
+				p.SetState(1220)
+				p.Match(SQLiteParserCOMMA)
+			}
+			p.SetState(1223)
+			p.GetErrorHandler().Sync(p)
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 161, p.GetParserRuleContext()) {
+			case 1:
+				{
+					p.SetState(1221)
+					p.Column_name()
+				}
+
+			case 2:
+				{
+					p.SetState(1222)
+					p.Column_name_list()
+				}
+
+			}
+			{
+				p.SetState(1225)
+				p.Match(SQLiteParserASSIGN)
+			}
+			{
+				p.SetState(1226)
+				p.expr(0)
+			}
+
+			p.SetState(1232)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(1235)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == SQLiteParserWHERE_ {
+			{
+				p.SetState(1233)
+				p.Match(SQLiteParserWHERE_)
+			}
+			{
+				p.SetState(1234)
+				p.expr(0)
+			}
+
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+
+	return localctx
+}
+
+// IPragma_stmtContext is an interface to support dynamic dispatch.
+type IPragma_stmtContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsPragma_stmtContext differentiates from other interfaces.
+	IsPragma_stmtContext()
+}
+
+type Pragma_stmtContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyPragma_stmtContext() *Pragma_stmtContext {
+	var p = new(Pragma_stmtContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_pragma_stmt
+	return p
+}
+
+func (*Pragma_stmtContext) IsPragma_stmtContext() {}
+
+func NewPragma_stmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Pragma_stmtContext {
+	var p = new(Pragma_stmtContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_pragma_stmt
+
+	return p
+}
+
+func (s *Pragma_stmtContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Pragma_stmtContext) PRAGMA_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserPRAGMA_, 0)
+}
+
+func (s *Pragma_stmtContext) Pragma_name() IPragma_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IPragma_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IPragma_nameContext)
+}
+
+func (s *Pragma_stmtContext) Schema_name() ISchema_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISchema_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISchema_nameContext)
+}
+
+func (s *Pragma_stmtContext) DOT() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDOT, 0)
+}
+
+func (s *Pragma_stmtContext) ASSIGN() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserASSIGN, 0)
+}
+
+func (s *Pragma_stmtContext) Pragma_value() IPragma_valueContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IPragma_valueContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IPragma_valueContext)
+}
+
+func (s *Pragma_stmtContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Pragma_stmtContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Pragma_stmtContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Pragma_stmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Pragma_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterPragma_stmt(s)
+	}
+}
+
+func (s *Pragma_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitPragma_stmt(s)
+	}
+}
+
+func (p *SQLiteParser) Pragma_stmt() (localctx IPragma_stmtContext) {
+	this := p
+	_ = this
+
+	localctx = NewPragma_stmtContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 76, SQLiteParserRULE_pragma_stmt)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(1239)
+		p.Match(SQLiteParserPRAGMA_)
+	}
+	p.SetState(1243)
+	p.GetErrorHandler().Sync(p)
+
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 165, p.GetParserRuleContext()) == 1 {
+		{
+			p.SetState(1240)
+			p.Schema_name()
+		}
+		{
+			p.SetState(1241)
+			p.Match(SQLiteParserDOT)
+		}
+
+	}
+	{
+		p.SetState(1245)
+		p.Pragma_name()
+	}
+	p.SetState(1252)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case SQLiteParserASSIGN:
+		{
+			p.SetState(1246)
+			p.Match(SQLiteParserASSIGN)
+		}
+		{
+			p.SetState(1247)
+			p.Pragma_value()
+		}
+
+	case SQLiteParserOPEN_PAR:
+		{
+			p.SetState(1248)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(1249)
+			p.Pragma_value()
+		}
+		{
+			p.SetState(1250)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+
+	case SQLiteParserEOF, SQLiteParserSCOL, SQLiteParserALTER_, SQLiteParserANALYZE_, SQLiteParserATTACH_, SQLiteParserBEGIN_, SQLiteParserCOMMIT_, SQLiteParserCREATE_, SQLiteParserDEFAULT_, SQLiteParserDELETE_, SQLiteParserDETACH_, SQLiteParserDROP_, SQLiteParserEND_, SQLiteParserEXPLAIN_, SQLiteParserINSERT_, SQLiteParserPRAGMA_, SQLiteParserREINDEX_, SQLiteParserRELEASE_, SQLiteParserREPLACE_, SQLiteParserROLLBACK_, SQLiteParserSAVEPOINT_, SQLiteParserSELECT_, SQLiteParserUPDATE_, SQLiteParserVACUUM_, SQLiteParserVALUES_, SQLiteParserWITH_:
+
+	default:
+	}
+
+	return localctx
+}
+
+// IPragma_valueContext is an interface to support dynamic dispatch.
+type IPragma_valueContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsPragma_valueContext differentiates from other interfaces.
+	IsPragma_valueContext()
+}
+
+type Pragma_valueContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyPragma_valueContext() *Pragma_valueContext {
+	var p = new(Pragma_valueContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_pragma_value
+	return p
+}
+
+func (*Pragma_valueContext) IsPragma_valueContext() {}
+
+func NewPragma_valueContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Pragma_valueContext {
+	var p = new(Pragma_valueContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_pragma_value
+
+	return p
+}
+
+func (s *Pragma_valueContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Pragma_valueContext) Signed_number() ISigned_numberContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISigned_numberContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISigned_numberContext)
+}
+
+func (s *Pragma_valueContext) Name() INameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(INameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(INameContext)
+}
+
+func (s *Pragma_valueContext) STRING_LITERAL() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserSTRING_LITERAL, 0)
+}
+
+func (s *Pragma_valueContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Pragma_valueContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Pragma_valueContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterPragma_value(s)
+	}
+}
+
+func (s *Pragma_valueContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitPragma_value(s)
+	}
+}
+
+func (p *SQLiteParser) Pragma_value() (localctx IPragma_valueContext) {
+	this := p
+	_ = this
+
+	localctx = NewPragma_valueContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 78, SQLiteParserRULE_pragma_value)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(1257)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 167, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(1254)
+			p.Signed_number()
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(1255)
+			p.Name()
+		}
+
+	case 3:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(1256)
+			p.Match(SQLiteParserSTRING_LITERAL)
+		}
+
+	}
+
+	return localctx
+}
+
+// IReindex_stmtContext is an interface to support dynamic dispatch.
+type IReindex_stmtContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsReindex_stmtContext differentiates from other interfaces.
+	IsReindex_stmtContext()
+}
+
+type Reindex_stmtContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyReindex_stmtContext() *Reindex_stmtContext {
+	var p = new(Reindex_stmtContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_reindex_stmt
+	return p
+}
+
+func (*Reindex_stmtContext) IsReindex_stmtContext() {}
+
+func NewReindex_stmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Reindex_stmtContext {
+	var p = new(Reindex_stmtContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_reindex_stmt
+
+	return p
+}
+
+func (s *Reindex_stmtContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Reindex_stmtContext) REINDEX_() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserREINDEX_, 0)
+}
+
+func (s *Reindex_stmtContext) Collation_name() ICollation_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ICollation_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICollation_nameContext)
+}
+
+func (s *Reindex_stmtContext) Table_name() ITable_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITable_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITable_nameContext)
+}
+
+func (s *Reindex_stmtContext) Index_name() IIndex_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IIndex_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IIndex_nameContext)
+}
+
+func (s *Reindex_stmtContext) Schema_name() ISchema_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISchema_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISchema_nameContext)
+}
+
+func (s *Reindex_stmtContext) DOT() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserDOT, 0)
+}
+
+func (s *Reindex_stmtContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Reindex_stmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Reindex_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterReindex_stmt(s)
+	}
+}
+
+func (s *Reindex_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitReindex_stmt(s)
+	}
+}
+
+func (p *SQLiteParser) Reindex_stmt() (localctx IReindex_stmtContext) {
+	this := p
+	_ = this
+
+	localctx = NewReindex_stmtContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 80, SQLiteParserRULE_reindex_stmt)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(1259)
+		p.Match(SQLiteParserREINDEX_)
+	}
+	p.SetState(1270)
+	p.GetErrorHandler().Sync(p)
+
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 170, p.GetParserRuleContext()) == 1 {
+		{
+			p.SetState(1260)
+			p.Collation_name()
+		}
+
+	} else if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 170, p.GetParserRuleContext()) == 2 {
+		p.SetState(1264)
+		p.GetErrorHandler().Sync(p)
+
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 168, p.GetParserRuleContext()) == 1 {
+			{
+				p.SetState(1261)
+				p.Schema_name()
+			}
+			{
+				p.SetState(1262)
+				p.Match(SQLiteParserDOT)
+			}
+
+		}
+		p.SetState(1268)
+		p.GetErrorHandler().Sync(p)
+		switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 169, p.GetParserRuleContext()) {
+		case 1:
+			{
+				p.SetState(1266)
+				p.Table_name()
+			}
+
+		case 2:
+			{
+				p.SetState(1267)
+				p.Index_name()
+			}
+
+		}
+
+	}
+
+	return localctx
+}
+
+// ISelect_stmtContext is an interface to support dynamic dispatch.
+type ISelect_stmtContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsSelect_stmtContext differentiates from other interfaces.
+	IsSelect_stmtContext()
+}
+
+type Select_stmtContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptySelect_stmtContext() *Select_stmtContext {
+	var p = new(Select_stmtContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_select_stmt
+	return p
+}
+
+func (*Select_stmtContext) IsSelect_stmtContext() {}
+
+func NewSelect_stmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Select_stmtContext {
+	var p = new(Select_stmtContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_select_stmt
+
+	return p
+}
+
+func (s *Select_stmtContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Select_stmtContext) AllSelect_core() []ISelect_coreContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(ISelect_coreContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]ISelect_coreContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(ISelect_coreContext); ok {
+			tst[i] = t.(ISelect_coreContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Select_stmtContext) Select_core(i int) ISelect_coreContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISelect_coreContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISelect_coreContext)
+}
+
+func (s *Select_stmtContext) Common_table_stmt() ICommon_table_stmtContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ICommon_table_stmtContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICommon_table_stmtContext)
+}
+
+func (s *Select_stmtContext) AllCompound_operator() []ICompound_operatorContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(ICompound_operatorContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]ICompound_operatorContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(ICompound_operatorContext); ok {
+			tst[i] = t.(ICompound_operatorContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *Select_stmtContext) Compound_operator(i int) ICompound_operatorContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ICompound_operatorContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICompound_operatorContext)
+}
+
+func (s *Select_stmtContext) Order_by_stmt() IOrder_by_stmtContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IOrder_by_stmtContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IOrder_by_stmtContext)
+}
+
+func (s *Select_stmtContext) Limit_stmt() ILimit_stmtContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILimit_stmtContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ILimit_stmtContext)
+}
+
+func (s *Select_stmtContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Select_stmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Select_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterSelect_stmt(s)
+	}
+}
+
+func (s *Select_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitSelect_stmt(s)
+	}
+}
+
+func (p *SQLiteParser) Select_stmt() (localctx ISelect_stmtContext) {
+	this := p
+	_ = this
+
+	localctx = NewSelect_stmtContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 82, SQLiteParserRULE_select_stmt)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	var _alt int
+
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(1273)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == SQLiteParserWITH_ {
+		{
+			p.SetState(1272)
+			p.Common_table_stmt()
+		}
+
+	}
+	{
+		p.SetState(1275)
+		p.Select_core()
+	}
+	p.SetState(1281)
+	p.GetErrorHandler().Sync(p)
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 172, p.GetParserRuleContext())
+
+	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
+		if _alt == 1 {
+			{
+				p.SetState(1276)
+				p.Compound_operator()
+			}
+			{
+				p.SetState(1277)
+				p.Select_core()
+			}
+
+		}
+		p.SetState(1283)
+		p.GetErrorHandler().Sync(p)
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 172, p.GetParserRuleContext())
+	}
+	p.SetState(1285)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == SQLiteParserORDER_ {
+		{
+			p.SetState(1284)
+			p.Order_by_stmt()
+		}
+
+	}
+	p.SetState(1288)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == SQLiteParserLIMIT_ {
+		{
+			p.SetState(1287)
+			p.Limit_stmt()
+		}
