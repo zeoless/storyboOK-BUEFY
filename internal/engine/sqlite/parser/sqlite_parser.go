@@ -26585,3 +26585,1637 @@ func (p *SQLiteParser) Trigger_name() (localctx ITrigger_nameContext) {
 	defer func() {
 		if err := recover(); err != nil {
 			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2043)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IView_nameContext is an interface to support dynamic dispatch.
+type IView_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsView_nameContext differentiates from other interfaces.
+	IsView_nameContext()
+}
+
+type View_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyView_nameContext() *View_nameContext {
+	var p = new(View_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_view_name
+	return p
+}
+
+func (*View_nameContext) IsView_nameContext() {}
+
+func NewView_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *View_nameContext {
+	var p = new(View_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_view_name
+
+	return p
+}
+
+func (s *View_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *View_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *View_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *View_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *View_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterView_name(s)
+	}
+}
+
+func (s *View_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitView_name(s)
+	}
+}
+
+func (p *SQLiteParser) View_name() (localctx IView_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewView_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 196, SQLiteParserRULE_view_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2045)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IModule_nameContext is an interface to support dynamic dispatch.
+type IModule_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsModule_nameContext differentiates from other interfaces.
+	IsModule_nameContext()
+}
+
+type Module_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyModule_nameContext() *Module_nameContext {
+	var p = new(Module_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_module_name
+	return p
+}
+
+func (*Module_nameContext) IsModule_nameContext() {}
+
+func NewModule_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Module_nameContext {
+	var p = new(Module_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_module_name
+
+	return p
+}
+
+func (s *Module_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Module_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Module_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Module_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Module_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterModule_name(s)
+	}
+}
+
+func (s *Module_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitModule_name(s)
+	}
+}
+
+func (p *SQLiteParser) Module_name() (localctx IModule_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewModule_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 198, SQLiteParserRULE_module_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2047)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IPragma_nameContext is an interface to support dynamic dispatch.
+type IPragma_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsPragma_nameContext differentiates from other interfaces.
+	IsPragma_nameContext()
+}
+
+type Pragma_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyPragma_nameContext() *Pragma_nameContext {
+	var p = new(Pragma_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_pragma_name
+	return p
+}
+
+func (*Pragma_nameContext) IsPragma_nameContext() {}
+
+func NewPragma_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Pragma_nameContext {
+	var p = new(Pragma_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_pragma_name
+
+	return p
+}
+
+func (s *Pragma_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Pragma_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Pragma_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Pragma_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Pragma_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterPragma_name(s)
+	}
+}
+
+func (s *Pragma_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitPragma_name(s)
+	}
+}
+
+func (p *SQLiteParser) Pragma_name() (localctx IPragma_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewPragma_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 200, SQLiteParserRULE_pragma_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2049)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// ISavepoint_nameContext is an interface to support dynamic dispatch.
+type ISavepoint_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsSavepoint_nameContext differentiates from other interfaces.
+	IsSavepoint_nameContext()
+}
+
+type Savepoint_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptySavepoint_nameContext() *Savepoint_nameContext {
+	var p = new(Savepoint_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_savepoint_name
+	return p
+}
+
+func (*Savepoint_nameContext) IsSavepoint_nameContext() {}
+
+func NewSavepoint_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Savepoint_nameContext {
+	var p = new(Savepoint_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_savepoint_name
+
+	return p
+}
+
+func (s *Savepoint_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Savepoint_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Savepoint_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Savepoint_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Savepoint_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterSavepoint_name(s)
+	}
+}
+
+func (s *Savepoint_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitSavepoint_name(s)
+	}
+}
+
+func (p *SQLiteParser) Savepoint_name() (localctx ISavepoint_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewSavepoint_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 202, SQLiteParserRULE_savepoint_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2051)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// ITable_aliasContext is an interface to support dynamic dispatch.
+type ITable_aliasContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsTable_aliasContext differentiates from other interfaces.
+	IsTable_aliasContext()
+}
+
+type Table_aliasContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyTable_aliasContext() *Table_aliasContext {
+	var p = new(Table_aliasContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_table_alias
+	return p
+}
+
+func (*Table_aliasContext) IsTable_aliasContext() {}
+
+func NewTable_aliasContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Table_aliasContext {
+	var p = new(Table_aliasContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_table_alias
+
+	return p
+}
+
+func (s *Table_aliasContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Table_aliasContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Table_aliasContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Table_aliasContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Table_aliasContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterTable_alias(s)
+	}
+}
+
+func (s *Table_aliasContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitTable_alias(s)
+	}
+}
+
+func (p *SQLiteParser) Table_alias() (localctx ITable_aliasContext) {
+	this := p
+	_ = this
+
+	localctx = NewTable_aliasContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 204, SQLiteParserRULE_table_alias)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2053)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// ITransaction_nameContext is an interface to support dynamic dispatch.
+type ITransaction_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsTransaction_nameContext differentiates from other interfaces.
+	IsTransaction_nameContext()
+}
+
+type Transaction_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyTransaction_nameContext() *Transaction_nameContext {
+	var p = new(Transaction_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_transaction_name
+	return p
+}
+
+func (*Transaction_nameContext) IsTransaction_nameContext() {}
+
+func NewTransaction_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Transaction_nameContext {
+	var p = new(Transaction_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_transaction_name
+
+	return p
+}
+
+func (s *Transaction_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Transaction_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Transaction_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Transaction_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Transaction_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterTransaction_name(s)
+	}
+}
+
+func (s *Transaction_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitTransaction_name(s)
+	}
+}
+
+func (p *SQLiteParser) Transaction_name() (localctx ITransaction_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewTransaction_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 206, SQLiteParserRULE_transaction_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2055)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IWindow_nameContext is an interface to support dynamic dispatch.
+type IWindow_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsWindow_nameContext differentiates from other interfaces.
+	IsWindow_nameContext()
+}
+
+type Window_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyWindow_nameContext() *Window_nameContext {
+	var p = new(Window_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_window_name
+	return p
+}
+
+func (*Window_nameContext) IsWindow_nameContext() {}
+
+func NewWindow_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Window_nameContext {
+	var p = new(Window_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_window_name
+
+	return p
+}
+
+func (s *Window_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Window_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Window_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Window_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Window_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterWindow_name(s)
+	}
+}
+
+func (s *Window_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitWindow_name(s)
+	}
+}
+
+func (p *SQLiteParser) Window_name() (localctx IWindow_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewWindow_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 208, SQLiteParserRULE_window_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2057)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IAliasContext is an interface to support dynamic dispatch.
+type IAliasContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsAliasContext differentiates from other interfaces.
+	IsAliasContext()
+}
+
+type AliasContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyAliasContext() *AliasContext {
+	var p = new(AliasContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_alias
+	return p
+}
+
+func (*AliasContext) IsAliasContext() {}
+
+func NewAliasContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *AliasContext {
+	var p = new(AliasContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_alias
+
+	return p
+}
+
+func (s *AliasContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *AliasContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *AliasContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *AliasContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *AliasContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterAlias(s)
+	}
+}
+
+func (s *AliasContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitAlias(s)
+	}
+}
+
+func (p *SQLiteParser) Alias() (localctx IAliasContext) {
+	this := p
+	_ = this
+
+	localctx = NewAliasContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 210, SQLiteParserRULE_alias)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2059)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IFilenameContext is an interface to support dynamic dispatch.
+type IFilenameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsFilenameContext differentiates from other interfaces.
+	IsFilenameContext()
+}
+
+type FilenameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFilenameContext() *FilenameContext {
+	var p = new(FilenameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_filename
+	return p
+}
+
+func (*FilenameContext) IsFilenameContext() {}
+
+func NewFilenameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FilenameContext {
+	var p = new(FilenameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_filename
+
+	return p
+}
+
+func (s *FilenameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *FilenameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *FilenameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FilenameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *FilenameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterFilename(s)
+	}
+}
+
+func (s *FilenameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitFilename(s)
+	}
+}
+
+func (p *SQLiteParser) Filename() (localctx IFilenameContext) {
+	this := p
+	_ = this
+
+	localctx = NewFilenameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 212, SQLiteParserRULE_filename)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2061)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IBase_window_nameContext is an interface to support dynamic dispatch.
+type IBase_window_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsBase_window_nameContext differentiates from other interfaces.
+	IsBase_window_nameContext()
+}
+
+type Base_window_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyBase_window_nameContext() *Base_window_nameContext {
+	var p = new(Base_window_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_base_window_name
+	return p
+}
+
+func (*Base_window_nameContext) IsBase_window_nameContext() {}
+
+func NewBase_window_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Base_window_nameContext {
+	var p = new(Base_window_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_base_window_name
+
+	return p
+}
+
+func (s *Base_window_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Base_window_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Base_window_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Base_window_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Base_window_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterBase_window_name(s)
+	}
+}
+
+func (s *Base_window_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitBase_window_name(s)
+	}
+}
+
+func (p *SQLiteParser) Base_window_name() (localctx IBase_window_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewBase_window_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 214, SQLiteParserRULE_base_window_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2063)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// ISimple_funcContext is an interface to support dynamic dispatch.
+type ISimple_funcContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsSimple_funcContext differentiates from other interfaces.
+	IsSimple_funcContext()
+}
+
+type Simple_funcContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptySimple_funcContext() *Simple_funcContext {
+	var p = new(Simple_funcContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_simple_func
+	return p
+}
+
+func (*Simple_funcContext) IsSimple_funcContext() {}
+
+func NewSimple_funcContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Simple_funcContext {
+	var p = new(Simple_funcContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_simple_func
+
+	return p
+}
+
+func (s *Simple_funcContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Simple_funcContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Simple_funcContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Simple_funcContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Simple_funcContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterSimple_func(s)
+	}
+}
+
+func (s *Simple_funcContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitSimple_func(s)
+	}
+}
+
+func (p *SQLiteParser) Simple_func() (localctx ISimple_funcContext) {
+	this := p
+	_ = this
+
+	localctx = NewSimple_funcContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 216, SQLiteParserRULE_simple_func)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2065)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IAggregate_funcContext is an interface to support dynamic dispatch.
+type IAggregate_funcContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsAggregate_funcContext differentiates from other interfaces.
+	IsAggregate_funcContext()
+}
+
+type Aggregate_funcContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyAggregate_funcContext() *Aggregate_funcContext {
+	var p = new(Aggregate_funcContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_aggregate_func
+	return p
+}
+
+func (*Aggregate_funcContext) IsAggregate_funcContext() {}
+
+func NewAggregate_funcContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Aggregate_funcContext {
+	var p = new(Aggregate_funcContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_aggregate_func
+
+	return p
+}
+
+func (s *Aggregate_funcContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Aggregate_funcContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Aggregate_funcContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Aggregate_funcContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Aggregate_funcContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterAggregate_func(s)
+	}
+}
+
+func (s *Aggregate_funcContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitAggregate_func(s)
+	}
+}
+
+func (p *SQLiteParser) Aggregate_func() (localctx IAggregate_funcContext) {
+	this := p
+	_ = this
+
+	localctx = NewAggregate_funcContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 218, SQLiteParserRULE_aggregate_func)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2067)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// ITable_function_nameContext is an interface to support dynamic dispatch.
+type ITable_function_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsTable_function_nameContext differentiates from other interfaces.
+	IsTable_function_nameContext()
+}
+
+type Table_function_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyTable_function_nameContext() *Table_function_nameContext {
+	var p = new(Table_function_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_table_function_name
+	return p
+}
+
+func (*Table_function_nameContext) IsTable_function_nameContext() {}
+
+func NewTable_function_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Table_function_nameContext {
+	var p = new(Table_function_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_table_function_name
+
+	return p
+}
+
+func (s *Table_function_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Table_function_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Table_function_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Table_function_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Table_function_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterTable_function_name(s)
+	}
+}
+
+func (s *Table_function_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitTable_function_name(s)
+	}
+}
+
+func (p *SQLiteParser) Table_function_name() (localctx ITable_function_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewTable_function_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 220, SQLiteParserRULE_table_function_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(2069)
+		p.Any_name()
+	}
+
+	return localctx
+}
+
+// IAny_nameContext is an interface to support dynamic dispatch.
+type IAny_nameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsAny_nameContext differentiates from other interfaces.
+	IsAny_nameContext()
+}
+
+type Any_nameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyAny_nameContext() *Any_nameContext {
+	var p = new(Any_nameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = SQLiteParserRULE_any_name
+	return p
+}
+
+func (*Any_nameContext) IsAny_nameContext() {}
+
+func NewAny_nameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Any_nameContext {
+	var p = new(Any_nameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = SQLiteParserRULE_any_name
+
+	return p
+}
+
+func (s *Any_nameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Any_nameContext) IDENTIFIER() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserIDENTIFIER, 0)
+}
+
+func (s *Any_nameContext) Keyword() IKeywordContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IKeywordContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IKeywordContext)
+}
+
+func (s *Any_nameContext) STRING_LITERAL() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserSTRING_LITERAL, 0)
+}
+
+func (s *Any_nameContext) OPEN_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserOPEN_PAR, 0)
+}
+
+func (s *Any_nameContext) Any_name() IAny_nameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IAny_nameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAny_nameContext)
+}
+
+func (s *Any_nameContext) CLOSE_PAR() antlr.TerminalNode {
+	return s.GetToken(SQLiteParserCLOSE_PAR, 0)
+}
+
+func (s *Any_nameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Any_nameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Any_nameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.EnterAny_name(s)
+	}
+}
+
+func (s *Any_nameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SQLiteParserListener); ok {
+		listenerT.ExitAny_name(s)
+	}
+}
+
+func (p *SQLiteParser) Any_name() (localctx IAny_nameContext) {
+	this := p
+	_ = this
+
+	localctx = NewAny_nameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 222, SQLiteParserRULE_any_name)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(2078)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case SQLiteParserIDENTIFIER:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(2071)
+			p.Match(SQLiteParserIDENTIFIER)
+		}
+
+	case SQLiteParserABORT_, SQLiteParserACTION_, SQLiteParserADD_, SQLiteParserAFTER_, SQLiteParserALL_, SQLiteParserALTER_, SQLiteParserANALYZE_, SQLiteParserAND_, SQLiteParserAS_, SQLiteParserASC_, SQLiteParserATTACH_, SQLiteParserAUTOINCREMENT_, SQLiteParserBEFORE_, SQLiteParserBEGIN_, SQLiteParserBETWEEN_, SQLiteParserBY_, SQLiteParserCASCADE_, SQLiteParserCASE_, SQLiteParserCAST_, SQLiteParserCHECK_, SQLiteParserCOLLATE_, SQLiteParserCOLUMN_, SQLiteParserCOMMIT_, SQLiteParserCONFLICT_, SQLiteParserCONSTRAINT_, SQLiteParserCREATE_, SQLiteParserCROSS_, SQLiteParserCURRENT_DATE_, SQLiteParserCURRENT_TIME_, SQLiteParserCURRENT_TIMESTAMP_, SQLiteParserDATABASE_, SQLiteParserDEFAULT_, SQLiteParserDEFERRABLE_, SQLiteParserDEFERRED_, SQLiteParserDELETE_, SQLiteParserDESC_, SQLiteParserDETACH_, SQLiteParserDISTINCT_, SQLiteParserDROP_, SQLiteParserEACH_, SQLiteParserELSE_, SQLiteParserEND_, SQLiteParserESCAPE_, SQLiteParserEXCEPT_, SQLiteParserEXCLUSIVE_, SQLiteParserEXISTS_, SQLiteParserEXPLAIN_, SQLiteParserFAIL_, SQLiteParserFOR_, SQLiteParserFOREIGN_, SQLiteParserFROM_, SQLiteParserFULL_, SQLiteParserGLOB_, SQLiteParserGROUP_, SQLiteParserHAVING_, SQLiteParserIF_, SQLiteParserIGNORE_, SQLiteParserIMMEDIATE_, SQLiteParserIN_, SQLiteParserINDEX_, SQLiteParserINDEXED_, SQLiteParserINITIALLY_, SQLiteParserINNER_, SQLiteParserINSERT_, SQLiteParserINSTEAD_, SQLiteParserINTERSECT_, SQLiteParserINTO_, SQLiteParserIS_, SQLiteParserISNULL_, SQLiteParserJOIN_, SQLiteParserKEY_, SQLiteParserLEFT_, SQLiteParserLIKE_, SQLiteParserLIMIT_, SQLiteParserMATCH_, SQLiteParserNATURAL_, SQLiteParserNO_, SQLiteParserNOT_, SQLiteParserNOTNULL_, SQLiteParserNULL_, SQLiteParserOF_, SQLiteParserOFFSET_, SQLiteParserON_, SQLiteParserOR_, SQLiteParserORDER_, SQLiteParserOUTER_, SQLiteParserPLAN_, SQLiteParserPRAGMA_, SQLiteParserPRIMARY_, SQLiteParserQUERY_, SQLiteParserRAISE_, SQLiteParserRECURSIVE_, SQLiteParserREFERENCES_, SQLiteParserREGEXP_, SQLiteParserREINDEX_, SQLiteParserRELEASE_, SQLiteParserRENAME_, SQLiteParserREPLACE_, SQLiteParserRESTRICT_, SQLiteParserRETURNING_, SQLiteParserRIGHT_, SQLiteParserROLLBACK_, SQLiteParserROW_, SQLiteParserROWS_, SQLiteParserSAVEPOINT_, SQLiteParserSELECT_, SQLiteParserSET_, SQLiteParserTABLE_, SQLiteParserTEMP_, SQLiteParserTEMPORARY_, SQLiteParserTHEN_, SQLiteParserTO_, SQLiteParserTRANSACTION_, SQLiteParserTRIGGER_, SQLiteParserUNION_, SQLiteParserUNIQUE_, SQLiteParserUPDATE_, SQLiteParserUSING_, SQLiteParserVACUUM_, SQLiteParserVALUES_, SQLiteParserVIEW_, SQLiteParserVIRTUAL_, SQLiteParserWHEN_, SQLiteParserWHERE_, SQLiteParserWITH_, SQLiteParserWITHOUT_, SQLiteParserFIRST_VALUE_, SQLiteParserOVER_, SQLiteParserPARTITION_, SQLiteParserRANGE_, SQLiteParserPRECEDING_, SQLiteParserUNBOUNDED_, SQLiteParserCURRENT_, SQLiteParserFOLLOWING_, SQLiteParserCUME_DIST_, SQLiteParserDENSE_RANK_, SQLiteParserLAG_, SQLiteParserLAST_VALUE_, SQLiteParserLEAD_, SQLiteParserNTH_VALUE_, SQLiteParserNTILE_, SQLiteParserPERCENT_RANK_, SQLiteParserRANK_, SQLiteParserROW_NUMBER_, SQLiteParserGENERATED_, SQLiteParserALWAYS_, SQLiteParserSTORED_, SQLiteParserTRUE_, SQLiteParserFALSE_, SQLiteParserWINDOW_, SQLiteParserNULLS_, SQLiteParserFIRST_, SQLiteParserLAST_, SQLiteParserFILTER_, SQLiteParserGROUPS_, SQLiteParserEXCLUDE_:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(2072)
+			p.Keyword()
+		}
+
+	case SQLiteParserSTRING_LITERAL:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(2073)
+			p.Match(SQLiteParserSTRING_LITERAL)
+		}
+
+	case SQLiteParserOPEN_PAR:
+		p.EnterOuterAlt(localctx, 4)
+		{
+			p.SetState(2074)
+			p.Match(SQLiteParserOPEN_PAR)
+		}
+		{
+			p.SetState(2075)
+			p.Any_name()
+		}
+		{
+			p.SetState(2076)
+			p.Match(SQLiteParserCLOSE_PAR)
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+
+	return localctx
+}
+
+func (p *SQLiteParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
+	switch ruleIndex {
+	case 33:
+		var t *ExprContext = nil
+		if localctx != nil {
+			t = localctx.(*ExprContext)
+		}
+		return p.Expr_Sempred(t, predIndex)
+
+	default:
+		panic("No predicate with index: " + fmt.Sprint(ruleIndex))
+	}
+}
+
+func (p *SQLiteParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
+	this := p
+	_ = this
+
+	switch predIndex {
+	case 0:
+		return p.Precpred(p.GetParserRuleContext(), 19)
+
+	case 1:
+		return p.Precpred(p.GetParserRuleContext(), 18)
+
+	case 2:
+		return p.Precpred(p.GetParserRuleContext(), 17)
+
+	case 3:
+		return p.Precpred(p.GetParserRuleContext(), 16)
+
+	case 4:
+		return p.Precpred(p.GetParserRuleContext(), 15)
+
+	case 5:
+		return p.Precpred(p.GetParserRuleContext(), 14)
+
+	case 6:
+		return p.Precpred(p.GetParserRuleContext(), 13)
+
+	case 7:
+		return p.Precpred(p.GetParserRuleContext(), 12)
+
+	case 8:
+		return p.Precpred(p.GetParserRuleContext(), 5)
+
+	case 9:
+		return p.Precpred(p.GetParserRuleContext(), 8)
+
+	case 10:
+		return p.Precpred(p.GetParserRuleContext(), 7)
+
+	case 11:
+		return p.Precpred(p.GetParserRuleContext(), 6)
+
+	case 12:
+		return p.Precpred(p.GetParserRuleContext(), 4)
+
+	default:
+		panic("No predicate with index: " + fmt.Sprint(predIndex))
+	}
+}
