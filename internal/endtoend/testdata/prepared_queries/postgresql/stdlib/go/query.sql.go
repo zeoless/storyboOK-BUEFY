@@ -89,3 +89,17 @@ func (q *Queries) ListUsers(ctx context.Context) ([]ListUsersRow, error) {
 	defer rows.Close()
 	var items []ListUsersRow
 	for rows.Next() {
+		var i ListUsersRow
+		if err := rows.Scan(&i.FirstName, &i.LastName); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
