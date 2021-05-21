@@ -8,16 +8,7 @@ import (
 	"database/sql"
 )
 
-type FirstView struct {
-	Val string
-}
-
 type Foo struct {
-	Val  string
-	Val2 sql.NullInt64
-}
-
-type SecondView struct {
-	Val  string
-	Val2 sql.NullInt64
+	A sql.NullString
+	B sql.NullString
 }
