@@ -20,4 +20,11 @@ CREATE TABLE test_table
     v_tstzmultirange      tstzmultirange not null,
     v_numrange            numrange       not null,
     v_nummultirange       nummultirange  not null,
-  
+    v_int4range           int4range      not null,
+    v_int4multirange      int4multirange not null,
+    v_int8range           int8range      not null,
+    v_int8multirange      int8multirange not null
+);
+
+-- name: SelectTest :many
+SELECT * from test_table;
