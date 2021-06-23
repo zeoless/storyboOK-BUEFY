@@ -81,4 +81,32 @@ There's a ton of different views for the trace output, but here's an example
 log showing the execution time for each package.
 
 ```
-0.000043897 	 .         	1 	tas
+0.000043897 	 .         	1 	task sqlc (id 1, parent 0) created
+0.000144923 	 .   101026 	1 	region generate started (duration: 47.619781ms)
+0.001048975 	 .   904052 	1 	region package started (duration: 14.588456ms)
+0.001054616 	 .     5641 	1 	name=authors dir=/Users/kyle/projects/sqlc/examples/python language=python
+0.001071257 	 .    16641 	1 	region parse started (duration: 7.966549ms)
+0.009043960 	 .  7972703 	1 	region codegen started (duration: 6.587086ms)
+0.009171704 	 .   127744 	1 	new goroutine 35: text/template/parse.lex·dwrap·1
+0.010361654 	 .  1189950 	1 	new goroutine 36: text/template/parse.lex·dwrap·1
+0.015641815 	 .  5280161 	1 	region package started (duration: 10.904938ms)
+0.015644943 	 .     3128 	1 	name=booktest dir=/Users/kyle/projects/sqlc/examples/python language=python
+0.015647431 	 .     2488 	1 	region parse started (duration: 4.207749ms)
+0.019860308 	 .  4212877 	1 	region codegen started (duration: 6.681624ms)
+0.020028488 	 .   168180 	1 	new goroutine 37: text/template/parse.lex·dwrap·1
+0.021020310 	 .   991822 	1 	new goroutine 8: text/template/parse.lex·dwrap·1
+0.026551163 	 .  5530853 	1 	region package started (duration: 9.217294ms)
+0.026554368 	 .     3205 	1 	name=jets dir=/Users/kyle/projects/sqlc/examples/python language=python
+0.026556804 	 .     2436 	1 	region parse started (duration: 3.491005ms)
+0.030051911 	 .  3495107 	1 	region codegen started (duration: 5.711931ms)
+0.030213937 	 .   162026 	1 	new goroutine 20: text/template/parse.lex·dwrap·1
+0.031099938 	 .   886001 	1 	new goroutine 38: text/template/parse.lex·dwrap·1
+0.035772637 	 .  4672699 	1 	region package started (duration: 10.267039ms)
+0.035775688 	 .     3051 	1 	name=ondeck dir=/Users/kyle/projects/sqlc/examples/python language=python
+0.035778150 	 .     2462 	1 	region parse started (duration: 4.094518ms)
+0.039877181 	 .  4099031 	1 	region codegen started (duration: 6.156341ms)
+0.040010771 	 .   133590 	1 	new goroutine 39: text/template/parse.lex·dwrap·1
+0.040894567 	 .   883796 	1 	new goroutine 40: text/template/parse.lex·dwrap·1
+0.046042779 	 .  5148212 	1 	region writefiles started (duration: 1.718259ms)
+0.047767781 	 .  1725002 	1 	task end
+```
