@@ -78,4 +78,34 @@ func scanRelations(rows pgx.Rows) ([]Relation, error) {
 		}
 
 		if prevRel == nil || tableName != prevRel.Name {
-			// We are on the same table, just keep 
+			// We are on the same table, just keep adding columns
+			r := Relation{
+				Catalog:    "pg_catalog",
+				SchemaName: schemaName,
+				Name:       tableName,
+			}
+
+			relations = append(relations, r)
+			prevRel = &relations[len(relations)-1]
+		}
+
+		prevRel.Columns = append(prevRel.Columns, RelationColumn{
+			Name:      columnName,
+			Type:      columnType,
+			IsNotNull: columnNotNull,
+			IsArray:   columnIsArray,
+			Length:    columnLength,
+		})
+	}
+
+	return relations, rows.Err()
+}
+
+func readRelations(ctx context.Context, conn *pgx.Conn, schemaName string) ([]Relation, error) {
+	rows, err := conn.Query(ctx, relationQuery, schemaName)
+	if err != nil {
+		return nil, err
+	}
+
+	return scanRelations(rows)
+}
