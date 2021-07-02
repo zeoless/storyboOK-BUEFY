@@ -7,5 +7,10 @@ package querytest
 import ()
 
 type Bar struct {
-	ID int32
+	ID    int32
+	Owner string
+}
+
+type Foo struct {
+	Barid int32
 }

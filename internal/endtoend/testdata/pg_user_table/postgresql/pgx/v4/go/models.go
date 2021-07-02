@@ -6,6 +6,6 @@ package querytest
 
 import ()
 
-type Bar struct {
-	ID int32
+type User struct {
+	ID int64
 }
