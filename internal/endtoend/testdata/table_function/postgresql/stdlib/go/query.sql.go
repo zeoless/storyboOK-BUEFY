@@ -39,4 +39,21 @@ func (q *Queries) GetTransaction(ctx context.Context, arg GetTransactionParams) 
 	rows, err := q.db.QueryContext(ctx, getTransaction, arg.ProgramID, arg.Data, arg.Limit)
 	if err != nil {
 		return nil, err
-	
+	}
+	defer rows.Close()
+	var items []GetTransactionRow
+	for rows.Next() {
+		var i GetTransactionRow
+		if err := rows.Scan(&i.JsonExtract, &i.JsonGroupArray); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
