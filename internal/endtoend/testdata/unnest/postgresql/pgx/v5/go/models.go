@@ -5,4 +5,12 @@
 package querytest
 
 import (
-	"github.com/jackc/pgx
+	"github.com/jackc/pgx/v5/pgtype"
+)
+
+type Memory struct {
+	ID        pgtype.UUID
+	VampireID pgtype.UUID
+	CreatedAt pgtype.Timestamp
+	UpdatedAt pgtype.Timestamp
+}
