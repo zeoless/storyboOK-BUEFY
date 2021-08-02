@@ -184,4 +184,27 @@ func TestMutateErrorMulti(t *testing.T) {
 	}
 
 	tests := []test{
-		// These edits overlap each other, and are therefore undefine
+		// These edits overlap each other, and are therefore undefined
+		{"abcdef", newEdit(0, "a", ""), newEdit(0, "a", "A")},
+		{"abcdef", newEdit(0, "ab", ""), newEdit(1, "ab", "AB")},
+		{"abcdef", newEdit(0, "abc", ""), newEdit(2, "abc", "ABC")},
+
+		// the last edit is longer than the string itself
+		{"abcdef", newEdit(0, "abcdefghi", ""), newEdit(2, "abc", "ABC")},
+
+		// negative indexes
+		{"abcdef", newEdit(-1, "abc", ""), newEdit(3, "abc", "ABC")},
+		{"abcdef", newEdit(0, "abc", ""), newEdit(-1, "abc", "ABC")},
+	}
+
+	for _, spec := range tests {
+		actual, err := Mutate(spec.input, []Edit{spec.edit1, spec.edit2})
+		testName := fmt.Sprintf("Mutate(%s, Edits{(%v, %v -> %v), (%v, %v -> %v)})", spec.input,
+			spec.edit1.Location, spec.edit1.Old, spec.edit1.New,
+			spec.edit2.Location, spec.edit2.Old, spec.edit2.New)
+
+		if err == nil {
+			t.Errorf("%s should error, but got (%v)", testName, actual)
+		}
+	}
+}
