@@ -9,28 +9,23 @@ import (
 	"context"
 )
 
-const math = `-- name: Math :many
-SELECT num, num / 1024 as division FROM foo
+const getFirst = `-- name: GetFirst :many
+SELECT val FROM second_table
 `
 
-type MathRow struct {
-	Num      int32
-	Division int32
-}
-
-func (q *Queries) Math(ctx context.Context) ([]MathRow, error) {
-	rows, err := q.db.QueryContext(ctx, math)
+func (q *Queries) GetFirst(ctx context.Context) ([]string, error) {
+	rows, err := q.db.QueryContext(ctx, getFirst)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var items []MathRow
+	var items []string
 	for rows.Next() {
-		var i MathRow
-		if err := rows.Scan(&i.Num, &i.Division); err != nil {
+		var val string
+		if err := rows.Scan(&val); err != nil {
 			return nil, err
 		}
-		items = append(items, i)
+		items = append(items, val)
 	}
 	if err := rows.Close(); err != nil {
 		return nil, err
