@@ -123,4 +123,5 @@ func (b *InsertValuesBatchResults) QueryRow(f func(int, pgtype.Text, error)) {
 
 func (b *InsertValuesBatchResults) Close() error {
 	b.closed = true
-	return 
+	return b.br.Close()
+}
