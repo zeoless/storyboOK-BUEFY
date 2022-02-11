@@ -45,4 +45,16 @@ func (ns *NullFooMood) Scan(value interface{}) error {
 	return ns.FooMood.Scan(value)
 }
 
-// Valu
+// Value implements the driver Valuer interface.
+func (ns NullFooMood) Value() (driver.Value, error) {
+	if !ns.Valid {
+		return nil, nil
+	}
+	return string(ns.FooMood), nil
+}
+
+// this is the bar table
+type FooBar struct {
+	// this is the baz column
+	Baz string
+}
