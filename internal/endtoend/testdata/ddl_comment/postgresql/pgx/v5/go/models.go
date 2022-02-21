@@ -50,4 +50,11 @@ func (ns NullFooBat) Value() (driver.Value, error) {
 	if !ns.Valid {
 		return nil, nil
 	}
-	return string(ns.FooBat
+	return string(ns.FooBat), nil
+}
+
+// Table comment
+type FooBar struct {
+	// Column comment
+	Baz pgtype.Text
+}
