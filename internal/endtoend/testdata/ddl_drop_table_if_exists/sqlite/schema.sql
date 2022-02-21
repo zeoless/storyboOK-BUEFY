@@ -1,0 +1,4 @@
+
+CREATE TABLE venues (hi text);
+DROP TABLE IF EXISTS venues;
+DROP TABLE IF EXISTS venues;
