@@ -21,4 +21,7 @@ DELETE FROM users
   WHERE name = $1
   RETURNING id;
 
--- name: DeleteUserAnd
+-- name: DeleteUserAndReturnUser :one
+DELETE FROM users
+  WHERE name = $1
+  RETURNING *;
