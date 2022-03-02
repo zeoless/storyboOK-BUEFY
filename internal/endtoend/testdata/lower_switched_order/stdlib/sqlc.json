@@ -3,9 +3,8 @@
   "packages": [
     {
       "path": "go",
-      "engine": "postgresql",
       "name": "querytest",
-      "schema": "schema.sql",
+      "schema": "query.sql",
       "queries": "query.sql"
     }
   ]
