@@ -16,4 +16,9 @@ SELECT DATE_ADD('2100-12-31 23:59:59',
                 INTERVAL '1:1' MINUTE_SECOND);
 
 -- name: DateAddDayHour :one
-SELECT DATE_
+SELECT DATE_ADD('1900-01-01 00:00:00',
+                INTERVAL '-1 10' DAY_HOUR);
+
+-- name: DateAddSecondMicrosecond :one
+SELECT DATE_ADD('1992-12-31 23:59:59.000002',
+           INTERVAL '1.999999' SECOND_MICROSECOND);
