@@ -29,4 +29,8 @@ CREATE TABLE dt_numeric_not_null (
     g double precision NOT NULL,
     h smallserial NOT NULL,
     i serial NOT NULL,
-    j 
+    j bigserial NOT NULL,
+    k int2 NOT NULL,
+    l int4 NOT NULL,
+    m int8 NOT NULL
+);
