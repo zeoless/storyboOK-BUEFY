@@ -15,4 +15,4 @@ type Querier interface {
 	GetOne(ctx context.Context, arg *GetOneParams) (*Foo, error)
 }
 
-var _ Que
+var _ Querier = (*Queries)(nil)
