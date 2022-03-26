@@ -7,15 +7,14 @@ package querytest
 import (
 	"context"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
+	"github.com/jackc/pgconn"
+	"github.com/jackc/pgx/v4"
 )
 
 type DBTX interface {
 	Exec(context.Context, string, ...interface{}) (pgconn.CommandTag, error)
 	Query(context.Context, string, ...interface{}) (pgx.Rows, error)
 	QueryRow(context.Context, string, ...interface{}) pgx.Row
-	SendBatch(context.Context, *pgx.Batch) pgx.BatchResults
 }
 
 func New(db DBTX) *Queries {
