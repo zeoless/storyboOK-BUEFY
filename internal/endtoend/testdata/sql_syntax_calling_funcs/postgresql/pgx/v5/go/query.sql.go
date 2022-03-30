@@ -39,4 +39,38 @@ func (q *Queries) NamedNotation(ctx context.Context) (string, error) {
 	row := q.db.QueryRow(ctx, namedNotation)
 	var concat_lower_or_upper string
 	err := row.Scan(&concat_lower_or_upper)
-	return concat_lower_or_upp
+	return concat_lower_or_upper, err
+}
+
+const namedOtherOrder = `-- name: NamedOtherOrder :one
+SELECT concat_lower_or_upper(a => 'Hello', uppercase => true, b => 'World')
+`
+
+func (q *Queries) NamedOtherOrder(ctx context.Context) (string, error) {
+	row := q.db.QueryRow(ctx, namedOtherOrder)
+	var concat_lower_or_upper string
+	err := row.Scan(&concat_lower_or_upper)
+	return concat_lower_or_upper, err
+}
+
+const positionalNoDefaault = `-- name: PositionalNoDefaault :one
+SELECT concat_lower_or_upper('Hello', 'World')
+`
+
+func (q *Queries) PositionalNoDefaault(ctx context.Context) (string, error) {
+	row := q.db.QueryRow(ctx, positionalNoDefaault)
+	var concat_lower_or_upper string
+	err := row.Scan(&concat_lower_or_upper)
+	return concat_lower_or_upper, err
+}
+
+const positionalNotation = `-- name: PositionalNotation :one
+SELECT concat_lower_or_upper('Hello', 'World', true)
+`
+
+func (q *Queries) PositionalNotation(ctx context.Context) (string, error) {
+	row := q.db.QueryRow(ctx, positionalNotation)
+	var concat_lower_or_upper string
+	err := row.Scan(&concat_lower_or_upper)
+	return concat_lower_or_upper, err
+}
