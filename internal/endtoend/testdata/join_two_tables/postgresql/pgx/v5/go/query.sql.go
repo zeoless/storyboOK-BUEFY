@@ -16,4 +16,22 @@ JOIN bar ON bar.id = bar_id
 JOIN baz ON baz.id = baz_id
 `
 
-func (q *Queries) TwoJoins(ctx cont
+func (q *Queries) TwoJoins(ctx context.Context) ([]Foo, error) {
+	rows, err := q.db.Query(ctx, twoJoins)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Foo
+	for rows.Next() {
+		var i Foo
+		if err := rows.Scan(&i.BarID, &i.BazID); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
