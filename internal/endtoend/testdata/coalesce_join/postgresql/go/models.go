@@ -6,6 +6,10 @@ package querytest
 
 import ()
 
+type Bar struct {
+	ID int64
+}
+
 type Foo struct {
-	Name string
+	ID int64
 }
