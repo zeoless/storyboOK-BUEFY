@@ -1,0 +1,7 @@
+{
+  "version": "1",
+  "packages": [
+    {
+      "path": "go",
+      "engine": "mysql",
+      "name": "querytest"
