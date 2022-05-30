@@ -5,4 +5,7 @@
 			"path":"db",
 			"engine":"postgresql",
 			"schema":"query.sql",
-			"queries":"query.sql
+			"queries":"query.sql"
+		}
+	]
+}
