@@ -11,4 +11,17 @@ UPDATE users SET name = $1
   WHERE name = $2
   RETURNING id;
 
--- na
+-- name: UpdateUserAndReturnUser :one
+UPDATE users SET name = $1
+  WHERE name = $2
+  RETURNING *;
+
+-- name: DeleteUserAndReturnID :one
+DELETE FROM users
+  WHERE name = $1
+  RETURNING id;
+
+-- name: DeleteUserAndReturnUser :one
+DELETE FROM users
+  WHERE name = $1
+  RETURNING *;
