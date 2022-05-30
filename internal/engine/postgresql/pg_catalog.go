@@ -11592,3 +11592,3983 @@ var funcsgenPGCatalog = []*catalog.Function{
 	},
 	{
 		Name: "int8pl_inet",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "inet"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "inet"},
+	},
+	{
+		Name: "int8range",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "int8range"},
+	},
+	{
+		Name: "int8range",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "int8range"},
+	},
+	{
+		Name: "int8range_canonical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "int8range"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "int8range"},
+	},
+	{
+		Name: "int8range_subdiff",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "int8send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "int8shl",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "int8shr",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "int8smaller",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "int8um",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "int8up",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "int8xor",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "integer_pl_date",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "date"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "date"},
+	},
+	{
+		Name: "inter_lb",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "box"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "inter_sb",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "box"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "inter_sl",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "time without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_accum",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval[]"},
+	},
+	{
+		Name: "interval_accum_inv",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval[]"},
+	},
+	{
+		Name: "interval_avg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "interval_combine",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval[]"},
+	},
+	{
+		Name: "interval_div",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_hash",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "interval_hash_extended",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "interval_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_larger",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_mi",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_mul",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "interval_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "interval_pl",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_pl_date",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "date"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp without time zone"},
+	},
+	{
+		Name: "interval_pl_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "time without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time without time zone"},
+	},
+	{
+		Name: "interval_pl_timestamp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "timestamp without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp without time zone"},
+	},
+	{
+		Name: "interval_pl_timestamptz",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "timestamp with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "interval_pl_timetz",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "time with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time with time zone"},
+	},
+	{
+		Name: "interval_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "interval_smaller",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "interval_um",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "intervaltypmodin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "intervaltypmodout",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "is_normalized",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isclosed",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "path"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isempty",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isempty",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isfinite",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "date"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isfinite",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isfinite",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "timestamp with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isfinite",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "timestamp without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "ishorizontal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "ishorizontal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "ishorizontal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isopen",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "path"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isparallel",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isparallel",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isperp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isperp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isvertical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isvertical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "isvertical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "json_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_array_element",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "element_index",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_array_element_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "element_index",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "json_array_elements",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_array_elements_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "json_array_length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name:       "json_build_array",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_build_array",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name:       "json_build_object",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_build_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_each",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "json_each_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "json_extract_path",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "path_elems",
+				Type: &ast.TypeName{Name: "text[]"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_extract_path_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "path_elems",
+				Type: &ast.TypeName{Name: "text[]"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "json_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_object_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+			},
+			{
+				Type: &ast.TypeName{Name: "any"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_object_field",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "field_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_object_field_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name: "field_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "json_object_keys",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "json_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "json_populate_record",
+		Args: []*catalog.Argument{
+			{
+				Name: "base",
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name:       "use_json_as_text",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "json_populate_recordset",
+		Args: []*catalog.Argument{
+			{
+				Name: "base",
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Name:       "use_json_as_text",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "json_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "json_strip_nulls",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "json"},
+	},
+	{
+		Name: "json_to_record",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "json_to_recordset",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "json_to_tsvector",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsvector"},
+	},
+	{
+		Name: "json_to_tsvector",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regconfig"},
+			},
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsvector"},
+	},
+	{
+		Name: "json_typeof",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "json"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_array_element",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "element_index",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_array_element_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "element_index",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_array_elements",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_array_elements_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_array_length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name:       "jsonb_build_array",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_build_array",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name:       "jsonb_build_object",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_build_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "jsonb_concat",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_contained",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_contains",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_delete",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_delete",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_delete",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path_elems",
+				Type: &ast.TypeName{Name: "text[]"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_delete_path",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_each",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "jsonb_each_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "jsonb_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_exists",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_exists_all",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_exists_any",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_extract_path",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path_elems",
+				Type: &ast.TypeName{Name: "text[]"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_extract_path_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path_elems",
+				Type: &ast.TypeName{Name: "text[]"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_hash",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "jsonb_hash_extended",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "jsonb_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_insert",
+		Args: []*catalog.Argument{
+			{
+				Name: "jsonb_in",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Name: "replacement",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "insert_after",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_object",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_object_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+			},
+			{
+				Type: &ast.TypeName{Name: "any"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_object_field",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "field_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_object_field_text",
+		Args: []*catalog.Argument{
+			{
+				Name: "from_json",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "field_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_object_keys",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "jsonb_path_exists",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_exists_opr",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_exists_tz",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_match",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_match_opr",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_match_tz",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "jsonb_path_query",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_path_query_array",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_path_query_array_tz",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_path_query_first",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_path_query_first_tz",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_path_query_tz",
+		Args: []*catalog.Argument{
+			{
+				Name: "target",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+			{
+				Name:       "vars",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "silent",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_populate_record",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "jsonb_populate_recordset",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "jsonb_pretty",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonb_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "jsonb_set",
+		Args: []*catalog.Argument{
+			{
+				Name: "jsonb_in",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Name: "replacement",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "create_if_missing",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_set_lax",
+		Args: []*catalog.Argument{
+			{
+				Name: "jsonb_in",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name: "path",
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Name: "replacement",
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Name:       "create_if_missing",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name:       "null_value_treatment",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_strip_nulls",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonb"},
+	},
+	{
+		Name: "jsonb_to_record",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "jsonb_to_recordset",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "jsonb_to_tsvector",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsvector"},
+	},
+	{
+		Name: "jsonb_to_tsvector",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regconfig"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsvector"},
+	},
+	{
+		Name: "jsonb_typeof",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonb"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "jsonpath_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "jsonpath"},
+	},
+	{
+		Name: "jsonpath_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "jsonpath_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "jsonpath"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "justify_days",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "justify_hours",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "justify_interval",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "lag",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anycompatible"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anycompatible"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anycompatible"},
+	},
+	{
+		Name: "lag",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "lag",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "language_handler_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "language_handler"},
+	},
+	{
+		Name: "language_handler_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "language_handler"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "last_value",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name:       "lastval",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "lcm",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "lcm",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lcm",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "lead",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anycompatible"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anycompatible"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anycompatible"},
+	},
+	{
+		Name: "lead",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "lead",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "left",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "path"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bit"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+			{
+				Type: &ast.TypeName{Name: "name"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "character"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "tsvector"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "like",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "like",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "like",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "like_escape",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "like_escape",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "line",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "line"},
+	},
+	{
+		Name: "line_distance",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "line_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "line_horizontal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "line_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "line"},
+	},
+	{
+		Name: "line_interpt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "line_intersect",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "line_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "line_parallel",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "line_perp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "line_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "line_vertical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "line"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "ln",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "ln",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "lo_close",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_creat",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "lo_create",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "lo_export",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_from_bytea",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "lo_get",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "lo_get",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "lo_import",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "lo_import",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "lo_lseek",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_lseek64",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "lo_open",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_put",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "lo_tell",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_tell64",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "lo_truncate",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_truncate64",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lo_unlink",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "log",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "log",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "log",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "log10",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "log10",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "loread",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "lower",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "lower",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "lower",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyelement"},
+	},
+	{
+		Name: "lower_inc",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lower_inc",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lower_inf",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lower_inf",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lowrite",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "lpad",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "lpad",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "lseg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "box"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "lseg"},
+	},
+	{
+		Name: "lseg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "lseg"},
+	},
+	{
+		Name: "lseg_center",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "lseg_distance",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "lseg_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_horizontal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "lseg"},
+	},
+	{
+		Name: "lseg_interpt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "lseg_intersect",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_length",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "lseg_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "lseg_parallel",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_perp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "lseg_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "lseg_vertical",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "ltrim",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "ltrim",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "ltrim",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "macaddr",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr"},
+	},
+	{
+		Name: "macaddr8",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr8_and",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr8_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "macaddr8_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr8_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr8_not",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr8_or",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr8_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "macaddr8_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "macaddr8_set7bit",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr8"},
+	},
+	{
+		Name: "macaddr_and",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr"},
+	},
+	{
+		Name: "macaddr_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "macaddr_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr"},
+	},
+	{
+		Name: "macaddr_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "macaddr_not",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr"},
+	},
+	{
+		Name: "macaddr_or",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "macaddr"},
+	},
+	{
+		Name: "macaddr_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "macaddr_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "macaddr"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "make_date",
+		Args: []*catalog.Argument{
+			{
+				Name: "year",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "month",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "day",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "date"},
+	},
+	{
+		Name: "make_interval",
+		Args: []*catalog.Argument{
+			{
+				Name:       "years",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "months",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "weeks",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "days",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "hours",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "mins",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "secs",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "make_time",
+		Args: []*catalog.Argument{
+			{
+				Name: "hour",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "min",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "sec",
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time without time zone"},
+	},
+	{
+		Name: "make_timestamp",
+		Args: []*catalog.Argument{
+			{
+				Name: "year",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "month",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "mday",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "hour",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "min",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "sec",
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp without time zone"},
+	},
+	{
+		Name: "make_timestamptz",
+		Args: []*catalog.Argument{
+			{
+				Name: "year",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "month",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "mday",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "hour",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "min",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "sec",
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "make_timestamptz",
+		Args: []*catalog.Argument{
+			{
+				Name: "year",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "month",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "mday",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "hour",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "min",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name: "sec",
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+			{
+				Name: "timezone",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "makeaclitem",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "aclitem"},
+	},
+	{
+		Name: "masklen",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "inet"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyarray"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyarray"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyenum"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyenum"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "character"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "character"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "date"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "date"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "inet"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "inet"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "money"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "money"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "real"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "real"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "smallint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "smallint"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "tid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tid"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "time with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time with time zone"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "time without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time without time zone"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "timestamp with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "timestamp without time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp without time zone"},
+	},
+	{
+		Name: "max",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "xid8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xid8"},
+	},
+	{
+		Name: "md5",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "md5",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyarray"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyarray"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyenum"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyenum"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "character"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "character"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "date"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "date"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "inet"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "inet"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "interval"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "money"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "money"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "real"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "real"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "smallint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "smallint"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "tid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tid"},
+	},
+	{
+		Name: "min",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "time with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "time with time zone"},
+	},
+	{
