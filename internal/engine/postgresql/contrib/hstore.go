@@ -56,3 +56,229 @@ var funcsHstore = []*catalog.Function{
 			{
 				Type: &ast.TypeName{Name: "hstore"},
 			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "delete",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "each",
+		Args: []*catalog.Argument{
+			{
+				Name: "hs",
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "exist",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "exists_all",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "exists_any",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "fetchval",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "ghstore_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "ghstore"},
+	},
+	{
+		Name: "ghstore_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "ghstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "hs_concat",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "hs_contained",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "hs_contains",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "hstore",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "hstore",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "hstore",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "hstore",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+	{
+		Name: "hstore_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "hstore_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "hstore_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "hstore_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "hstore_hash",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "hstore"},
+		
