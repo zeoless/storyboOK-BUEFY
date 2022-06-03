@@ -19505,3 +19505,3852 @@ var funcsgenPGCatalog = []*catalog.Function{
 		Args:       []*catalog.Argument{},
 		ReturnType: &ast.TypeName{Name: "text"},
 	},
+	{
+		Name:       "pg_lock_status",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_log_backend_memory_contexts",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_logical_emit_message",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_logical_emit_message",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_logical_slot_get_binary_changes",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Name: "upto_lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Name: "upto_nchanges",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "options",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "text[]"},
+				Mode:       ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_logical_slot_get_changes",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Name: "upto_lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Name: "upto_nchanges",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "options",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "text[]"},
+				Mode:       ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_logical_slot_peek_binary_changes",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Name: "upto_lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Name: "upto_nchanges",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "options",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "text[]"},
+				Mode:       ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_logical_slot_peek_changes",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Name: "upto_lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Name: "upto_nchanges",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "options",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "text[]"},
+				Mode:       ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_ls_archive_statusdir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_ls_dir",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_ls_dir",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name:       "pg_ls_logdir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_ls_logicalmapdir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_ls_logicalsnapdir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_ls_replslotdir",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_ls_tmpdir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_ls_tmpdir",
+		Args: []*catalog.Argument{
+			{
+				Name: "tablespace",
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_ls_waldir",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_lsn",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_lsn_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_lsn_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_hash",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_lsn_hash_extended",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_lsn_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_lsn_larger",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_lsn_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_mi",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "pg_lsn_mii",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_lsn_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_lsn_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "pg_lsn_pli",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_lsn_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_lsn_smaller",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_mcv_list_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_mcv_list"},
+	},
+	{
+		Name: "pg_mcv_list_items",
+		Args: []*catalog.Argument{
+			{
+				Name: "mcv_list",
+				Type: &ast.TypeName{Name: "pg_mcv_list"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_mcv_list_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_mcv_list"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "pg_mcv_list_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_mcv_list"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name:       "pg_my_temp_schema",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_ndistinct_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_ndistinct"},
+	},
+	{
+		Name: "pg_ndistinct_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_ndistinct"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "pg_ndistinct_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_ndistinct"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_nextoid",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+			{
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_node_tree_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_node_tree"},
+	},
+	{
+		Name: "pg_node_tree_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_node_tree"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "pg_node_tree_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_node_tree"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name:       "pg_notification_queue_usage",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_notify",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_opclass_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_operator_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_opfamily_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_options_to_table",
+		Args: []*catalog.Argument{
+			{
+				Name: "options_array",
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_partition_ancestors",
+		Args: []*catalog.Argument{
+			{
+				Name: "partitionid",
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regclass"},
+	},
+	{
+		Name: "pg_partition_root",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regclass"},
+	},
+	{
+		Name: "pg_partition_tree",
+		Args: []*catalog.Argument{
+			{
+				Name: "rootrelid",
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_postmaster_start_time",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name:       "pg_prepared_statement",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_prepared_xact",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_promote",
+		Args: []*catalog.Argument{
+			{
+				Name:       "wait",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name:       "wait_seconds",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_read_binary_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_read_binary_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_read_binary_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_read_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_read_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_read_file",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_read_file_old",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_relation_filenode",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_relation_filepath",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_relation_is_publishable",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_relation_is_updatable",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_relation_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_relation_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_reload_conf",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_replication_origin_advance",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_replication_origin_create",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_replication_origin_drop",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_replication_origin_oid",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_replication_origin_progress",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name:       "pg_replication_origin_session_is_setup",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_replication_origin_session_progress",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name:       "pg_replication_origin_session_reset",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_replication_origin_session_setup",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name:       "pg_replication_origin_xact_reset",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_replication_origin_xact_setup",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "timestamp with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_replication_slot_advance",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "name"},
+			},
+			{
+				Name: "upto_lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_rotate_logfile",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name:       "pg_rotate_logfile_old",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_safe_snapshot_blocking_pids",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer[]"},
+	},
+	{
+		Name: "pg_sequence_last_value",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_sequence_parameters",
+		Args: []*catalog.Argument{
+			{
+				Name: "sequence_oid",
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_settings_get_flags",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text[]"},
+	},
+	{
+		Name:       "pg_show_all_file_settings",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_show_all_settings",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_show_replication_origin_status",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_size_bytes",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_size_pretty",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_size_pretty",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_sleep",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_sleep_for",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "interval"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_sleep_until",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "timestamp with time zone"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_snapshot_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "pg_snapshot"},
+	},
+	{
+		Name: "pg_snapshot_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "pg_snapshot_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "pg_snapshot_xip",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xid8"},
+	},
+	{
+		Name: "pg_snapshot_xmax",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xid8"},
+	},
+	{
+		Name: "pg_snapshot_xmin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xid8"},
+	},
+	{
+		Name:       "pg_stat_clear_snapshot",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_file",
+		Args: []*catalog.Argument{
+			{
+				Name: "filename",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_file",
+		Args: []*catalog.Argument{
+			{
+				Name: "filename",
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Name: "missing_ok",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_force_next_flush",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_get_activity",
+		Args: []*catalog.Argument{
+			{
+				Name: "pid",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_analyze_count",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_archiver",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_autoanalyze_count",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_autovacuum_count",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_backend_activity",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_stat_get_backend_activity_start",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_backend_client_addr",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "inet"},
+	},
+	{
+		Name: "pg_stat_get_backend_client_port",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_stat_get_backend_dbid",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name:       "pg_stat_get_backend_idset",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_stat_get_backend_pid",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_stat_get_backend_start",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_backend_userid",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_stat_get_backend_wait_event",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_stat_get_backend_wait_event_type",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_stat_get_backend_xact_start",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_buf_written_checkpoints",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_buf_written_clean",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_maxwritten_clean",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_requested_checkpoints",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_stat_reset_time",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name:       "pg_stat_get_bgwriter_timed_checkpoints",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_blocks_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_blocks_hit",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_buf_alloc",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_buf_fsync_backend",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_buf_written_backend",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_checkpoint_sync_time",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name:       "pg_stat_get_checkpoint_write_time",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_active_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_blk_read_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_blk_write_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_blocks_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_blocks_hit",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_checksum_failures",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_checksum_last_failure",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_all",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_bufferpin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_lock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_snapshot",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_startup_deadlock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_conflict_tablespace",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_deadlocks",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_idle_in_transaction_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_numbackends",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_stat_get_db_session_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_db_sessions",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_sessions_abandoned",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_sessions_fatal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_sessions_killed",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_stat_reset_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_db_temp_bytes",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_temp_files",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_tuples_deleted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_tuples_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_tuples_inserted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_tuples_returned",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_tuples_updated",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_xact_commit",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_db_xact_rollback",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_dead_tuples",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_function_calls",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_function_self_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_function_total_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_ins_since_vacuum",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_last_analyze_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_last_autoanalyze_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_last_autovacuum_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_last_vacuum_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_live_tuples",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_mod_since_analyze",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_numscans",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_progress_info",
+		Args: []*catalog.Argument{
+			{
+				Name: "cmdtype",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_get_recovery_prefetch",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_replication_slot",
+		Args: []*catalog.Argument{
+			{
+				Name: "slot_name",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_get_slru",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_get_snapshot_timestamp",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_stat_get_subscription",
+		Args: []*catalog.Argument{
+			{
+				Name: "subid",
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_subscription_stats",
+		Args: []*catalog.Argument{
+			{
+				Name: "subid",
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_tuples_deleted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_tuples_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_tuples_hot_updated",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_tuples_inserted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_tuples_returned",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_tuples_updated",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_vacuum_count",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_stat_get_wal",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_get_wal_receiver",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_stat_get_wal_senders",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_stat_get_xact_blocks_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_blocks_hit",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_function_calls",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_function_self_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_xact_function_total_time",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pg_stat_get_xact_numscans",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_deleted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_fetched",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_hot_updated",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_inserted",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_returned",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_get_xact_tuples_updated",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_stat_have_stats",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name:       "pg_stat_reset",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_replication_slot",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_shared",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_single_function_counters",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_single_table_counters",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_slru",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_stat_reset_subscription_stats",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_statistics_obj_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name:       "pg_stop_making_pinned_objects",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name:       "pg_switch_wal",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "pg_lsn"},
+	},
+	{
+		Name: "pg_table_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_table_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_tablespace_databases",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "oid"},
+	},
+	{
+		Name: "pg_tablespace_location",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_tablespace_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "name"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_tablespace_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "pg_terminate_backend",
+		Args: []*catalog.Argument{
+			{
+				Name: "pid",
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Name:       "timeout",
+				HasDefault: true,
+				Type:       &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name:       "pg_timezone_abbrevs",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name:       "pg_timezone_names",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_total_relation_size",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name:       "pg_trigger_depth",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "pg_try_advisory_lock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_lock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_lock_shared",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_lock_shared",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_xact_lock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_xact_lock",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_xact_lock_shared",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bigint"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_try_advisory_xact_lock_shared",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_ts_config_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_ts_dict_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_ts_parser_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_ts_template_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_type_is_visible",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_typeof",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regtype"},
+	},
+	{
+		Name: "pg_visible_in_snapshot",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "xid8"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_snapshot"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pg_wal_lsn_diff",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name:       "pg_wal_replay_pause",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name:       "pg_wal_replay_resume",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "pg_walfile_name",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "pg_walfile_name_offset",
+		Args: []*catalog.Argument{
+			{
+				Name: "lsn",
+				Type: &ast.TypeName{Name: "pg_lsn"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_xact_commit_timestamp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "xid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "timestamp with time zone"},
+	},
+	{
+		Name: "pg_xact_commit_timestamp_origin",
+		Args: []*catalog.Argument{
+			{
+				Name: "xid",
+				Type: &ast.TypeName{Name: "xid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "pg_xact_status",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "xid8"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "phraseto_tsquery",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regconfig"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsquery"},
+	},
+	{
+		Name: "phraseto_tsquery",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsquery"},
+	},
+	{
+		Name:       "pi",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "plainto_tsquery",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regconfig"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsquery"},
+	},
+	{
+		Name: "plainto_tsquery",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "tsquery"},
+	},
+	{
+		Name:       "plpgsql_call_handler",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "language_handler"},
+	},
+	{
+		Name: "plpgsql_validator",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "void"},
+	},
+	{
+		Name: "point",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "box"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "circle"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "lseg"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_above",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_add",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_below",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_distance",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "point_div",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_horiz",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_left",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_mul",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "point_right",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "point_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "point_sub",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "point_vert",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_above",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_below",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_center",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "point"},
+	},
+	{
+		Name: "poly_contain",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_contain_pt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_contained",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_distance",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "poly_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "polygon"},
+	},
+	{
+		Name: "poly_left",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_npoints",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "poly_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "poly_overabove",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_overbelow",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_overlap",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_overleft",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_overright",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_right",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_same",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "poly_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "polygon",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "box"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "polygon"},
+	},
+	{
+		Name: "polygon",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "circle"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "polygon"},
+	},
+	{
+		Name: "polygon",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+			{
+				Type: &ast.TypeName{Name: "circle"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "polygon"},
+	},
+	{
+		Name: "polygon",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "path"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "polygon"},
+	},
+	{
+		Name: "popen",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "path"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "path"},
+	},
+	{
+		Name: "position",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bit"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bit"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "position",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+			{
+				Type: &ast.TypeName{Name: "bytea"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "position",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "postgresql_fdw_validator",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text[]"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pow",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "pow",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "power",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "power",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "numeric"},
+	},
+	{
+		Name: "pt_contained_circle",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "circle"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "pt_contained_poly",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "point"},
+			},
+			{
+				Type: &ast.TypeName{Name: "polygon"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "query_to_xml",
+		Args: []*catalog.Argument{
+			{
+				Name: "query",
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Name: "nulls",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "tableforest",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "targetns",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xml"},
+	},
+	{
+		Name: "query_to_xml_and_xmlschema",
+		Args: []*catalog.Argument{
+			{
+				Name: "query",
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Name: "nulls",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "tableforest",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "targetns",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xml"},
+	},
+	{
+		Name: "query_to_xmlschema",
+		Args: []*catalog.Argument{
+			{
+				Name: "query",
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Name: "nulls",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "tableforest",
+				Type: &ast.TypeName{Name: "boolean"},
+			},
+			{
+				Name: "targetns",
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "xml"},
+	},
+	{
+		Name: "querytree",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "tsquery"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "quote_ident",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "quote_literal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "quote_literal",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "quote_nullable",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "quote_nullable",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "text"},
+	},
+	{
+		Name: "radians",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "double precision"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "radius",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "circle"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name:       "random",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "double precision"},
+	},
+	{
+		Name: "range_adjacent",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_adjacent_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_after",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_after_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anymultirange"},
+	},
+	{
+		Name: "range_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anymultirange"},
+	},
+	{
+		Name: "range_before",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_before_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_cmp",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+	{
+		Name: "range_contained_by",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_contained_by_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_contains",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_contains_elem",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyelement"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_contains_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_intersect",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_intersect_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anymultirange"},
+	},
+	{
+		Name: "range_intersect_agg",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_intersect_agg_transfn",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_merge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_merge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_minus",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name: "range_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "range_overlaps",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_overlaps_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_overleft",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_overleft_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_overright",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_overright_multirange",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anymultirange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "range_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "range_union",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+			{
+				Type: &ast.TypeName{Name: "anyrange"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "anyrange"},
+	},
+	{
+		Name:       "rank",
+		Args:       []*catalog.Argument{},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "rank",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "any"},
+				Mode: ast.FuncParamVariadic,
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bigint"},
+	},
+	{
+		Name: "record_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_eq",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_ge",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_gt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_image_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_in",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+			{
+				Type: &ast.TypeName{Name: "oid"},
+			},
+			{
+				Type: &ast.TypeName{Name: "integer"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "record"},
+	},
+	{
+		Name: "record_le",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_lt",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_ne",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "boolean"},
+	},
+	{
+		Name: "record_out",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "record_send",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "record"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "regclass",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regclass"},
+	},
+	{
+		Name: "regclassin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regclass"},
+	},
+	{
+		Name: "regclassout",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "cstring"},
+	},
+	{
+		Name: "regclasssend",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "regclass"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "bytea"},
+	},
+	{
+		Name: "regcollationin",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "cstring"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "regcollation"},
+	},
