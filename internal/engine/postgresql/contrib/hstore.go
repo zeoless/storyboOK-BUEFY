@@ -502,4 +502,21 @@ var funcsHstore = []*catalog.Function{
 		ReturnType: &ast.TypeName{Name: "text"},
 	},
 	{
-		Name: "tconver
+		Name: "tconvert",
+		Args: []*catalog.Argument{
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+			{
+				Type: &ast.TypeName{Name: "text"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "hstore"},
+	},
+}
+
+func Hstore() *catalog.Schema {
+	s := &catalog.Schema{Name: "pg_catalog"}
+	s.Funcs = funcsHstore
+	return s
+}
