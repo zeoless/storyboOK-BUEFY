@@ -24,3 +24,18 @@ var funcsBtreeGin = []*catalog.Function{
 		Name: "gin_numeric_cmp",
 		Args: []*catalog.Argument{
 			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+			{
+				Type: &ast.TypeName{Name: "numeric"},
+			},
+		},
+		ReturnType: &ast.TypeName{Name: "integer"},
+	},
+}
+
+func BtreeGin() *catalog.Schema {
+	s := &catalog.Schema{Name: "pg_catalog"}
+	s.Funcs = funcsBtreeGin
+	return s
+}
