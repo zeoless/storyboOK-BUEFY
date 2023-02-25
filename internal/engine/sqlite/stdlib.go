@@ -845,3 +845,85 @@ func defaultSchema(name string) *catalog.Schema {
 				},
 				{
 					Type: &ast.TypeName{Name: "integer"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name:       "TOTAL_CHANGES",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "TRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "TRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "TYPEOF",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "UNICODE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "UNLIKELY",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "UPPER",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "ZEROBLOB",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "blob"},
+		},
+	}
+	return s
+}
