@@ -643,4 +643,205 @@ func defaultSchema(name string) *catalog.Schema {
 					Type: &ast.TypeName{Name: "any"},
 				},
 			},
-			ReturnType:         &ast.TypeName{
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "PRINTF",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "text"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "QUOTE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name:       "RAMDOM",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "RAMDOMBLOB",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "blob"},
+		},
+		{
+			Name: "REPLACE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "ROUND",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "real"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "ROUND",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "real"},
+				},
+				{
+					Type: &ast.TypeName{Name: "real"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "RTRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "RTRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SIGN",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "integer"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "SOUNDEX",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SQLITE_COMPILEOPTION_GET",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "text"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "SQLITE_COMPILEOPTION_USED",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "SQLITE_OFFSET",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "integer"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name:       "SQLITE_SOURCE_ID",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name:       "SQLITE_VERSION",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SUBSTR",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SUBSTR",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SUBSTRING",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "SUBSTRING",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "integer"},
