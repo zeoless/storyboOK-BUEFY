@@ -438,4 +438,209 @@ func defaultSchema(name string) *catalog.Schema {
 					Mode: ast.FuncParamVariadic,
 				},
 			},
-			ReturnType:         &a
+			ReturnType:         &ast.TypeName{Name: "text"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "GLOB",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "HEX",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "IFNULL",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "IIF",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "INSTR",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "integer"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name:       "LAST_INSERT_ROWID",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "LENGTH",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "integer"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "LIKE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "LIKE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "LIKELIHOOD",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "real"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "LIKELY",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "LOWER",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "LTRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "LTRIM",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "MAX",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "MIN",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "NULLIF",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType:         &ast.TypeName{
