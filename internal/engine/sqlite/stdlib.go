@@ -224,4 +224,218 @@ func defaultSchema(name string) *catalog.Schema {
 			Name: "FLOOR",
 			Args: []*catalog.Argument{
 				{
-	
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "LN",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "LOG",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "LOG10",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "LOG",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "LOG2",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "MOD",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name:       "PI",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "POW",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "POWER",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "RADIANS",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "SIN",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "SINH",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "SQRT",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "TAN",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "TANH",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name: "TRUNC",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+
+		// Scalar functions
+		{
+			Name: "ABS",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "real"},
+		},
+		{
+			Name:       "CHANGES",
+			Args:       []*catalog.Argument{},
+			ReturnType: &ast.TypeName{Name: "integer"},
+		},
+		{
+			Name: "CHAR",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "int"},
+				},
+				{
+					Type: &ast.TypeName{Name: "int"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType: &ast.TypeName{Name: "text"},
+		},
+		{
+			Name: "COALESCE",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType:         &ast.TypeName{Name: "any"},
+			ReturnTypeNullable: true,
+		},
+		{
+			Name: "FORMAT",
+			Args: []*catalog.Argument{
+				{
+					Type: &ast.TypeName{Name: "text"},
+				},
+				{
+					Type: &ast.TypeName{Name: "any"},
+					Mode: ast.FuncParamVariadic,
+				},
+			},
+			ReturnType:         &a
